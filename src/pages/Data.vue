@@ -1,5 +1,4 @@
 <template>
-  <MainLayout>
     <div class="hello">
       <label>
         <input v-model="field1" placeholder="field 1">
@@ -9,14 +8,11 @@
         <input v-model="field2" placeholder="field 2">
       </label>
     </div>
-  </MainLayout>
 </template>
 
 <script>
-  import MainLayout from "../Main";
   export default {
     name: 'Data',
-    components: {MainLayout},
     props: {
       msg: String
     },

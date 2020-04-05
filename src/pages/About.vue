@@ -1,14 +1,7 @@
 <template>
-  <MainLayout>
-    <p>About page</p>
-  </MainLayout>
+  <p>About page</p>
 </template>
 
 <script>
-  import MainLayout from '../Main.vue'
-  export default {
-    components: {
-      MainLayout
-    }
-  }
+  export default { name: 'About' }
 </script>

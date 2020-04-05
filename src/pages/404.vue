@@ -1,13 +1,6 @@
 <template>
-  <MainLayout>
-    <p>404</p>
-  </MainLayout>
+  <p>404</p>
 </template>
 <script>
-  import MainLayout from '../Main.vue'
-  export default {
-    components: {
-      MainLayout
-    }
-  }
+  export default { name: '404' }
 </script>

@@ -8,12 +8,19 @@
           </div>
           <div class="uk-navbar-center uk-visible@m">
             <ul class="uk-navbar-nav">
-              <li class="uk-active"><a href="/">Home</a></li>
-              <li class="uk-active"><a href="/data">Data</a></li>
-              <li class="uk-active"><a href="/about">About</a></li>
+              <li class="uk-active">
+                <router-link to="/">Home</router-link>
+              </li>
+              <li class="uk-active">
+                <router-link to="/data">Data</router-link>
+              </li>
+              <li class="uk-active">
+                <router-link to="/about">About</router-link>
+              </li>
             </ul>
           </div>
         </nav>
+        <router-view></router-view>
       </div>
     </header>
 
@@ -31,5 +38,5 @@ export default {
 </script>
 
 <style lang="less">
-  @import "../node_modules/uikit/src/less/uikit.less";
+  @import "../../node_modules/uikit/src/less/uikit.less";
 </style>

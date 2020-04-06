@@ -1,26 +1,28 @@
 <template>
-    <div>
-        <div class="my-hero-image uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
+        <div>
+        <div class="we-hero-image uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
             <div class="uk-width-1-2@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                <h2>
+                <h2 class="we-company-name uk-text-left">
                     World Epitopes
                 </h2>
-                <h1>
+                <div class="we-abstract">
+                <h1 class="we-hero-title uk-text-capitalize">
                     COVID-19 vaccin targets predition
                 </h1>
-                <p>
-                    The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.
-                </p>
-                <h2>
-                    These are still unpublished results
-                </h2>
-                <p>
-                    Publishing scientific findings takes months. Given the actual situation, we have decided to make our results available to the research community and the general public.
-                </p>
+                    <p>
+                        The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.
+                    </p>
+                    <h2 class="uk-margin-top">
+                        These are still unpublished results
+                    </h2>
+                    <p>
+                        Publishing scientific findings takes months. Given the actual situation, we have decided to make our results freely available now. To both the research community and the general public.
+                    </p>
+                </div>
                 <div class="uk-width-1-2@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                    <div class="uk-button-group">
-                        <button class="uk-button uk-button-default">Read paper</button>
-                        <button class="uk-button uk-button-default">Explore results</button>
+                    <div class="uk-button-group we-hero-buttons">
+                        <button class="uk-button uk-button-primary we-hero-button">Read paper</button>
+                        <button class="uk-button uk-button-primary">Explore results</button>
                     </div>
                 </div>
             </div>

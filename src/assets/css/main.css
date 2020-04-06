@@ -92,6 +92,15 @@ li.we-navbar-item a:hover:not(.active) {
   border-radius: 25px;
 }
 
+p.we-abstract-p{
+  font-size: 120%;
+}
+
+p.we-abstract-disclaimer{
+  font-size: 150%;
+  font-weight: bold;
+}
+
 .we-hero-buttons{
   border-radius: 25px;
   margin-top: 20px;

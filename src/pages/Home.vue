@@ -9,13 +9,13 @@
                 <h1 class="we-hero-title uk-text-capitalize">
                     COVID-19 vaccin targets predition
                 </h1>
-                    <p>
+                    <p class="we-abstract-p">
                         The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.
                     </p>
-                    <h2 class="uk-margin-top">
-                        These are still unpublished results
-                    </h2>
-                    <p>
+                    <p class="uk-margin-top we-abstract-disclaimer">
+                        These are preliminary results
+                    </p>
+                    <p class="we-abstract-p">
                         Publishing scientific findings takes months. Given the actual situation, we have decided to make our results freely available now. To both the research community and the general public.
                     </p>
                 </div>

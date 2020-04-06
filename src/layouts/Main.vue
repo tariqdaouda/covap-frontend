@@ -1,6 +1,28 @@
 <template>
   <div id="app">
-    <ul class="we-navbar uk-text-right">
+    <div id="mobile-menu" uk-offcanvas="mode: push; overlay: true">
+        <div class="uk-offcanvas-bar">
+          <ul class="we-navbar uk-text-right">
+            <li class="we-navbar-item">
+              <router-link to="/">Home</router-link>
+            </li>
+            <li class="we-navbar-item">
+              <router-link to="/data">Explore</router-link>
+            </li>
+            <li class="we-navbar-item">
+              <router-link to="/about">About</router-link>
+            </li>
+          </ul>
+        </div>
+    </div>
+    
+    <ul class="uk-visible@s uk-hidden@m we-navbar uk-text-center">
+      <li class="we-navbar-item">
+        <button uk-icon="icon: menu; ratio: 2" uk-toggle="target: #mobile-menu"></button>
+      </li>
+    </ul>
+
+    <ul class="uk-visible@m we-navbar uk-text-right">
       <li class="we-navbar-item">
         <router-link to="/">Home</router-link>
       </li>

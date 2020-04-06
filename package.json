@@ -17,6 +17,7 @@
     "uikit-icons": "^0.5.0",
     "ukit": "0.0.1-security",
     "vue": "^2.6.11",
+    "vue-plotly": "^1.1.0",
     "vue-router": "^3.1.6",
     "vuikit": "^0.8.10"
   },

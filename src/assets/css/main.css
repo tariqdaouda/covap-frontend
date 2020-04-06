@@ -1,3 +1,8 @@
+
+body {
+  margin: 0;
+}
+
 @-webkit-keyframes rainbow {
    from { -webkit-filter:hue-rotate(10deg); }
      to { -webkit-filter:hue-rotate(360deg); }
@@ -12,10 +17,6 @@
     -webkit-filter:hue-rotate(360deg);
             filter:hue-rotate(360deg);
     }
-}
-
-body {
-  margin: 0;
 }
 
 ul.we-navbar {
@@ -57,8 +58,9 @@ li.we-navbar-item a:hover:not(.active) {
 }
 
 .we-main-container{
-  margin-left:7%;
-  padding: 40px;
+  margin-left:8%;
+  /*padding-left: 0px;*/
+  /*padding-top: 0;*/
   height:auto;
 }
 

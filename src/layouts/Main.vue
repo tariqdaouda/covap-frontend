@@ -14,14 +14,14 @@
 
   <div class="my-main-container">
     <router-view></router-view>
-    <slot></slot>
+    <div class="uk-container">
+      <slot></slot>
+    </div>
   </div>
   </div>
 </template>
 
 <script>
-//import DataComponent from './components/DataComponent.vue'
-
 export default {
   name: 'MainLayout',
 }

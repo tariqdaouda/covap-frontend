@@ -2,7 +2,7 @@
   <div id="app">
     <div id="mobile-menu" uk-offcanvas="mode: push; overlay: true">
         <div class="uk-offcanvas-bar">
-          <ul class="we-navbar uk-text-right">
+          <ul class="we-off-navbar uk-text-right">
             <li class="we-navbar-item">
               <router-link to="/">Home</router-link>
             </li>
@@ -16,13 +16,13 @@
         </div>
     </div>
     
-    <ul class="uk-visible@s uk-hidden@m we-navbar uk-text-center">
+    <ul class="uk-hidden@s we-navbar uk-text-center">
       <li class="we-navbar-item">
         <button uk-icon="icon: menu; ratio: 2" uk-toggle="target: #mobile-menu"></button>
       </li>
     </ul>
 
-    <ul class="uk-visible@m we-navbar uk-text-right">
+    <ul class="uk-visible@s we-navbar uk-text-right">
       <li class="we-navbar-item">
         <router-link to="/">Home</router-link>
       </li>

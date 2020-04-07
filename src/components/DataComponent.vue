@@ -24,17 +24,24 @@
 <script>
   import { Plotly } from 'vue-plotly';
   import TextInput from './TextInput';
+  import Vue from 'vue'
+  import axios from 'axios'
+  import VueAxios from 'vue-axios'
+   
+  Vue.use(VueAxios, axios)
 
   export default {
     name: 'DataComponent',
     components: {
       Plotly,
-      TextInput
+      TextInput,
+      axios,
+      VueAxios
     },
     data() {
       return {
         layout: {},
-        data: {},
+        data: [],
         formFields: [],
       }
     },
@@ -43,42 +50,52 @@
       this.fetchData();
     },
     methods: {
-      fetchFields: function () {
-        this.formFields = [
-          {
-            fieldType: 'input',
-            name: 'field1',
-            label: "Field 1",
-            placeholder: "Field 1",
-          },
-          {
-            fieldType: 'input',
-            name: 'field2',
-            label: "Field 2",
-            placeholder: "Field 2",
-          },
-        ]
-      },
-      fetchData: function () {
-        this.data = [
-          {
-            x: [1,2,3,4],
-            y: [10,15,13,17],
-            type:"scatter"
-          },
-          {
-            x: [1,2,3,4],
-            y: [16,5,11,9],
-            type:"scatter"
-          },
-        ];
-        this.layout = {
-          title: "Scatter Plot",
-          plot_bgcolor: "#d3d3d3",
-          paper_bgcolor: "#d3d3d3",
+      async fetchFields () {
+        const { data } = await this.$http.get(
+          'http://localhost:6543/api/get-fields/limit/50'
+        );
+        console.log(data);
+        for (let [key, value] of Object.entries(data.payload)) {
+          console.log(`${key}: ${value}`);
         }
       },
-      checkForm: function () {
+      async fetchData () {
+        const { data } = await this.$http.post(
+          'http://localhost:6543/api/get-data',
+          {
+            "payload": {
+                "query":{
+                    "Peptides.Score": {
+                        "type": "float",
+                        "range": [0, ":"]
+                    }
+                },
+                "limit": 2000,
+                "sort": {
+                  // "field": "Peptides.Score",
+                  "direction": "RAND"
+                },
+                "additional_fields":["Peptides.Sequence"]
+            }
+        }
+      );
+      let scores = []
+      for (let line of data.payload){
+        scores.push(line["Peptides.Score"])
+      }
+      this.data = [
+        {
+          x: scores,
+          type: "histogram"
+        }
+      ];
+      this.layout = {
+          title: "Peptide.Score",
+          plot_bgcolor: "#d3d3d3",
+          paper_bgcolor: "#fff",
+      }
+    },
+    checkForm: function () {
         this.formFields.forEach((field) => {
           console.log(field);
         });

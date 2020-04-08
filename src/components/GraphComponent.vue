@@ -1,0 +1,77 @@
+<template>
+    <div>
+    <!--from latest call with Tariq we are going to only generate an histogram for binding scores distribution-->
+    <div ref="histogram" style="height:500px; width:800px"></div>
+    </div>
+</template>
+
+<script>
+  import Plotly from 'plotly.js-cartesian-dist';
+
+  export default {
+    name: 'GraphComponent',
+    props: ['datas'],
+    data() {
+      return {
+        /*
+        // input data format
+        datas: [
+          {label: 'control', values: [1,2,3,4,5], color: 'rgb(255, 0, 0)'},
+          {label: 'experimental', values: [4,5,6,8], color: 'rgb(0, 0, 255)'}
+        ],
+        */
+        layout: {
+          title: 'Binding Score',
+          xaxis: {title: 'Score Distribution'},
+          yaxis: {title: 'Percentage'},
+          barmode: 'stack',
+          bargap: 0,
+          bargroupgap: 0,
+          showlegend: true,
+          legend: {
+            x: 1,
+            y: 0.5
+          }
+        },
+        config: {
+          toImageButtonOptions: {
+            format: 'svg', // one of png, svg, jpeg, webp
+            filename: 'binding_score',
+            height: 500,
+            width: 700,
+            scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
+          },
+          displayModeBar: true,
+          displaylogo: false,
+          responsive: true
+        }
+      }
+    },
+    methods: {
+      // list of needed functions:
+
+      updateHistogram: function () {
+
+        let histogram_datas = [];
+        for (let i=0; i < this.datas.length; i++) {
+          histogram_datas.push({
+              x: this.datas[i]['values'],
+              name: this.datas[i]['label'],
+              autobinx: true,
+              marker: {color: this.datas[i]['color'],},
+              opacity: 1,
+              type: 'histogram'
+            }
+          )
+        }
+        console.log('histogram_datas', histogram_datas);
+
+        // update histogram plot
+        Plotly.newPlot(this.$refs.histogram, histogram_datas, this.layout, this.config);
+      }
+    },
+    mounted() {
+      this.updateHistogram();
+    }
+  }
+</script>

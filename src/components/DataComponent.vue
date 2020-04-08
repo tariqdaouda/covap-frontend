@@ -12,19 +12,19 @@
       <button
           v-on:click="checkForm"
           class="uk-button uk-button-primary">
-        Plot
+        
       </button>
     </div>
     <div>
       <!--Plotly histogram-->
-      <div ref="histogram" style="height:500px; width:800px"></div>
+      <GraphComponent :datas=graphData></GraphComponent>
     </div>
   </div>
 </template>
 
 <script>
-  import Plotly from 'plotly.js-cartesian-dist';
   import TextInput from './TextInput';
+  import GraphComponent from './GraphComponent';
   import Vue from 'vue'
   import axios from 'axios'
   import VueAxios from 'vue-axios'
@@ -34,8 +34,8 @@
   export default {
     name: 'DataComponent',
     components: {
-      Plotly,
       TextInput,
+      GraphComponent,
       axios,
       VueAxios
     },
@@ -44,6 +44,10 @@
         layout: {},
         data: [],
         formFields: [],
+        graphData: [
+          {label: 'control', values: [1,2,3,4,5], color: 'rgb(255, 0, 0)'},
+          {label: 'experimental', values: [4,5,6,8], color: 'rgb(0, 0, 255)'}
+        ]
       }
     },
     created() {
@@ -100,63 +104,13 @@
         this.formFields.forEach((field) => {
           console.log(field);
         });
-      },
-
-    updateHistogram: function (x0, x1) {
-
-        let datas = [{
-            x: x0,
-            histnorm: 'count',
-            name: 'control',
-            autobinx: true,
-            marker: {color: 'rgb(255, 0, 0)'},
-            opacity: 1,
-            type: 'histogram'
-          }, {
-            x: x1,
-            name: 'experimental',
-            autobinx: true,
-            marker: {color: 'rgb(0, 0, 255)'},
-            opacity: 1,
-            type: 'histogram'
-          }];
-
-        let layout = {
-            title: 'Binding Score',
-            xaxis: {title: 'Score Distribution'},
-            yaxis: {title: 'Percentage'},
-            barmode: 'stack',
-            bargap: 0,
-            bargroupgap: 0,
-            showlegend: true,
-            legend: {
-              x: 1,
-              y: 0.5
-            }
-          };
-
-        let config = {
-          toImageButtonOptions: {
-            format: 'svg', // one of png, svg, jpeg, webp
-            filename: 'binding_score',
-            height: 500,
-            width: 700,
-            scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
-          },
-          displayModeBar: true,
-          displaylogo: false,
-          responsive: true
-        };
-
-        // update histogram plot
-        Plotly.newPlot(this.$refs.histogram, datas, layout, config);
       }
     },
-    mounted() {
-      this.updateHistogram(
-        [1,2,3,4,5],
-        [4,5,6,8]
-        );
+    updateData: function() {
+      this.graphData = [
+          {label: 'control', values: [1,2,3,4,5], color: 'rgb(0, 0, 255)'},
+          {label: 'experimental', values: [4,5,6,8], color: 'rgb(255, 0, 0)'}
+        ]
     }
   }
 </script>

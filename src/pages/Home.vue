@@ -2,17 +2,17 @@
   <div>                         
       <div class="we-hero-image uk-background-cover" uk-parallax="bgy: -20">
           
-          <br />                    
-        <h1 class="uk-text-center uk-light ">World Epitopes</h1>
+          
+      <div class="we-abstract">      
+                      <br />                    
+        <h1 class="uk-text-center uk-light  ">World Epitopes</h1>
       
-            <p class="uk-text-center ">
+            <p class="uk-text-center we-hero-title">
               <em>COVID-19 vaccin targets prediction</em>
             </p>
             <br />                    
       
-            <br />       
-            <br />       
-    
+      
 
       <vk-grid class="uk-child-width-expand@s uk-padding ">
         <div  class="uk-background-secondary uk-padding uk-light ">
@@ -41,7 +41,9 @@
             <br />       
             <br />       
             <br />       
-            <br />       
+            <br />     
+            
+    </div>  
   </div>
   </div>
 </template>

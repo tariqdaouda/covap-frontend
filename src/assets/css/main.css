@@ -90,12 +90,12 @@ li.we-navbar-item a:hover:not(.active) {
 }
 
 .we-abstract{
-  padding-top: 50px;
+  padding-top: 0px;
   padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
+  padding-right: 25px;
+  padding-bottom: 25px;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
+  /*border-radius: 25px;*/
 }
 
 p.we-abstract-p{

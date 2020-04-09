@@ -72,9 +72,9 @@ li.we-navbar-item a:hover:not(.active) {
 }
 
 .we-hero-image{
-/*  background-image: url('../images/23311_lores.jpg');*/
+  background-image: url('../images/23311_lores.jpg');
   filter: grayscale(50%);
-  /*filter: hue-rotate(8deg);*/
+  filter: hue-rotate(8deg);
 /*  -webkit -animation: rainbow 60s steps(36) infinite;*/
 }
 

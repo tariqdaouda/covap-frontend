@@ -57,7 +57,7 @@
     methods: {
       async fetchFields () {
         const { data } = await this.$http.get(
-          'http://localhost:6543/api/get-fields/limit/50'
+          'https://api.epitopes.world/get-fields/limit/50'
         );
         console.log(data);
         for (let [key, value] of Object.entries(data.payload)) {
@@ -66,7 +66,7 @@
       },
       async fetchData () {
         const { data } = await this.$http.post(
-          'http://api.epitopes.world/get-data',
+          'https://api.epitopes.world/get-data',
           // 'http://127.0.0.1:6543/api/get-data',
           {
             "payload": {

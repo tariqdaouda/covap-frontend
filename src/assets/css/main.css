@@ -75,7 +75,7 @@ li.we-navbar-item a:hover:not(.active) {
   background-image: url('../images/23311_lores.jpg');
   filter: grayscale(50%);
   /*filter: hue-rotate(8deg);*/
-  -webkit-animation: rainbow 60s steps(36) infinite;
+  -webkit-animation: rainbow 45s steps(135) infinite;
 }
 
 .we-company-name{
@@ -90,12 +90,12 @@ li.we-navbar-item a:hover:not(.active) {
 }
 
 .we-abstract{
-  padding-top: 50px;
+  padding-top: 0px;
   padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
+  padding-right: 25px;
+  padding-bottom: 25px;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
+  /*border-radius: 25px;*/
 }
 
 p.we-abstract-p{
@@ -107,15 +107,6 @@ p.we-abstract-disclaimer{
   font-weight: bold;
 }
 
-.we-hero-buttons{
-  border-radius: 25px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.we-hero-button{
-  border-radius: 25px;
-}
 /*
 a:after {
   background: none repeat scroll 0 0 transparent;

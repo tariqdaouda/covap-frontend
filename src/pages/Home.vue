@@ -1,37 +1,56 @@
 <template>
+    <div>                         
+        <div class="we-hero-image uk-background-cover" uk-parallax="bgy: -20">              
+            <div class="we-abstract">      
+                <br />                    
+                <h1 class="uk-text-center uk-light  ">World Epitopes</h1>
+      
+                <p class="uk-text-center we-hero-title uk-light">
+                    <em>COVID-19 vaccin targets prediction</em>
+                </p>
+                <br />                    
+    
+                <vk-grid class="uk-child-width-expand@s uk-padding ">
+                    <div  class="uk-background-secondary uk-padding uk-light ">
+                    <vk-card class="uk-card-secondary">
+                        <h4 class="headline">The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.</h4>
+                    </vk-card>
+                    </div>
+                    <div  class="uk-background-secondary uk-padding uk-grid-item-match">
+                        <vk-card>
+                        <h4>These are preliminary results</h4>                
+                            <p>
+                                Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available now. To both the research community and the general public.
+                                
+                            </p>
+                            </vk-card>
+                    </div>
+                </vk-grid>
 
-    <div>
-        <div class="we-hero-image uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
-            <div class="uk-width-1-2@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                <h2 class="we-company-name uk-text-left">
-                    World Epitopes
-                </h2>
-                <div class="we-abstract">
-                <h1 class="we-hero-title uk-text-capitalize">
-                    COVID-19 vaccin targets predition
-                </h1>
-                    <p class="we-abstract-p">
-                        The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.
-                    </p>
-                    <p class="uk-margin-top we-abstract-disclaimer">
-                        These are preliminary results
-                    </p>
-                    <p class="we-abstract-p">
-                        Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available now. To both the research community and the general public.
-                    </p>
-                </div>
                 <div class="uk-width-1-2@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                    <div class="uk-button-group we-hero-buttons">
-                        <button class="uk-button uk-button-primary we-hero-button">Read paper</button>
-                        <button class="uk-button uk-button-primary">Explore results</button>
+                    <div class="uk-button-group">
+                        <button class="uk-button uk-button-large">Read paper</button>
+                        
+                        <button class="uk-button uk-button-large">Explore results</button>
                     </div>
                 </div>
-            </div>
+
+                <br />       
+                <br />       
+                <br />       
+                <br />     
+            
+            </div>  
         </div>
     </div>
 </template>
 
 <script>
-  export default {
-  }
+//import TheMatrix from '../components/Matrix.vue'
+
+export default {
+  components: {
+  //  TheMatrix   
+  },
+}
 </script>

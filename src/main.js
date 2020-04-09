@@ -5,6 +5,10 @@ import Icons from 'uikit/dist/js/uikit-icons';
 import routes from "./routes";
 import App from "./App";
 
+import Vuikit from 'vuikit'
+
+Vue.use(Vuikit)
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -13,6 +17,7 @@ UIkit.use(Icons);
 const router = new VueRouter({
   routes
 });
+
 
 new Vue({
   render: h => h(App),

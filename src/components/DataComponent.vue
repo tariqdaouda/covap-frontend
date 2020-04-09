@@ -46,7 +46,7 @@
       }
     },
     created() {
-      this.fetchFields();
+      // this.fetchFields();
       this.fetchData();
     },
     methods: {
@@ -61,7 +61,8 @@
       },
       async fetchData () {
         const { data } = await this.$http.post(
-          'http://localhost:6543/api/get-data',
+          'http://api.epitopes.world/get-data',
+          // 'http://127.0.0.1:6543/api/get-data',
           {
             "payload": {
                 "query":{

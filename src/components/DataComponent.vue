@@ -12,18 +12,19 @@
       <button
           v-on:click="checkForm"
           class="uk-button uk-button-primary">
-        Plot
+        
       </button>
     </div>
     <div>
-      <Plotly :data="data" :layout="layout" :displayModeBar="true"/>
+      <!--Plotly histogram-->
+      <GraphComponent :datas=graphData></GraphComponent>
     </div>
   </div>
 </template>
 
 <script>
-  import { Plotly } from 'vue-plotly';
   import TextInput from './TextInput';
+  import GraphComponent from './GraphComponent';
   import Vue from 'vue'
   import axios from 'axios'
   import VueAxios from 'vue-axios'
@@ -33,8 +34,8 @@
   export default {
     name: 'DataComponent',
     components: {
-      Plotly,
       TextInput,
+      GraphComponent,
       axios,
       VueAxios
     },
@@ -43,6 +44,10 @@
         layout: {},
         data: [],
         formFields: [],
+        graphData: [
+          {label: 'control', values: [1,2,3,4,5], color: 'rgb(255, 0, 0)'},
+          {label: 'experimental', values: [4,5,6,8], color: 'rgb(0, 0, 255)'}
+        ]
       }
     },
     created() {
@@ -100,6 +105,12 @@
           console.log(field);
         });
       }
+    },
+    updateData: function() {
+      this.graphData = [
+          {label: 'control', values: [1,2,3,4,5], color: 'rgb(0, 0, 255)'},
+          {label: 'experimental', values: [4,5,6,8], color: 'rgb(255, 0, 0)'}
+        ]
     }
   }
 </script>

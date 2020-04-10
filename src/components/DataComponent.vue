@@ -1,6 +1,7 @@
 <template>
   <div class="uk-grid">
     <div class="uk-card">
+
       <form>
         <component v-for="(field, index) in formFields"
                    :key="index"
@@ -19,12 +20,17 @@
       <!--Plotly histogram-->
       <GraphComponent :datas=graphData></GraphComponent>
     </div>
+    <div>
+      <!--Form-->
+      <FormComponent></FormComponent>
+    </div>
   </div>
 </template>
 
 <script>
   import TextInput from './TextInput';
   import GraphComponent from './GraphComponent';
+  import FormComponent from './FormComponent';
   import Vue from 'vue'
   import axios from 'axios'
   import VueAxios from 'vue-axios'
@@ -36,6 +42,7 @@
     components: {
       TextInput,
       GraphComponent,
+      FormComponent,
       axios,
       VueAxios
     },

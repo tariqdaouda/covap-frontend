@@ -42,12 +42,9 @@
     data() {
       return {
         layout: {},
-        data: [],
+        // data: [],
         formFields: [],
-        graphData: [
-          {label: 'control', values: [1,2,3,4,5], color: 'rgb(255, 0, 0)'},
-          {label: 'experimental', values: [4,5,6,8], color: 'rgb(0, 0, 255)'}
-        ]
+        graphData: []
       }
     },
     created() {
@@ -64,10 +61,17 @@
           console.log(`${key}: ${value}`);
         }
       },
+      async tidyfy(data){
+        let tidy = []
+        for (let line of data.payload){
+          tidy.push(line["Peptides.Score"])
+        }
+        return tidy
+      },
       async fetchData () {
-        const { data } = await this.$http.post(
+        let ret1 = await this.$http.post(
           'https://api.epitopes.world/get-data',
-          // 'http://127.0.0.1:6543/api/get-data',
+          // 'http://localhost:6543/api/get-data',
           {
             "payload": {
                 "query":{
@@ -78,40 +82,68 @@
                 },
                 "limit": 2000,
                 "sort": {
-                  // "field": "Peptides.Score",
                   "direction": "RAND"
                 },
                 "additional_fields":["Peptides.Sequence"]
             }
         }
       );
-      let scores = []
-      for (let line of data.payload){
-        scores.push(line["Peptides.Score"])
-      }
-      this.data = [
-        {
-          x: scores,
-          type: "histogram"
+      let baseline1 = await this.tidyfy(ret1.data);
+      this.graphData.push({label: "baseline", values: baseline1 , color: 'rgb(255, 0, 0)'})
+
+      let ret2 = await this.$http.post(
+          'https://api.epitopes.world/get-data',
+          {
+            "payload": {
+                "query":{
+                    "Peptides.Score": {
+                        "type": "float",
+                        "range": [0, 0.7]
+                    }
+                },
+                "limit": 2000,
+                "sort": {
+                  "direction": "RAND"
+                },
+                "additional_fields":["Peptides.Sequence"]
+            }
         }
-      ];
-      this.layout = {
-          title: "Peptide.Score",
-          plot_bgcolor: "#d3d3d3",
-          paper_bgcolor: "#fff",
-      }
+      );
+      let baseline2 = await this.tidyfy(ret2.data)
+      this.graphData.push({label: "baseline2", values: baseline2, color: 'rgb(0, 255, 0)'})
+      
+      let ret = await this.$http.post(
+          'https://api.epitopes.world/get-data',
+          {
+            "payload": {
+                "query":{
+                    "Peptides.Score": {
+                        "type": "float",
+                        "range": [0.8, ":"]
+                    }
+                },
+                "limit": 2000,
+                "sort": {
+                  "direction": "RAND"
+                },
+                "additional_fields":["Peptides.Sequence"]
+            }
+        }
+      );
+      let scores = await this.tidyfy(ret.data)
+      this.graphData.push({label: "scores", values: scores, color: 'rgb(0, 0, 255)'})
     },
     checkForm: function () {
         this.formFields.forEach((field) => {
           console.log(field);
         });
       }
-    },
-    updateData: function() {
-      this.graphData = [
-          {label: 'control', values: [1,2,3,4,5], color: 'rgb(0, 0, 255)'},
-          {label: 'experimental', values: [4,5,6,8], color: 'rgb(255, 0, 0)'}
-        ]
     }
+    // updateData: function() {
+    //   this.graphData = [
+    //       {label: 'control', values: [1,2,3,4,5], color: 'rgb(0, 0, 255)'},
+    //       {label: 'experimental', values: [4,5,6,8], color: 'rgb(255, 0, 0)'}
+    //     ]
+    // }
   }
 </script>

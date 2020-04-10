@@ -10,7 +10,7 @@
 
   export default {
     name: 'GraphComponent',
-    props: ['datas'],
+    props: ['datas', 'title', 'xLabel', 'yLabel'],
     data() {
       return {
         /*
@@ -21,10 +21,10 @@
         ],
         */
         layout: {
-          title: 'Binding Score',
-          xaxis: {title: 'Score Distribution'},
-          yaxis: {title: 'Percentage'},
-          barmode: 'stack',
+          title: this.title,
+          xaxis: {title: this.xLabel},
+          yaxis: {title: this.yLabel},
+          // barmode: 'stack',
           bargap: 0,
           bargroupgap: 0,
           showlegend: true,
@@ -36,7 +36,7 @@
         config: {
           toImageButtonOptions: {
             format: 'svg', // one of png, svg, jpeg, webp
-            filename: 'binding_score',
+            filename: this.title,
             height: 500,
             width: 700,
             scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
@@ -49,7 +49,6 @@
     },
     methods: {
       // list of needed functions:
-
       updateHistogram: function () {
 
         let histogram_datas = [];
@@ -72,6 +71,11 @@
     },
     mounted() {
       this.updateHistogram();
+    },
+    watch: {
+      datas: function () {
+        this.updateHistogram();
+      } 
     }
   }
 </script>

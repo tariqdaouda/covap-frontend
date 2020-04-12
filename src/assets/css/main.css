@@ -67,9 +67,9 @@ li.we-navbar-item a:hover:not(.active) {
   height:auto;
 }
 
-.element:hover {
+/*.element:hover {
   
-}
+}*/
 
 .we-hero-image{
   background-image: url('../images/23311_lores.jpg');
@@ -116,6 +116,16 @@ p.we-abstract-disclaimer{
 .we-hero-button{
   border-radius: 25px;
 }
+
+.we-team-card{
+  max-width: 400px;
+}
+
+.we-team-picture{
+  border-radius: 100%;
+  max-width: 80%;
+}
+
 /*
 a:after {
   background: none repeat scroll 0 0 transparent;

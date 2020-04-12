@@ -34,7 +34,7 @@ export default {
       ...field,
       name,
       title,
-      placeholder: title,
+      placeholder: name,
       type: 'TextInput'
     }
   },

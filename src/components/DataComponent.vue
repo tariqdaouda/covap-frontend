@@ -1,29 +1,41 @@
 <template>
-  <div class="uk-grid">
-    <div class="uk-card">
+  <div class="content-padder content-background">
+    <div class="uk-section-small uk-section-default header">
+      <div class="uk-container uk-container-large">
+        <h1><span class="ion-speedometer"></span> Data Exploration</h1>
+        <ul class="uk-breadcrumb">
+          <li><a href="/#/">Home</a></li>
+          <li><span href="">Data Dashboard</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-section-small">
+      <div class="uk-container uk-container-large">
+        <div uk-grid class="uk-child-width-1-4@s uk-child-width-1-2@l">
+          <div>
+            <div class="uk-card uk-card-default uk-card-body">
+              <div v-for="(fields, title) in formFields" :key="title">
+                <label>{{ title }}</label>
+                <div class="uk-margin">
+                  <component v-for="(field, index) in fields"
+                             :key="index"
+                             :is="field.type"
+                             v-bind="field">
+                  </component>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="uk-card ">
+              <div class="uk-card-body">
+                <GraphComponent :datas=graphData></GraphComponent>
+              </div>
+            </div>
 
-      <div class="uk-fieldset">
-
-        <div v-for="(fields, title) in formFields" :key="title">
-          <label>{{ title }}</label>
-          <div class="uk-margin">
-            <component v-for="(field, index) in fields"
-                       :key="index"
-                       :is="field.type"
-                       v-bind="field">
-            </component>
           </div>
         </div>
       </div>
-
-    </div>
-      <!--button
-          v-on:click="checkForm"
-          class="uk-button uk-button-primary">
-      </button-->
-      <!--Plotly histogram-->
-    <div class="uk-card">
-      <GraphComponent :datas=graphData></GraphComponent>
     </div>
   </div>
 </template>

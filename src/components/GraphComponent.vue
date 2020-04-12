@@ -63,7 +63,7 @@
             }
           )
         }
-        console.log('histogram_datas', histogram_datas);
+        //console.log('histogram_datas', histogram_datas);
 
         // update histogram plot
         Plotly.newPlot(this.$refs.histogram, histogram_datas, this.layout, this.config);

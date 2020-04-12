@@ -1,5 +1,5 @@
 <template>
-   <div type="slider">
+   <div class="uk-margin" type="slider">
      <label>{{label}}</label>
      <vue-slider :name="name" v-model="range"></vue-slider>
   </div>
@@ -10,14 +10,9 @@
   import 'vue-slider-component/theme/default.css'
 
   export default {
-    name: "SliderInput",
     components: {
       VueSlider
     },
-    data() {
-      return {
-        props: ['placeholder', 'label', 'name', 'range']
-      }
-    }
+    props: ['placeholder', 'label', 'name', 'range']
   }
 </script>

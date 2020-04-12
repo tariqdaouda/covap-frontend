@@ -2,18 +2,19 @@
   <div class="uk-grid">
     <div class="uk-card">
 
-      <form>
+      <div class="uk-fieldset">
+
         <div v-for="(fields, title) in formFields" :key="title">
           <label>{{ title }}</label>
-          <ul>
+          <div class="uk-margin">
             <component v-for="(field, index) in fields"
                        :key="index"
                        :is="field.type"
                        v-bind="field">
             </component>
-          </ul>
+          </div>
         </div>
-      </form>
+      </div>
 
     </div>
       <!--button
@@ -21,7 +22,9 @@
           class="uk-button uk-button-primary">
       </button-->
       <!--Plotly histogram-->
+    <div class="uk-card">
       <GraphComponent :datas=graphData></GraphComponent>
+    </div>
   </div>
 </template>
 
@@ -34,6 +37,7 @@
   import axios from 'axios'
   import VueAxios from 'vue-axios'
   import SliderInput from "./SliderInput";
+  import MultiSelectInput from "./MultiSelectInput";
 
   Vue.use(VueAxios, axios);
 
@@ -49,6 +53,7 @@
       SliderInput,
       GraphComponent,
       FormComponent,
+      MultiSelectInput,
       axios,
       VueAxios
     },
@@ -88,6 +93,9 @@
               }
             }
             console.log(this.formFields);
+            let a = this.formFields;
+            this.formFields=[];
+            this.formFields=a;
           }
         ).catch(
           error => console.log(error)

@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <li>
     <label>{{label}}</label>
     <input type="text"
            :name="name"
            placeholder="placeholder"
            class="uk-input">
     <br>
-  </div>
+  </li>
 </template>
 
 <script>

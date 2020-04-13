@@ -11,7 +11,7 @@
     </div>
     <div class="uk-section-small">
       <div class="uk-container uk-container-large">
-        <div uk-grid class="uk-child-width-1-4@s uk-child-width-1-2@l">
+        <div uk-grid class="uk-child-width-1-4@s uk-child-width-1-4@l">
           <div>
             <div class="uk-card uk-card-default uk-card-body">
               <div v-for="(fields, title) in formFields" :key="title">
@@ -24,15 +24,13 @@
                   </component>
                 </div>
               </div>
+              <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
             </div>
           </div>
           <div>
-            <div class="uk-card ">
-              <div class="uk-card-body">
-                <GraphComponent :datas=graphData></GraphComponent>
-              </div>
+            <div class="uk-card">
+              <GraphComponent :datas=graphData></GraphComponent>
             </div>
-
           </div>
         </div>
       </div>
@@ -54,7 +52,7 @@
   Vue.use(VueAxios, axios);
 
   const ALLOWED_FIELDS = {
-    'VirusSequences': ['Accession', 'Sequence'],
+    'VirusSequences': [],//['Accession', 'Sequence'],
     'Peptides': ['Score']
   };
 
@@ -80,7 +78,7 @@
     },
     created() {
       this.fetchFields();
-      this.fetchData();
+      //this.fetchData();
     },
     methods: {
       pushAllowed(field) {
@@ -120,26 +118,42 @@
         }
         return tidy
       },
+      buildQuery() {
+        var query = {};
+        for (let [title, fields] of Object.entries(this.formFields)) {
+          for (let field of fields) {
+            query[`${title}.${field.name}`] = {
+              type: field.type,
+              range: field.range
+            };
+          }
+        }
+        /*
+          "query": {
+            "Peptides.Score": {
+              "type": "float",
+              "range": [0, ":"]
+            }
+          },
+         */
+        return query;
+      },
       fetchData () {
+        const query = this.buildQuery();
         this.$http.post(
           'https://api.epitopes.world/get-data',
           // 'http://localhost:6543/api/get-data',
           {
             "payload": {
-                "query":{
-                    "Peptides.Score": {
-                        "type": "float",
-                        "range": [0, ":"]
-                    }
-                },
-                "limit": 2000,
-                "sort": {
-                  "direction": "RAND"
-                },
-                "additional_fields":["Peptides.Sequence"]
+              "query": query,
+              "limit": 2000,
+              "sort": {
+                "direction": "RAND"
+              },
+              "additional_fields":["Peptides.Sequence"]
             }
-        }
-      ).then(ret1 => {
+          }
+        ).then(ret1 => {
           let baseline1 = this.tidyfy(ret1.data);
           this.graphData.push({label: "baseline", values: baseline1, color: 'rgb(255, 0, 0)'})
         }).catch(error => console.log(error));

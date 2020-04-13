@@ -24,8 +24,6 @@ export default {
       name,
       title,
       css: '',
-      min: field.range[0],
-      max: field.range[1],
       type: 'SliderInput'
     }
   },

@@ -3,7 +3,7 @@
     <label>{{label}}</label>
     <input type="text"
            :name="name"
-           :placeholder="placeholder"
+           :placeholder="name"
            class="uk-input">
     <br>
   </li>

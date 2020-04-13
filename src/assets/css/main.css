@@ -4,8 +4,12 @@ body {
 }
 
 @-webkit-keyframes rainbow {
-   from { -webkit-filter:hue-rotate(10deg); }
-     to { -webkit-filter:hue-rotate(360deg); }
+  from {
+    -webkit-filter:hue-rotate(10deg);
+  }
+  to {
+    -webkit-filter:hue-rotate(360deg);
+  }
 }
 
 @keyframes rainbow {
@@ -60,22 +64,20 @@ li.we-navbar-item a:hover:not(.active) {
 }
 
 .we-main-container{
-  margin-left:8%;
-  /*margin-left:50%;*/
-  /*padding-left: 2px;*/
-  /*padding-top: 0;*/
+  overflow: hidden;
   height:auto;
 }
 
-.element:hover {
+/*.element:hover {
   
-}
+}*/
 
 .we-hero-image{
   background-image: url('../images/23311_lores.jpg');
   filter: grayscale(50%);
   /*filter: hue-rotate(8deg);*/
-  -webkit-animation: rainbow 60s steps(36) infinite;
+  /*overflow: hidden;*/
+  -webkit-animation: rainbow 60s steps(136) infinite;
 }
 
 .we-company-name{
@@ -117,6 +119,7 @@ p.we-abstract-disclaimer{
   border-radius: 25px;
 }
 
+/*<<<<<<< HEAD*/
 .uk-navbar-nav {
   background-color: #262626 !important;
 }
@@ -124,21 +127,34 @@ p.we-abstract-disclaimer{
 .uk-navbar-container {
   background-color: #262626 !important;
 }
-/*
-a:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #fff;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
+
+.we-team-card{
+  max-width: 400px;
 }
 
-a:hover:after { 
-  width: 100%; 
-  left: 0; 
-}*/
+.we-human-picture{
+  border-radius: 100%;
+  padding-top: 10px;
+  max-height: 200px;
+}
+
+.we-sponsor-picture{
+  padding-top: 10px;
+  max-height: 100px;
+}
+
+.we-page-top{
+  font-size: 110%;
+  max-width: 50%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+
+.we-full-authors-list{
+  padding-top: 20px;
+}

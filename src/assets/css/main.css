@@ -116,6 +116,14 @@ p.we-abstract-disclaimer{
 .we-hero-button{
   border-radius: 25px;
 }
+
+.uk-navbar-nav {
+  background-color: #262626 !important;
+}
+
+.uk-navbar-container {
+  background-color: #262626 !important;
+}
 /*
 a:after {
   background: none repeat scroll 0 0 transparent;

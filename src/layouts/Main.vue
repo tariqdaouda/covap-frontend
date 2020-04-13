@@ -1,28 +1,19 @@
 <template>
   <div id="app">
-    <div uk-sticky class="uk-navbar-container tm-navbar-container uk-active">
-      <div class="uk-container uk-container-expand">
-        <nav uk-navbar>
-          <div class="uk-navbar-left">
-            <a href="#" class="uk-navbar-item uk-logo">
-              epitopes.world
-            </a>
-          </div>
-        </nav>
+    <nav class="uk-navbar-container" uk-navbar>
+      <a href="#" class="uk-navbar-item uk-logo">
+        epitopes.world
+      </a>
+      <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+          <li class="uk-parent"><a href="/#/">Home</a></li>
+          <li class="uk-parent"><a href="/#/data">Explore</a></li>
+          <li class="uk-parent"><a href="/#/about">About</a></li>
+        </ul>
       </div>
-    </div>
-
-    <div id="sidebar" class="tm-sidebar-left uk-background-default">
-      <ul class="uk-nav uk-nav-default">
-        <li><a href="/#/">Home</a></li>
-        <li><a href="/#/data">Explore</a></li>
-        <li><a href="/#/about">About</a></li>
-      </ul>
-    </div>
+    </nav>
     <router-view></router-view>
-    <div class="uk-grid">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </div>
 </template>
 

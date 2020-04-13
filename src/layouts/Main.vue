@@ -10,10 +10,10 @@
               <router-link to="/data">Explore</router-link>
             </li>
             <li class="we-navbar-item">
-              <router-link to="/people">The people</router-link>
+              <router-link to="/people">People</router-link>
             </li>
             <li class="we-navbar-item">
-              <router-link to="/research">The research</router-link>
+              <router-link to="/research">Research</router-link>
             </li>
           </ul>
         </div>
@@ -33,10 +33,10 @@
         <router-link to="/data">Explore</router-link>
       </li>
       <li class="we-navbar-item">
-        <router-link to="/people">The people</router-link>
+        <router-link to="/people">People</router-link>
       </li>
       <li class="we-navbar-item">
-        <router-link to="/research">The research</router-link>
+        <router-link to="/research">Research</router-link>
       </li>
     </ul>
 

@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        <div class="we-hero-image uk-background-cover uk-light uk-flex" uk-parallax="bgy: -200">
+        <div class="we-hero-image uk-background-cover uk-light uk-flex " uk-parallax="bgy: -200">
             <div class="uk-width-1-2@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
                 <h2 class="we-company-name uk-text-left">
                     World Epitopes

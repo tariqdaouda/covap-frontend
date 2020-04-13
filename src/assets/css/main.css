@@ -64,8 +64,8 @@ li.we-navbar-item a:hover:not(.active) {
 }
 
 .we-main-container{
-  overflow: hidden;
-  height:auto;
+  /*overflow: hidden;*/
+  /*height:auto;*/
 }
 
 /*.element:hover {

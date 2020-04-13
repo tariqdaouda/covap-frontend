@@ -1,6 +1,6 @@
 <template>
    <div class="uk-margin" type="slider">
-     <label>{{label}}</label>
+     <label>{{name}}</label>
      <vue-slider :name="name" v-model="range" :interval="0.01" :min="0.0" :max="1.0"></vue-slider>
   </div>
 </template>

@@ -52,8 +52,8 @@
   Vue.use(VueAxios, axios);
 
   const ALLOWED_FIELDS = {
-    'VirusSequences': [],//['Accession', 'Sequence'],
-    'Peptides': ['Score']
+    'VirusSequences': ['Accession'],//['Accession', 'Sequence'],
+    'Peptides': ['Score', 'Length']
   };
 
   export default {
@@ -122,20 +122,17 @@
         var query = {};
         for (let [title, fields] of Object.entries(this.formFields)) {
           for (let field of fields) {
-            query[`${title}.${field.name}`] = {
-              type: field.type,
-              range: field.range
-            };
+            if (field.type === 'SliderInput') {
+              query[`${title}.${field.name}`] = {
+                type: field.type,
+                range: field.range
+              };
+            }
+            if (field.type === 'MultiSelectInput') {
+              // ignore for now
+            }
           }
         }
-        /*
-          "query": {
-            "Peptides.Score": {
-              "type": "float",
-              "range": [0, ":"]
-            }
-          },
-         */
         return query;
       },
       fetchData () {

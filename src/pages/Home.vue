@@ -27,6 +27,9 @@
                         <a class="uk-button uk-button-primary" href="/#/research">Learn more</a>
                     </div>
                 </div>
+                <p class="we-photo-credits uk-text-center">
+                    Photo credits: Alissa Eckert, MS; Dan Higgins, MAMS
+                </p>
             </div>
         </div>
     </div>

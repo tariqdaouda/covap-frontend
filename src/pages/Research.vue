@@ -9,7 +9,7 @@
             <p>
                 In this short 3 min clip from 2019, Tariq Daouda talks to <a href="https://ivado.ca/">IVADO</a> about the most important ideas behind the approach
             </p>
-            <iframe src="https://www.youtube-nocookie.com/embed/RZ3w6Fkoyag?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="640" height="385" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/RZ3w6Fkoyag?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="640" height="385" frameborder="0" allowfullscreen uk-responsive uk-video="automute: false; autoplay: false"></iframe>
         </div>
     </div>
 </template>

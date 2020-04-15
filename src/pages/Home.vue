@@ -13,17 +13,24 @@
                     <p class="we-abstract-p">
                         The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.
                     </p>
-                    <p class="uk-margin-top we-abstract-disclaimer">
+                    <p v-if="!inConstruction" class="uk-margin-top we-abstract-disclaimer">
                         These are preliminary results
                     </p>
                     <p class="we-abstract-p">
                         Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available now. To both the research community and the general public.
                     </p>
+                    <p v-if="inConstruction" class="we-abstract-p we-abstract-disclaimer">
+                        <a href="https://twitter.com/TariqDaouda"> 
+                        This website is still under contruction.
+                        You can follow the latest developments on twitter
+                        <span  class="uk-icon" uk-icon="icon: twitter; ratio: 2"></span>
+                        </a>
+                    </p>
                 </div>
                 <div class="uk-width-1-1@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
                     <div class="uk-button-group we-hero-buttons">
-                        <button class="uk-button uk-button-primary we-hero-button">Read paper</button>
-                        <a class="uk-button uk-button-primary" href="/#/data">Explore results</a>
+                        <a v-if="!inConstruction" class="uk-button uk-button-primary we-hero-button">Read paper</a>
+                        <a v-if="!inConstruction" class="uk-button uk-button-primary" href="/#/data">Explore results</a>
                         <a class="uk-button uk-button-primary" href="/#/research">Learn more</a>
                     </div>
                 </div>
@@ -36,6 +43,12 @@
 </template>
 
 <script>
+  import { IN_CONSTRUCTION } from '../configuration.js'
   export default {
+    data(){
+        return{
+            inConstruction: IN_CONSTRUCTION
+        }
+    }
   }
 </script>

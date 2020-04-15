@@ -47,16 +47,26 @@
 </template>
 
 <script>
+import { IN_CONSTRUCTION } from '../configuration.js'
 export default {
   name: 'MainLayout',
   data() {
+      let routes = null;
+      if (!IN_CONSTRUCTION) {
+        routes = [
+          {name: "Home", route: "/#/"},
+          {name: "Explore", route: "/#/data"},
+          {name: "Research", route: "/#/research"},
+          {name: "People", route: "/#/people"}
+        ]
+      }else{
+        routes = [
+          {name: "Home", route: "/#/"},
+          {name: "Research", route: "/#/research"},
+        ]
+      }
     return {
-      routes: [
-        {name: "Home", route: "/#/"},
-        {name: "Explore", route: "/#/data"},
-        {name: "Research", route: "/#/research"},
-        {name: "People", route: "/#/people"}
-      ]
+      routes: routes
     }
   }
 }

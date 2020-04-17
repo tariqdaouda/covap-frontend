@@ -1,5 +1,6 @@
 <template>
-  <div class="content-padder content-background">
+<div class="uk-flex">
+  <div class="uk-grid content-padder content-background">
     <div class="uk-section-small uk-section-default header">
       <div class="uk-container uk-container-large">
         <h1><span class="ion-speedometer"></span> Data Exploration</h1>
@@ -11,8 +12,7 @@
     </div>
     <div class="uk-section-small">
       <div class="uk-container uk-container-large">
-        <div uk-grid class="uk-child-width-1-4@s uk-child-width-1-4@l">
-          <div>
+        <div class="uk-child-width-1-4@s uk-child-width-1-4@l">          
             <div class="uk-card uk-card-default uk-card-body">
               <div v-for="(fields, title) in formFields" :key="title">
                 <label>{{ title }}</label>
@@ -26,16 +26,16 @@
               </div>
               <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
             </div>
-          </div>
-          <div>
-            <div class="uk-card">
-              <GraphComponent :datas=graphData></GraphComponent>
+          
+            <div class="uk-card uk-card-default uk-card-body">
+                <GraphComponent :datas=graphData></GraphComponent>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -72,8 +72,8 @@
         layout: {},
         // data: [],
         formPayload: {},
-        formFields: {},
-        graphData: []
+        formFields: this.$store.state.formFields,
+        graphData: this.$store.state.graphData
       }
     },
     created() {
@@ -82,7 +82,7 @@
     },
     methods: {
       pushAllowed(field) {
-        if (ALLOWED_FIELDS[field.title].includes(field.name)) {
+        if (field.title && ALLOWED_FIELDS[field.title].includes(field.name)) {
           if (!(field.title in this.formFields)) {
             this.formFields[field.title] = [];
           }
@@ -91,7 +91,7 @@
       },
       fetchFields () {
         this.$http.get(
-          'https://api.epitopes.world/get-fields/limit/50'
+          'https://api.epitopes.world/get-fields/limit/500'
         ).then(response => {
           console.log(response.data);
           const data = response.data;
@@ -99,13 +99,10 @@
               for (let [fieldName, field] of Object.entries(formField)) {
                 const schema = schemas[field['type']];
                 const loaded = schema(fieldName, field, formTitle);
-                this.pushAllowed(loaded);
+                if(loaded)
+                  this.pushAllowed(loaded);
               }
             }
-            console.log(this.formFields);
-            let a = this.formFields;
-            this.formFields=[];
-            this.formFields=a;
           }
         ).catch(
           error => console.log(error)
@@ -123,6 +120,7 @@
         for (let [title, fields] of Object.entries(this.formFields)) {
           for (let field of fields) {
             if (field.type === 'SliderInput') {
+              console.log("Range : " + field.range);
               query[`${title}.${field.name}`] = {
                 type: field.type,
                 range: field.range
@@ -152,7 +150,8 @@
           }
         ).then(ret1 => {
           let baseline1 = this.tidyfy(ret1.data);
-          this.graphData.push({label: "baseline", values: baseline1, color: 'rgb(255, 0, 0)'})
+          this.graphData.push({label: "baseline", values: baseline1, color: 'rgb(255, 0, 0)'});
+          
         }).catch(error => console.log(error));
     },
     },

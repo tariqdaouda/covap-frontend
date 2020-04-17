@@ -22,7 +22,7 @@
         <div class="uk-navbar-center">
           <ul class="uk-navbar-nav ">
             <li v-for="(route, index) in routes" :key="index" class="uk-parent">
-              <a :href="route.route">{{route.name}}</a>
+              <a :href="route.route">{{ $t(route.name) }}</a>
             </li>
           </ul>
         </div>
@@ -54,15 +54,15 @@ export default {
       let routes = null;
       if (!IN_CONSTRUCTION) {
         routes = [
-          {name: "Home", route: "/#/"},
-          {name: "Explore", route: "/#/data"},
-          {name: "Research", route: "/#/research"},
-          {name: "People", route: "/#/people"}
+          {name: "menu_home", route: "/#/"},
+          {name: "menu_explore", route: "/#/data"},
+          {name: "menu_research", route: "/#/research"},
+          {name: "menu_people", route: "/#/people"}
         ]
       }else{
         routes = [
-          {name: "Home", route: "/#/"},
-          {name: "Research", route: "/#/research"},
+          {name: "menu_home", route: "/#/"},
+          {name: "menu_research", route: "/#/research"},
         ]
       }
     return {

@@ -4,6 +4,7 @@ import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import routes from "./routes";
 import App from "./App";
+import i18n from './i18n'
 
 Vue.config.productionTip = false;
 
@@ -16,5 +17,6 @@ const router = new VueRouter({
 
 new Vue({
   render: h => h(App),
+  i18n,
   router
 }).$mount('#app');

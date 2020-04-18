@@ -1,7 +1,10 @@
+import './plugins/vuex'
 import Vue from 'vue'
 import VueRouter from "vue-router";
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
+
+import store from './store'
 import routes from "./routes";
 import App from "./App";
 import i18n from './i18n'
@@ -18,5 +21,6 @@ const router = new VueRouter({
 new Vue({
   render: h => h(App),
   i18n,
+  store,
   router
 }).$mount('#app');

@@ -1,0 +1,34 @@
+{
+    "menu": {
+        "home": "Acceuil",
+        "research": "Recherche",
+        "explore": "Explorer",
+        "about": "À propos"
+    },
+    "home":{
+      "world_epitopes": "World Epitopes",
+      "main_title": "IA pour la prédictions de cibles pour un vaccin anti COVID-19",
+      "intro": "Le COVID-19 est une pandémie de conséquences humaines et économiques énormes. Nous avons développé un algorithme d'IA qui, selon nous, peut aider à identifier des cibles vaccinales contre le COVID-19.",
+      "preliminary_disclaimer": "Ce sont des résultats préliminaires",
+      "publishing_takes_time": "La publication de résultats scientifiques prend des mois. Compte tenu de l'urgence de la situation, nous avons décidé de rendre nos résultats librement disponibles maintenant. À la fois pour la communauté des chercheurs et pour le grand public.",
+      "under_construction": "Ce site est toujours en construction. Vous pouvez suivre les derniers développements sur twitter",
+      "read_paper": "Lire le papier",
+      "explore_data": "Explorer les résultats",
+      "learn_more": "En savoir plus",
+      "image_credits": "Crédits image"
+    },
+    "research":{
+      "title": "Recherche",
+      "intro": "Les résultats derrière Epitopes.world proviennent de recherches effectuées à l'IRIC, initialement pour des applications en immunothérapie contre le cancer. Cependant, la même approche pourrait également être utilisée pour concevoir de meilleurs vaccins contre les virus.",
+      "tariq_ivado_video": "Dans ce court clip de 3 minutes datant de 2019, Tariq Daouda discute avec {IVADO} des idées les plus importantes derrière l'approche"
+    },
+    "about":{
+      "team_title": "L'Équipe",
+      "team_intro": "Epitopes.world est créé et maintenu par une équipe multidisciplinaire de chercheurs et de développeurs. Nous nous engageons à ouvrir la science et à développer des moyens innovants de diffuser les résultats de la recherche lorsque le temps compte.",
+      "sponsors_title": "Sponsors",
+      "sponsors_intro": "",
+      "acknowlegments_title": "Remerciements",
+      "acknowlegments_intro": "Ces personnes ne participent pas directement à Epitopes.world, mais nous tenons à les remercier pour leurs contributions importantes.",
+      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sans lesquels ce projet ne pourrait exister. Voici la liste complète des auteurs:"
+    }
+}

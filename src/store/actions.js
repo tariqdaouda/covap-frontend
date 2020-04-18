@@ -10,4 +10,7 @@ export default {
       commit('setLanguage', language)
     }
   },
+  toggleIsFormLoaded({ commit }) {
+    commit('toggleIsFormLoaded', true)
+  }
 }

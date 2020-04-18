@@ -51,11 +51,6 @@
 
   Vue.use(VueAxios, axios);
 
-  const ALLOWED_FIELDS = {
-    'VirusSequences': ['Accession'],//['Accession', 'Sequence'],
-    'Peptides': ['Score', 'Length']
-  };
-
   export default {
     name: 'DataComponent',
     components: {
@@ -72,41 +67,37 @@
         layout: {},
         // data: [],
         formPayload: {},
-        formFields: this.$store.state.formFields,
-        graphData: this.$store.state.graphData
+        //formFields: this.$store.state.formFields,
+        //graphData: this.$store.state.graphData
       }
     },
     created() {
       this.fetchFields();
+      this.renderForm();
       //this.fetchData();
     },
     methods: {
-      pushAllowed(field) {
-        if (field.title && ALLOWED_FIELDS[field.title].includes(field.name)) {
-          if (!(field.title in this.formFields)) {
-            this.formFields[field.title] = [];
-          }
-          this.formFields[field.title].push(field);
-        }
-      },
       fetchFields () {
-        this.$http.get(
-          'https://api.epitopes.world/get-fields/limit/500'
-        ).then(response => {
-          console.log(response.data);
-          const data = response.data;
-            for (let [formTitle, formField] of Object.entries(data.payload)) {
-              for (let [fieldName, field] of Object.entries(formField)) {
-                const schema = schemas[field['type']];
-                const loaded = schema(fieldName, field, formTitle);
-                if(loaded)
-                  this.pushAllowed(loaded);
+        if (!this.isFormLoaded) {
+          this.$http.get(
+            'https://api.epitopes.world/get-fields/limit/500'
+          ).then(response => {
+              console.log(response.data);
+              const data = response.data;
+              for (let [formTitle, formField] of Object.entries(data.payload)) {
+                for (let [fieldName, field] of Object.entries(formField)) {
+                  const schema = schemas[field['type']];
+                  const loaded = schema(fieldName, field, formTitle);
+                  if (loaded)
+                    this.$store.commit('setFormField', loaded);
+                }
               }
+              this.$store.commit('toggleIsFormLoaded');
             }
-          }
-        ).catch(
-          error => console.log(error)
-        )
+          ).catch(
+            error => console.log(error)
+          )
+        }
       },
       tidyfy(data){
         let tidy = []
@@ -118,10 +109,10 @@
       buildQuery() {
         var query = {};
         for (let [title, fields] of Object.entries(this.formFields)) {
-          for (let field of fields) {
+          for (let [name, field] of Object.entries(fields)) {
             if (field.type === 'SliderInput') {
               console.log("Range : " + field.range);
-              query[`${title}.${field.name}`] = {
+              query[`${title}.${name}`] = {
                 type: field.type,
                 range: field.range
               };
@@ -153,8 +144,19 @@
           this.graphData.push({label: "baseline", values: baseline1, color: 'rgb(255, 0, 0)'});
           
         }).catch(error => console.log(error));
+      },
     },
-    },
+    computed: {
+      formFields() {
+        return this.$store.state.formFields;
+      },
+      graphData() {
+        return this.$store.state.graphData;
+      },
+      isFormLoaded() {
+        return this.$store.state.isFormLoaded;
+      }
+    }
     // updateData: function() {
     //   this.graphData = [
     //       {label: 'control', values: [1,2,3,4,5], color: 'rgb(0, 0, 255)'},

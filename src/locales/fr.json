@@ -3,34 +3,34 @@
         "home": "Accueil",
         "research": "Recherche",
         "explore": "Explorer",
-        "about": "À propos"
+        "about": "Ã€ propos"
     },
     "home":{
       "world_epitopes": "World Epitopes",
-      "main_title": "L'IA pour la prédiction de cibles pour un vaccin contre COVID-19",
-      "intro": "La COVID-19 est une pandémie amenant d'énormes conséquences humaines et économiques. Nous avons développé un algorithme d'IA qui peut aider à identifier les cibles utiles pour un vaccin contre COVID-19.",
+      "main_title": "L'IA pour la prÃ©diction de cibles pour un vaccin contre COVID-19",
+      "intro": "La COVID-19 est une pandÃ©mie amenant d'Ã©normes consÃ©quences humaines et Ã©conomiques. Nous avons dÃ©veloppÃ© un algorithme d'IA qui peut aider Ã  identifier les cibles utiles pour un vaccin contre COVID-19.",
       "why?": "Pourquoi est-ce pertinent?",
-      "because": "Le développement de vaccins est un processus très long et les échantillons de patients sont rares, fragiles et précieux. En publiant nos résultats publiques, notre objectif est de réduire significativement le nombre de cibles à tester, afin d'accélérer le développement d'un vaccin.",
-      "preliminary_disclaimer": "Ce sont des résultats préliminaires.",
-      "publishing_takes_time": "La publication de résultats scientifiques prend des mois. Compte tenu de l'urgence de la situation, nous avons décidé de rendre nos résultats librement disponibles dès maintenant, à la fois pour les chercheurs et pour le grand public.",
-      "under_construction": "Ce site est en construction. Vous pouvez suivre les derniers développements sur twitter.",
+      "because": "Le dÃ©veloppement de vaccins est un processus trÃ¨s long et les Ã©chantillons de patients sont rares, fragiles et prÃ©cieux. En publiant nos rÃ©sultats publiques, notre objectif est de rÃ©duire significativement le nombre de cibles Ã  tester, afin d'accÃ©lÃ©rer le dÃ©veloppement d'un vaccin.",
+      "preliminary_disclaimer": "Ce sont des rÃ©sultats prÃ©liminaires.",
+      "publishing_takes_time": "La publication de rÃ©sultats scientifiques prend des mois. Compte tenu de l'urgence de la situation, nous avons dÃ©cidÃ© de rendre nos rÃ©sultats librement disponibles dÃ¨s maintenant, Ã  la fois pour les chercheurs et pour le grand public.",
+      "under_construction": "Ce site est en construction. Vous pouvez suivre les derniers dÃ©veloppements sur twitter.",
       "read_paper": "Lire l'article",
-      "explore_data": "Explorer les résultats",
+      "explore_data": "Explorer les rÃ©sultats",
       "learn_more": "En savoir plus",
-      "image_credits": "Crédits image"
+      "image_credits": "CrÃ©dits image"
     },
     "research":{
       "title": "Recherche",
-      "intro": "Les résultats derrière Epitopes.world proviennent de recherches effectuées à l'IRIC (Université de Montréal), initialement pour des applications en immunothérapie contre le cancer. Cependant, la même approche pourrait également être utilisée pour concevoir de meilleurs vaccins contre les virus.",
-      "tariq_ivado_video": "Dans ce court vidéo datant de 2019, Tariq Daouda discute avec {IVADO} des idées les plus importantes derrière son approche scientifique."
+      "intro": "Les rÃ©sultats derriÃ¨re Epitopes.world proviennent de recherches effectuÃ©es Ã  l'IRIC (UniversitÃ© de MontrÃ©al), initialement pour des applications en immunothÃ©rapie contre le cancer. Cependant, la mÃªme approche pourrait Ã©galement Ãªtre utilisÃ©e pour concevoir de meilleurs vaccins contre les virus.",
+      "tariq_ivado_video": "Dans ce court vidÃ©o datant de 2019, Tariq Daouda discute avec {IVADO} des idÃ©es les plus importantes derriÃ¨re son approche scientifique."
     },
     "about":{
-      "team_title": "L'équipe",
-      "team_intro": "Epitopes.world est créé et maintenu par une équipe multidisciplinaire de chercheurs et de développeurs. Nous croyons en la divulgation du savoir scientifique, primordiale en situation d'urgence, et nous sommes engagés à développer des moyens innovants de diffuser rapidement les résultats de notre recherche.",
+      "team_title": "L'Ã©quipe",
+      "team_intro": "Epitopes.world est crÃ©Ã© et maintenu par une Ã©quipe multidisciplinaire de chercheurs et de dÃ©veloppeurs. Nous croyons en la divulgation du savoir scientifique, primordiale en situation d'urgence, et nous sommes engagÃ©s Ã  dÃ©velopper des moyens innovants de diffuser rapidement les rÃ©sultats de notre recherche.",
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Remerciements",
-      "acknowlegments_intro": "Ces personnes ne participent pas directement à Epitopes.world, mais nous tenons à les remercier pour leurs contributions importantes.",
-      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche, et sans qui ce projet ne pourrait exister:"
+      "acknowlegments_intro": "Ces personnes ne participent pas directement Ã  Epitopes.world, mais nous tenons Ã  les remercier pour leurs contributions importantes.",
+      "authors_intro": "Nous tenons Ã  remercier tous les auteurs qui ont participÃ© Ã  la recherche, et sans qui ce projet ne pourrait exister:"
     }
 }

@@ -19,12 +19,17 @@
       <!--Plotly histogram-->
       <GraphComponent :datas=graphData></GraphComponent>
     </div>
+
+    <TableComponent :datas="[{'Peptides.Score':'1', 'Peptides.Sequence':'2'}, {'Peptides.Score':'3', 'Peptides.Sequence':'4'}]"></TableComponent>
+
+  
   </div>
 </template>
 
 <script>
-  import TextInput from './TextInput';
-  import GraphComponent from './GraphComponent';
+  import TextInput from './TextInput'
+  import GraphComponent from './GraphComponent'
+  import TableComponent from './TableComponent'
   import Vue from 'vue'
   import axios from 'axios'
   import VueAxios from 'vue-axios'
@@ -36,6 +41,7 @@
     components: {
       TextInput,
       GraphComponent,
+      TableComponent,
       axios,
       VueAxios
     },
@@ -44,7 +50,8 @@
         layout: {},
         // data: [],
         formFields: [],
-        graphData: []
+        graphData: [],
+        selectedValue:0
       }
     },
     created() {

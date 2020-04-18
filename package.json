@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "clusterize.js": "^0.18.1",
     "core-js": "^3.6.4",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
@@ -19,6 +18,7 @@
     "ukit": "0.0.1-security",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
+    "vue-multiselect": "^2.1.6",
     "vue-router": "^3.1.6",
     "vuejs-auto-complete": "^0.9.0",
     "vuikit": "^0.8.10"

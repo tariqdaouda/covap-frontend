@@ -28,6 +28,15 @@
         values: [],
       }
     },
-    props: ['name', 'options']
+    props: ['name', 'options'],
+    watch: {
+      values: function (oldValues, newValues) {
+        this.$store.commit('setFormField', {
+          title: this.title,
+          name: this.name,
+          values: newValues
+        })
+      }
+    }
   }
 </script>

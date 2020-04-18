@@ -13,6 +13,15 @@
     components: {
       VueSlider
     },
-    props: ['placeholder', 'label', 'name', 'range']
+    props: ['placeholder', 'title', 'label', 'name', 'range'],
+    watch: {
+      range: function (oldRange, newRange) {
+        this.$store.commit('setFormField', {
+          title: this.title,
+          name: this.name,
+          range: newRange
+        })
+      }
+    }
   }
 </script>

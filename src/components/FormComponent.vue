@@ -47,8 +47,8 @@
           { name: 'Phoenix', language: 'Elixir' }
         ],
         // baked data returned by getFields request
-        inputFields: {
-
+        inputFields: this.$store.state.formFields
+        /*{
           "VirusSequences": {
             "Index": {"type": "other"},
             "Accession": {
@@ -192,7 +192,7 @@
               "range": [0.06240649148821799, 0.947116315364838]
             }
           }
-        }
+        }//*/
       }
     },
     methods: {

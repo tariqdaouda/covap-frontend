@@ -82,8 +82,7 @@
             <span uk-pagination-next></span>
           </a>
         </li>
-      </ul> 
-      {{rows}}
+      </ul>
 
       <div class="uk-row">
         <p>
@@ -227,13 +226,6 @@
       // default sort column/order
       this.sortColumn = config.sortColumn;
       this.sortOrder =  config.sortOrder;
-
-      // init sort
-      this.sortTable(
-        this.tableColumnsConfig.filter(
-          function(elt) { return elt.title === config.sortColumn }
-        )
-      );
     }
 }
 </script>

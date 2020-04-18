@@ -13,6 +13,12 @@
                         {{$t("home.intro")}}
                     </p>
                     <p v-if="!inConstruction" class="uk-margin-top we-abstract-disclaimer">
+                        {{$t("home.why?")}}
+                    </p>
+                    <p class="we-abstract-p">
+                        {{$t("home.because")}}
+                    </p>
+                    <p v-if="!inConstruction" class="uk-margin-top we-abstract-disclaimer">
                         {{$t("home.preliminary_disclaimer")}}
                     </p>
                     <p class="we-abstract-p">

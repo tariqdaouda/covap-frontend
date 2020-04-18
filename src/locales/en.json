@@ -9,6 +9,8 @@
       "world_epitopes": "World Epitopes",
       "main_title": "COVID-19 vaccin targets predition",
       "intro": "The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.",
+      "why?": "Why is it relevant?",
+      "because": "Testing vaccines is a very lengthy process and the patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets that need to be tested,  and thus speed up the discovery of a vaccine.",
       "preliminary_disclaimer": "These are preliminary results",
       "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available now. To both the research community and the general public.",
       "under_construction": "This website is still under contruction. You can follow the latest developments on twitter",

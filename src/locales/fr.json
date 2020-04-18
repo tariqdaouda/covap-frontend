@@ -9,6 +9,8 @@
       "world_epitopes": "World Epitopes",
       "main_title": "IA pour la prédictions de cibles pour un vaccin anti COVID-19",
       "intro": "Le COVID-19 est une pandémie de conséquences humaines et économiques énormes. Nous avons développé un algorithme d'IA qui, selon nous, peut aider à identifier des cibles vaccinales contre le COVID-19.",
+      "why?": "Pourquoi est-ce pertinent?",
+      "because": "Le test des vaccins est un processus très long et les échantillons de patients sont rares, fragiles et précieux. En rendant nos résultats publics, notre objectif est de réduire de manière significative l'ensemble de cibles à tester, et donc d'accélérer la découverte d'un vaccin.",
       "preliminary_disclaimer": "Ce sont des résultats préliminaires",
       "publishing_takes_time": "La publication de résultats scientifiques prend des mois. Compte tenu de l'urgence de la situation, nous avons décidé de rendre nos résultats librement disponibles maintenant. À la fois pour la communauté des chercheurs et pour le grand public.",
       "under_construction": "Ce site est toujours en construction. Vous pouvez suivre les derniers développements sur twitter",

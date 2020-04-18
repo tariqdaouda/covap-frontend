@@ -11,7 +11,7 @@ if (!IN_CONSTRUCTION) {
     routes = [
       { path: '/', component: Home },
       { path: '/data', component: Data },
-      { path: '/people', component: About },
+      { path: '/about', component: About },
       { path: '/research', component: Research },
     ]
 }else{

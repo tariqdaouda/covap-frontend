@@ -1,6 +1,14 @@
 
+:root {
+  --main-grey1: #161616;
+  --main-grey2: #262626;
+  --main-grey3: #565656;
+  --main-grey4: #868686;
+  --main-grey5: #A6A6A6;
+}
+
 body {
-  background-color: #161616 !important;
+  background-color: var(--main-grey1) !important;
   margin: 0;
 }
 
@@ -48,6 +56,19 @@ ul.we-off-navbar {
   overflow: auto;
 }
 
+.we-locale-switcher{
+  background-color: var(--main-grey3);
+  border-color: var(--main-grey3);
+  border-radius: 25px;
+  font-size: 105%;
+  text-align: center;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, .4);
+}
+
+.we-locale-switcher-item{
+  background-color: var(--main-grey4);
+}
+
 .we-main-container{
   /*overflow: hidden;*/
   /*height:auto;*/
@@ -56,8 +77,6 @@ ul.we-off-navbar {
 .we-hero-image{
   background-image: url('../images/23311_lores.jpg');
   filter: grayscale(50%);
-  /*filter: hue-rotate(8deg);*/
-  /*overflow: hidden;*/
   -webkit-animation: rainbow 60s steps(136) infinite;
 }
 
@@ -77,7 +96,12 @@ ul.we-off-navbar {
 .we-hero-title{
   font-size: 400%;
   font-family: "Arial Narrow";
-  /*margin-top: 150px;*/
+}
+
+.we-page-title{
+  font-family: "Arial Narrow";
+  color: var(--main-grey5);
+  font-size: 400%;
 }
 
 .we-abstract{
@@ -109,25 +133,44 @@ p.we-abstract-disclaimer{
 }
 
 .uk-navbar-nav {
-  background-color: #262626 !important;
+  background-color: var(--main-grey2) !important;
 }
 
 .uk-navbar-container {
-  background-color: #262626 !important;
+  background-color: var(--main-grey2) !important;
 }
 
 .we-team-card{
   max-width: 400px;
 }
 
+.we-team-card-top{
+  background-color: var(--main-grey5) !important;
+}
+
+.we-team-card-body{
+  /*background-color: var(--main-grey5) !important;*/
+}
+
 .we-human-picture{
-  border-radius: 100%;
-  padding-top: 10px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 5px;
   max-height: 200px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  background-color: var(--main-grey5) !important;
+}
+
+.we-human-picture{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  max-height: 200px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .we-sponsor-picture{
-  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   max-height: 100px;
 }
 

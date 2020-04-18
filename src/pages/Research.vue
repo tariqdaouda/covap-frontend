@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="we-hero-title uk-text-center">{{$t("research.title")}}</h1>
+        <h1 class="we-page-title uk-text-center">{{$t("research.title")}}</h1>
         <p class="uk-margin-auto we-page-top">
             <i18n path="research.intro" tag="p">
                 <a place="IRIC" href="http://www.iric.ca">IRIC</a>

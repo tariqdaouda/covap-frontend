@@ -1,6 +1,6 @@
 <template>
     <div class="uk-text-center">
-        <h1 class="we-hero-title">{{$t("about.team_title")}}</h1>
+        <h1 class="we-page-title">{{$t("about.team_title")}}</h1>
         <p class="uk-margin-auto we-page-top">
             {{$t("about.team_intro")}}
         </p>

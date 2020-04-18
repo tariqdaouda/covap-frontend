@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div class="uk-card uk-card-default we-team-card">
-        <div class="uk-card-media-top">
-            <img v-if="isHuman" class="we-human-picture" :src="picture" :alt=name>
-            <img v-else class="we-sponsor-picture" :src="picture" :alt=name>
+    <div class="uk-card uk-card-default we-team-card ">
+        <div v-if="isHuman" class="uk-card-media-top we-team-card-top">
+            <img class="we-human-picture" :src="picture" :alt=name>
         </div>
-        <div class="uk-card-body">
+        <div v-else class="uk-card-media-top">
+            <img class="we-sponsor-picture" :src="picture" :alt=name>
+        </div>
+        <div class="uk-card-body we-team-card-body">
             <h3 class="uk-card-title">{{name}}</h3>
             <p class="uk-text-bolder">{{title}}</p>
             <p class="uk-text-small">{{description}}</p>

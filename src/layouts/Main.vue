@@ -5,9 +5,10 @@
             <button class="uk-offcanvas-close" type="button" uk-close></button>
             <ul class="uk-list uk-list-divider">
               <li v-for="(route, index) in routes" :key="index">
-                <a :href="route.route">{{route.name}}</a>
+                <a :href="route.route">{{ $t(route.name) }}</a>
               </li>
             </ul>
+            <NavLocaleSwitch></NavLocaleSwitch>
         </div>
     </div>
     <a href="#" class="uk-navbar-item uk-logo uk-hidden@m">
@@ -25,6 +26,9 @@
               <a :href="route.route">{{ $t(route.name) }}</a>
             </li>
           </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <NavLocaleSwitch></NavLocaleSwitch>
         </div>
       </nav>
 
@@ -48,8 +52,13 @@
 
 <script>
 import { IN_CONSTRUCTION } from '../configuration.js'
+import NavLocaleSwitch from '../components/NavLocaleSwitch';
+
 export default {
   name: 'MainLayout',
+  components:{
+    NavLocaleSwitch
+  },
   data() {
       let routes = null;
       if (!IN_CONSTRUCTION) {

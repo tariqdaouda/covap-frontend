@@ -13,7 +13,7 @@
       "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available now. To both the research community and the general public.",
       "under_construction": "This website is still under contruction. You can follow the latest developments on twitter",
       "read_paper": "Read paper",
-      "explore_results": "Explore results",
+      "explore_data": "Explore results",
       "learn_more": "Learn more",
       "image_credits": "Image credits"
     },
@@ -23,12 +23,12 @@
       "tariq_ivado_video": "In this short 3 min clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind the approach"
     },
     "about":{
-      "about.team_title": "Team",
-      "about.team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to open science and developing innovative ways of disceminating research results when timing counts.",
-      "about.sponsors_title": "Sponsors",
-      "about.sponsors_intro": "",
-      "about.acknowlegments_title": "Acknowlegments",
-      "about.acknowlegments_intro": "These people do not directly participate to Epitopes.world, however we would like to thank them for their significant contributions.",
-      "about.authors_intro": "We would like to thank all the authors who participated to the research without whom this project could not exists. Here is the full list of authors:"
+      "team_title": "Team",
+      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to open science and developing innovative ways of disceminating research results when timing counts.",
+      "sponsors_title": "Sponsors",
+      "sponsors_intro": "",
+      "acknowlegments_title": "Acknowlegments",
+      "acknowlegments_intro": "These people do not directly participate to Epitopes.world, however we would like to thank them for their significant contributions.",
+      "authors_intro": "We would like to thank all the authors who participated to the research without whom this project could not exists. Here is the full list of authors:"
     }
 }

@@ -104,6 +104,10 @@ ul.we-off-navbar {
   font-size: 400%;
 }
 
+.we-page-subtitle{
+  color: var(--main-grey5);
+}
+
 .we-abstract{
   padding-top: 50px;
   padding-left: 50px;

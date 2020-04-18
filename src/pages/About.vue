@@ -15,7 +15,7 @@
                        is-human="true"
             ></TeamCard>
         </div>
-        <h3> {{$t("about.sponsors_title")}}</h3>
+        <h3 class="we-page-subtitle" > {{$t("about.sponsors_title")}}</h3>
         <div class="uk-animation-fade uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
             <TeamCard v-for="(field, index) in sponsors"
                        :key="index"
@@ -26,7 +26,7 @@
                        :picture="apiURL + '/'+ field.picture"
             ></TeamCard>
         </div>
-        <h3> {{$t("about.acknowlegments_title")}}</h3>
+        <h3 class="we-page-subtitle" > {{$t("about.acknowlegments_title")}}</h3>
         <p class="uk-margin-auto we-page-top">
             {{$t("about.acknowlegments_intro")}}
         </p>
@@ -43,7 +43,7 @@
         </div>
         <div class="we-full-authors-list">
             {{$t("about.authors_intro")}}
-            <ul class="uk-list uk-list-striped">
+            <ul class="uk-list">
                 <li v-for="author in authors" :key="author.name">
                     {{author.name}}
                 </li>

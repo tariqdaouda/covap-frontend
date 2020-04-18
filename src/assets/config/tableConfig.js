@@ -25,7 +25,7 @@ const maxRows = 5000;
 const maxDisplayedPages = 6;
 
 // Rows per page options values
-const tableRowPerPageConfig = [1,50,500,5000];
+const tableRowPerPageConfig = [50,500,5000];
 
 export default { 
   tableColumnsConfig,

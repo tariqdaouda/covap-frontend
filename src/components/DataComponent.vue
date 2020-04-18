@@ -20,7 +20,7 @@
       <GraphComponent :datas=graphData></GraphComponent>
     </div>
 
-    <TableComponent :rows="[{'Peptides.Score':'1', 'Peptides.Sequence':'2'}, {'Peptides.Score':'3', 'Peptides.Sequence':'4'}]"></TableComponent>
+    <TableComponent :datas="[{'Peptides.Score':'1', 'Peptides.Sequence':'2'}, {'Peptides.Score':'3', 'Peptides.Sequence':'4'}]"></TableComponent>
 
   
   </div>

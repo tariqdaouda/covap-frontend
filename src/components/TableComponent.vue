@@ -30,7 +30,6 @@
           Your query was too broad and has been capped to {{maxRows}} results.
         </p>
     </div>
-    {{rows}}
 
 
     <!--Data Table-->
@@ -38,7 +37,7 @@
       <table class="uk-table uk-overflow-container">
         <thead>
           <tr>
-            <th v-for="(column, index) in columns" v-bind:key="index" class="uk-text-center" v-on:click="sortTable(column)">
+            <th v-for="column in columns" v-bind:key="column.title" class="uk-text-center" v-on:click="sortTable(column)">
               {{column.title}}
               <span uk-icon="icon: triangle-down;" v-show=" column.sortable && column.title == sortColumn && sortOrder === 'descending'"></span>
               <span uk-icon="icon: triangle-up;" v-show="column.sortable && column.title == sortColumn && sortOrder === 'ascending'"></span>
@@ -46,8 +45,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="row in dataTableRange" v-bind:key="row">
-            <td v-for="column in columns" v-bind:key="column">
+          <tr v-for="(row, index) in dataTableRange" v-bind:key="index">
+            <td v-for="column in columns" v-bind:key="column.field">
               {{row[column.field]}}
             </td>
           </tr>
@@ -84,6 +83,7 @@
           </a>
         </li>
       </ul> 
+      {{rows}}
 
       <div class="uk-row">
         <p>
@@ -110,12 +110,13 @@
     components: {
       Multiselect
     },
-    props: ['rows'],
+    props: ['datas'],
     data() {
       return {
 
           // original column order
           tableColumnsConfig: null,
+          rows: this.datas,
 
           // pagination
           currentPage: null,
@@ -182,6 +183,11 @@
             return 0;
           }
         )
+
+        // dirty swap
+        let a = this.rows;
+        this.rows = [];
+        this.rows = a;
       },
       JsonToCSV: function (){
         
@@ -221,6 +227,13 @@
       // default sort column/order
       this.sortColumn = config.sortColumn;
       this.sortOrder =  config.sortOrder;
+
+      // init sort
+      this.sortTable(
+        this.tableColumnsConfig.filter(
+          function(elt) { return elt.title === config.sortColumn }
+        )
+      );
     }
 }
 </script>

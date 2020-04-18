@@ -1,9 +1,8 @@
 <template>
     <div class="uk-text-center">
-        <h1 class="we-hero-title">People</h1>
+        <h1 class="we-hero-title">{{$t("about.team_title")}}</h1>
         <p class="uk-margin-auto we-page-top">
-            Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers.
-            We are committed to open science and developing innovative ways of disceminating research results when timing counts. 
+            {{$t("about.team_intro")}}
         </p>
         <div class="uk-animation-fade uk-child-width-1-1@s uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
             <TeamCard v-for="(field, index) in people"
@@ -16,7 +15,7 @@
                        is-human="true"
             ></TeamCard>
         </div>
-        <h3> Sponsors</h3>
+        <h3> {{$t("about.sponsors_title")}}</h3>
         <div class="uk-animation-fade uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
             <TeamCard v-for="(field, index) in sponsors"
                        :key="index"
@@ -27,9 +26,9 @@
                        :picture="apiURL + '/'+ field.picture"
             ></TeamCard>
         </div>
-        <h3> Acknowledgements</h3>
+        <h3> {{$t("about.acknowlegments_title")}}</h3>
         <p class="uk-margin-auto we-page-top">
-            These people do not directly participate to Epitopes.world, however we would like to thank them for their significant contributions. 
+            {{$t("about.acknowlegments_intro")}}
         </p>
         <div class="uk-animation-fade uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
             <TeamCard v-for="(field, index) in thanks"
@@ -43,7 +42,7 @@
             ></TeamCard>
         </div>
         <div class="we-full-authors-list">
-            We would like to thank all the authors who participated to the research without whom this project could not exists. Here is the full list of authors:
+            {{$t("about.authors_intro")}}
             <ul class="uk-list uk-list-striped">
                 <li v-for="author in authors" :key="author.name">
                     {{author.name}}
@@ -63,7 +62,7 @@
     Vue.use(VueAxios, axios)
 
     export default {
-        name: 'People',
+        name: 'About',
         components: {
             TeamCard,
         },

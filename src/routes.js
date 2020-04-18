@@ -1,4 +1,4 @@
-import People from './pages/People.vue'
+import About from './pages/About.vue'
 import Research from './pages/Research.vue'
 import Home from './pages/Home.vue'
 import Data from './pages/Data.vue'
@@ -11,7 +11,7 @@ if (!IN_CONSTRUCTION) {
     routes = [
       { path: '/', component: Home },
       { path: '/data', component: Data },
-      { path: '/people', component: People },
+      { path: '/people', component: About },
       { path: '/research', component: Research },
     ]
 }else{

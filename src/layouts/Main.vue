@@ -54,15 +54,15 @@ export default {
       let routes = null;
       if (!IN_CONSTRUCTION) {
         routes = [
-          {name: "menu_home", route: "/#/"},
-          {name: "menu_explore", route: "/#/data"},
-          {name: "menu_research", route: "/#/research"},
-          {name: "menu_people", route: "/#/people"}
+          {name: "menu.home", route: "/#/"},
+          {name: "menu.explore", route: "/#/data"},
+          {name: "menu.research", route: "/#/research"},
+          {name: "menu.about", route: "/#/about"}
         ]
       }else{
         routes = [
-          {name: "menu_home", route: "/#/"},
-          {name: "menu_research", route: "/#/research"},
+          {name: "menu.home", route: "/#/"},
+          {name: "menu.research", route: "/#/research"},
         ]
       }
     return {

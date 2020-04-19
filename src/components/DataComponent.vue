@@ -14,17 +14,20 @@
       <div class="uk-container uk-container-large">
         <div class="uk-child-width-1-4@s uk-child-width-1-4@l">          
             <div class="uk-card uk-card-default uk-card-body">
-              <div v-for="(fields, title) in formFields" :key="title">
-                <label>{{ title }}</label>
-                <div class="uk-margin">
-                  <component v-for="(field, index) in fields"
-                             :key="index"
-                             :is="field.type"
-                             v-bind="field">
-                  </component>
+              <div v-if="isFormLoaded">
+                <div v-for="(fields, title) in formFields" :key="title">
+                  <label>{{ title }}</label>
+                  <div class="uk-margin">
+                    <component v-for="(field, index) in fields"
+                               :key="index"
+                               :is="field.type"
+                               v-bind="field">
+                    </component>
+                  </div>
                 </div>
+                <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
+
               </div>
-              <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
             </div>
           
             <div class="uk-card uk-card-default uk-card-body">

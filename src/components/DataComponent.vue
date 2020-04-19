@@ -73,8 +73,6 @@
     },
     created() {
       this.fetchFields();
-      this.renderForm();
-      //this.fetchData();
     },
     methods: {
       fetchFields () {

@@ -12,6 +12,7 @@
                        :description="field.description"
                        :occupation="field.occupation"
                        :picture="apiURL + '/'+ field.picture"
+                       :social="field.social"
                        is-human="true"
             ></TeamCard>
         </div>
@@ -24,6 +25,7 @@
                        :description="field.description"
                        :occupation="field.occupation"
                        :picture="apiURL + '/'+ field.picture"
+                       :social="field.social"
             ></TeamCard>
         </div>
         <h3 class="we-page-subtitle" > {{$t("about.acknowlegments_title")}}</h3>
@@ -39,6 +41,7 @@
                        :occupation="field.occupation"
                        :picture="apiURL + '/'+ field.picture"
                        is-human="true"
+                       :social="field.social"
             ></TeamCard>
         </div>
         <div class="we-full-authors-list">

@@ -81,19 +81,19 @@
     methods: {
         async getPeople() {
             const { data } = await this.$http.get(
-              this.apiURL + '/locale/en/team.json'
+              this.apiURL + '/locale/' + this.$i18n.locale + '/team.json'
             );
             this.people = data;
         },
         async getSponsors() {
             const { data } = await this.$http.get(
-              this.apiURL + '/locale/en/sponsors.json'
+              this.apiURL + '/locale/' + this.$i18n.locale + '/sponsors.json'
             );
             this.sponsors = data;
         },
         async getThanks() {
             const { data } = await this.$http.get(
-              this.apiURL + '/locale/en/thanks.json'
+              this.apiURL + '/locale/' + this.$i18n.locale + '/thanks.json'
             );
             this.thanks = data;
         },
@@ -102,13 +102,21 @@
               this.apiURL + '/data/authors.json'
             );
             this.authors = data;
+        },
+        reload: function(){
+          this.getPeople();
+          this.getSponsors();
+          this.getThanks();
+          this.getAuthors();
         }
     },
     created() {
-        this.getPeople();
-        this.getSponsors();
-        this.getThanks();
-        this.getAuthors();
+      this.reload()
     },
+    watch:{
+      "$i18n.locale": function(){
+        this.reload()
+      }
+    }
 }
 </script>

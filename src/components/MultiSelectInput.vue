@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="uk-list">
      <label>{{label}}</label>
      <multiselect v-model="values"
                   :options="options"

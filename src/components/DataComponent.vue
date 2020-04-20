@@ -1,44 +1,25 @@
 <template>
-<div class="uk-flex">
-  <div class="uk-grid content-padder content-background">
-    <div class="uk-section-small uk-section-default header">
-      <div class="uk-container uk-container-large">
-        <h1><span class="ion-speedometer"></span> Data Exploration</h1>
-        <ul class="uk-breadcrumb">
-          <li><a href="/#/">Home</a></li>
-          <li><span href="">Data Dashboard</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="uk-section-small">
-      <div class="uk-container uk-container-large">
-        <div class="uk-child-width-1-4@s uk-child-width-1-4@l">          
-            <div class="uk-card uk-card-default uk-card-body">
-              <div v-if="isFormLoaded">
-                <div v-for="(fields, title) in formFields" :key="title">
-                  <label>{{ title }}</label>
-                  <div class="uk-margin">
-                    <component v-for="(field, index) in fields"
-                               :key="index"
-                               :is="field.type"
-                               v-bind="field">
-                    </component>
-                  </div>
-                </div>
-                <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
-
-              </div>
-            </div>
-          
-            <div class="uk-card uk-card-default uk-card-body">
-                <GraphComponent :datas=graphData></GraphComponent>
-            </div>
-          
+  <div>
+    <div class="we-explore-sidebar uk-text-center">
+      <h3 class="we-page-subtitle">Data Exploration</h3>
+      <div v-if="isFormLoaded">
+        <div v-for="(fields, title) in formFields" :key="title">
+          <label>{{ title }}</label>
+          <div class="uk-margin">
+            <component v-for="(field, index) in fields"
+                       :key="index"
+                       :is="field.type"
+                       v-bind="field">
+            </component>
+          </div>
         </div>
       </div>
+      <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
+    </div>
+    <div class="we-explore-main">
+        <GraphComponent :datas=graphData></GraphComponent>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -51,6 +32,7 @@
   import VueAxios from 'vue-axios'
   import SliderInput from "./SliderInput";
   import MultiSelectInput from "./MultiSelectInput";
+  import { API_URL } from '../configuration.js'
 
   Vue.use(VueAxios, axios);
 
@@ -81,7 +63,7 @@
       fetchFields () {
         if (!this.isFormLoaded) {
           this.$http.get(
-            'https://api.epitopes.world/get-fields/limit/500'
+            API_URL +'/get-fields/limit/500'
           ).then(response => {
               console.log(response.data);
               const data = response.data;
@@ -89,11 +71,14 @@
                 for (let [fieldName, field] of Object.entries(formField)) {
                   const schema = schemas[field['type']];
                   const loaded = schema(fieldName, field, formTitle);
+                  console.log(loaded)
                   if (loaded)
                     this.$store.commit('setFormField', loaded);
+                  console.log(this.formFields)
                 }
               }
               this.$store.commit('toggleIsFormLoaded');
+              console.log(this.$store)
             }
           ).catch(
             error => console.log(error)
@@ -110,6 +95,8 @@
       buildQuery() {
         var query = {};
         for (let [title, fields] of Object.entries(this.formFields)) {
+          console.log(title)
+          console.log(fields)
           for (let [name, field] of Object.entries(fields)) {
             if (field.type === 'SliderInput') {
               console.log("Range : " + field.range);
@@ -128,8 +115,7 @@
       fetchData () {
         const query = this.buildQuery();
         this.$http.post(
-          'https://api.epitopes.world/get-data',
-          // 'http://localhost:6543/api/get-data',
+          API_URL +'/get-data',
           {
             "payload": {
               "query": query,

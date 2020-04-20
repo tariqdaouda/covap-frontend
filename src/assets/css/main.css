@@ -7,6 +7,9 @@
   --main-grey5: #A6A6A6;
 }
 
+html{
+  background-color: var(--main-grey1) !important;
+}
 body {
   background-color: var(--main-grey1) !important;
   margin: 0;
@@ -170,6 +173,11 @@ p.we-abstract-disclaimer{
   margin-bottom: 5px;
   max-height: 200px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  filter: saturate(0) contrast(115%); 
+}
+
+.we-human-picture:hover{
+  filter: saturate(1);
 }
 
 .we-sponsor-picture{
@@ -192,4 +200,24 @@ p.we-abstract-disclaimer{
 
 .we-full-authors-list{
   padding-top: 20px;
+}
+
+.we-explore-sidebar {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 250px !important;
+    padding: 40px 40px 60px 40px;
+    border-right: 1px #e5e5e5 solid;
+    overflow: auto;
+}
+
+/*@media (min-width: 1400px)
+.we-explore-sidebar+.we-explore-main {
+    padding-left: 40px;
+}*/
+
+.we-explore-main {
+  padding-left: 250px;
 }

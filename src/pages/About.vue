@@ -5,6 +5,7 @@
             {{$t("about.team_intro")}}
         </p>
         <div class="uk-animation-fade uk-child-width-1-1@s uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+        <!-- <div class="uk-animation-fade uk-child-width-1-1@s uk-child-width-1-4@m uk-grid-small" uk-grid="masonry: true"> -->
             <TeamCard v-for="(field, index) in people"
                        :key="index"
                        :name="field.name"

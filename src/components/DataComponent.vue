@@ -148,7 +148,6 @@
           let values = this.tidyfy(ret1.data);
           this.graphData.push({label: this.plotName, values: values, color: this.getPlotColor()});
           this.lastData = ret1.data
-          console.log(this.lastData.payload)
         }).catch(error => console.log(error));
       },
       popLast(){

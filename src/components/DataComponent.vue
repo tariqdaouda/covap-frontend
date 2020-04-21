@@ -1,23 +1,54 @@
 <template>
   <div>
-    <div class="we-explore-sidebar uk-text-center">
-      <h3 class="we-page-subtitle">Data Exploration</h3>
+    <div class="we-explore-menu uk-text-center">
+      <h3 class="we-page-subtitle">{{$t("data.title")}}</h3>
       <div v-if="isFormLoaded">
-        <div v-for="(fields, title) in formFields" :key="title">
-          <label>{{ title }}</label>
+        <div v-for="(fields, collection) in formFields" :key="collection">
+          <label class="we-page-subtitle we-data-collection-title">{{ collection }}</label>
           <div class="uk-margin">
             <component v-for="(field, index) in fields"
                        :key="index"
                        :is="field.type"
-                       v-bind="field">
+                       v-bind="field"
+                       ref="fields"
+                       >
             </component>
           </div>
         </div>
       </div>
-      <button v-on:click="fetchData" class="uk-button uk-button-primary">Query</button>
+      <input class="uk-input uk-text-center uk-margin" type="text" placeholder="..." v-model="plotName">
+      <div class="we-data-color-shower">
+        <label v-bind:style="{ color: getPlotColor()}" >{{$t("data.color")}}</label>  
+      </div>
+      <div class="uk-margin">
+        <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
+      </div>
+      <div class="uk-button-group">
+        <button v-on:click="fetchData" class="uk-button uk-button-primary">
+          <span uk-icon="icon: plus-circle; ratio: 2"></span>
+        </button>
+        <button v-on:click="popLast" class="uk-button uk-button-primary">
+          <span uk-icon="icon: minus-circle; ratio: 2"></span>
+        </button>
+      </div>
     </div>
+
     <div class="we-explore-main">
-        <GraphComponent :datas=graphData></GraphComponent>
+        <GraphComponent :datas=graphData :xLabel="$t('data.distributionXLabel')" :yLabel="$t('data.distributionYLabel')"></GraphComponent>
+        <table class="uk-table uk-table-striped we-data-table uk-text-center uk-align-center">
+          <thead>
+              <tr>
+                  <th>{{$t('data.distributionXLabel')}}</th>
+                  <th>{{$t('data.sequence')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(entry, index) in lastData.payload" :key="index">
+                  <td>{{entry["Peptides.Score"]}}</td>
+                  <td>{{entry["Peptides.Sequence"]}}</td>
+              </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </template>
@@ -25,7 +56,6 @@
 <script>
   import TextInput from './TextInput';
   import GraphComponent from './GraphComponent';
-  import FormComponent from './FormComponent';
   import schemas from '../schemas/schemas'
   import Vue from 'vue'
   import axios from 'axios'
@@ -42,18 +72,31 @@
       TextInput,
       SliderInput,
       GraphComponent,
-      FormComponent,
       MultiSelectInput,
       axios,
-      VueAxios
+      VueAxios,
     },
     data() {
       return {
-        layout: {},
-        // data: [],
-        formPayload: {},
-        //formFields: this.$store.state.formFields,
-        //graphData: this.$store.state.graphData
+        backendFields: {
+          Peptides: {
+            Score: {
+              type: "float",
+              range: [0, 1]
+            },
+            Accession: {
+              type: "enumeration",
+              cases: ["GRCh37.75"]
+            },
+            Length: {
+              type: "enumeration",
+              cases: [8, 9, 10, 11]
+            }
+          },
+        },
+        plotName: this.$t("data.plotName"),
+        plotHue: 15,
+        lastData: []
       }
     },
     created() {
@@ -61,29 +104,15 @@
     },
     methods: {
       fetchFields () {
-        if (!this.isFormLoaded) {
-          this.$http.get(
-            API_URL +'/get-fields/limit/500'
-          ).then(response => {
-              console.log(response.data);
-              const data = response.data;
-              for (let [formTitle, formField] of Object.entries(data.payload)) {
-                for (let [fieldName, field] of Object.entries(formField)) {
-                  const schema = schemas[field['type']];
-                  const loaded = schema(fieldName, field, formTitle);
-                  console.log(loaded)
-                  if (loaded)
-                    this.$store.commit('setFormField', loaded);
-                  console.log(this.formFields)
-                }
-              }
-              this.$store.commit('toggleIsFormLoaded');
-              console.log(this.$store)
-            }
-          ).catch(
-            error => console.log(error)
-          )
+        for (let [collection, fields] of Object.entries(this.backendFields)) {
+          for (let [fieldName, field] of Object.entries(fields)) {
+            const schema = schemas[field['type']];
+            const loaded = schema(fieldName, field, collection);
+            if (loaded)
+              this.$store.commit('setFormField', loaded);
+          }
         }
+        this.$store.commit('toggleIsFormLoaded');
       },
       tidyfy(data){
         let tidy = []
@@ -93,23 +122,12 @@
         return tidy
       },
       buildQuery() {
-        var query = {};
-        for (let [title, fields] of Object.entries(this.formFields)) {
-          console.log(title)
-          console.log(fields)
-          for (let [name, field] of Object.entries(fields)) {
-            if (field.type === 'SliderInput') {
-              console.log("Range : " + field.range);
-              query[`${title}.${name}`] = {
-                type: field.type,
-                range: field.range
-              };
-            }
-            if (field.type === 'MultiSelectInput') {
-              // ignore for now
-            }
+        let query = {};
+        for (let compo of this.$refs.fields){
+          query[compo.fullName] = {
+            values: compo.rawValues
           }
-        }
+        } 
         return query;
       },
       fetchData () {
@@ -119,7 +137,7 @@
           {
             "payload": {
               "query": query,
-              "limit": 2000,
+              "limit": 1000,
               "sort": {
                 "direction": "RAND"
               },
@@ -127,11 +145,18 @@
             }
           }
         ).then(ret1 => {
-          let baseline1 = this.tidyfy(ret1.data);
-          this.graphData.push({label: "baseline", values: baseline1, color: 'rgb(255, 0, 0)'});
-          
+          let values = this.tidyfy(ret1.data);
+          this.graphData.push({label: this.plotName, values: values, color: this.getPlotColor()});
+          this.lastData = ret1.data
+          console.log(this.lastData.payload)
         }).catch(error => console.log(error));
       },
+      popLast(){
+        this.graphData.pop();
+      },
+      getPlotColor(){
+        return 'hsl(' + this.plotHue + ', 100%, 50%)'
+      }
     },
     computed: {
       formFields() {
@@ -144,11 +169,5 @@
         return this.$store.state.isFormLoaded;
       }
     }
-    // updateData: function() {
-    //   this.graphData = [
-    //       {label: 'control', values: [1,2,3,4,5], color: 'rgb(0, 0, 255)'},
-    //       {label: 'experimental', values: [4,5,6,8], color: 'rgb(255, 0, 0)'}
-    //     ]
-    // }
   }
 </script>

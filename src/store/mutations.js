@@ -1,25 +1,15 @@
-//import i18n from '../i18n'
-import Vue from 'vue'
-
-
 const ALLOWED_FIELDS = {
-  'VirusSequences': ['Accession'],//['Accession', 'Sequence'],
-  'Peptides': ['Score', 'Length']
+  'Peptides': ['Score', 'Length', 'Accession']
 };
 
 export default {
-  setLanguage(state, language) {
-  //  i18n.locale = language
-    Vue.prototype.$vuetify.lang.current = language
-    localStorage.language = language
-  },
   setFormField(state, field) {
-    if (field.title && ALLOWED_FIELDS[field.title].includes(field.name)) {
-      if (!(field.title in state.formFields)) {
-        state.formFields[field.title] = {};
+    if (field.collection && ALLOWED_FIELDS[field.collection].includes(field.name)) {
+      if (!(field.collection in state.formFields)) {
+        state.formFields[field.collection] = {};
       }
-      const oldField = state.formFields[field.title][field.name];
-      state.formFields[field.title][field.name] = {
+      const oldField = state.formFields[field.collection][field.name];
+      state.formFields[field.collection][field.name] = {
         ...oldField,
         ...field
       }

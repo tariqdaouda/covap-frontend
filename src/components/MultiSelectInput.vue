@@ -1,6 +1,6 @@
 <template>
   <li class="uk-list">
-     <label>{{label}}</label>
+     <label>{{name}}</label>
      <multiselect v-model="values"
                   :options="options"
                   :close-on-select="false"
@@ -8,7 +8,9 @@
                   :multiple="true"
                   placeholder="Select one"
                   label="name"
-                  track-by="name">
+                  track-by="name"
+                  @input="updateRawValues()"
+                  >
        <label>
          {{values}}
        </label>
@@ -26,17 +28,21 @@
     data() {
       return {
         values: [],
+        rawValues: [],
+        fullName: this.collection + "." + this.name
       }
     },
-    props: ['name', 'options'],
-    watch: {
-      values: function (oldValues, newValues) {
-        this.$store.commit('setFormField', {
-          title: this.title,
-          name: this.name,
-          values: newValues
-        })
+    props: ['collection', 'name', 'options'],
+    methods: {
+      updateRawValues: function(){
+        this.rawValues = []
+        for (let val of this.values){
+          this.rawValues.push(val.name)
+        }
+        console.log(this.rawValues)
       }
     }
   }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

@@ -5,35 +5,38 @@
 
 
 export default {
-  enumeration: (name, field, title='') => {
+  enumeration: (name, field, collection='') => {
     let options = [];
-    for (const value of field.values) {
+    for (const value of field.cases) {
       options.push({name: value, label: value})
     }
     return {
       ...field,
       name,
-      title,
+      collection,
       options,
-      type: 'MultiSelectInput'
+      type: 'MultiSelectInput',
+      backendType: 'enumeration'
     }
   },
-  float: (name, field, title = '') => {
+  float: (name, field, collection = 'aaa') => {
     return {
       ...field,
       name,
-      title,
+      collection,
       css: '',
-      type: 'SliderInput'
+      type: 'SliderInput',
+      backendType: 'float'
     }
   },
-  other: (name, field, title='') => {
+  other: (name, field, collection='') => {
     return {
       ...field,
       name,
-      title,
+      collection,
       placeholder: name,
-      type: 'TextInput'
+      type: 'TextInput',
+      backendType: 'other'
     }
   },
 };

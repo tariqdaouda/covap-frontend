@@ -1,7 +1,7 @@
 <template>
    <div class="uk-margin" type="slider">
      <label>{{name}}</label>
-     <vue-slider :name="name" v-model="range" :interval="0.01" :min="0.0" :max="1.0"></vue-slider>
+     <vue-slider :name="name" v-model="rawValues" :interval="0.01" :min="range[0]" :max="range[1]"></vue-slider>
   </div>
 </template>
 
@@ -13,14 +13,11 @@
     components: {
       VueSlider
     },
-    props: ['placeholder', 'title', 'label', 'name', 'range'],
-    watch: {
-      range: function (oldRange, newRange) {
-        this.$store.commit('setFormField', {
-          title: this.title,
-          name: this.name,
-          range: newRange
-        })
+    props: ['collection', 'name', 'range'],
+    data(){
+      return {
+        rawValues: this.range,
+        fullName: this.collection + "." + this.name
       }
     }
   }

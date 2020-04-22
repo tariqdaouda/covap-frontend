@@ -1,0 +1,17 @@
+name = "covap-frontend"
+type = "webpack"
+workers_dev = true
+account_id =
+zone_id =
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
+
+[env.dev]
+name = "covap-frontend-dev"
+route = "dev.epitopes.world/*"
+
+[env.production]
+name = "covap-frontend-production"
+route = "epitopes.world/*"

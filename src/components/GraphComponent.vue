@@ -1,7 +1,6 @@
 <template>
-    <div>
-    <!--from latest call with Tariq we are going to only generate an histogram for binding scores distribution-->
-    <div ref="histogram" style="height:500px; width:800px"></div>
+    <div class="we-distribution-container">
+      <div ref="histogram" class="we-distribution-container"></div>
     </div>
 </template>
 
@@ -24,18 +23,20 @@
           title: this.title,
           xaxis: {title: this.xLabel},
           yaxis: {title: this.yLabel},
-          // barmode: 'stack',
+          // barmode: 'stack'/,
+          barmode: 'overlay',
           bargap: 0,
           bargroupgap: 0,
           showlegend: true,
           legend: {
             x: 1,
             y: 0.5
-          }
+          },
+          autosize: true
         },
         config: {
           toImageButtonOptions: {
-            format: 'svg', // one of png, svg, jpeg, webp
+            format: 'png', // one of png, svg, jpeg, webp
             filename: this.title,
             height: 500,
             width: 700,
@@ -58,13 +59,11 @@
               name: this.datas[i]['label'],
               autobinx: true,
               marker: {color: this.datas[i]['color'],},
-              opacity: 1,
-              type: 'histogram'
+              opacity: 0.5,
+              type: 'histogram',
             }
           )
         }
-        //console.log('histogram_datas', histogram_datas);
-
         // update histogram plot
         Plotly.newPlot(this.$refs.histogram, histogram_datas, this.layout, this.config);
       }

@@ -32,5 +32,13 @@
       "acknowlegments_title": "Remerciements",
       "acknowlegments_intro": "Ces personnes ne participent pas directement à Epitopes.world, mais nous tenons à les remercier pour leurs contributions importantes.",
       "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche, et sans qui ce projet ne pourrait exister:"
+    },
+    "data":{
+      "title": "Exploration",
+      "distributionXLabel": "Score CAMAP",
+      "distributionYLabel": "Distribution",
+      "plotName": "Nom du graphique",
+      "sequence": "Sequence",
+      "color": "couleur"
     }
 }

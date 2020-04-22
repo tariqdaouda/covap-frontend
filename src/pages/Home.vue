@@ -9,6 +9,14 @@
                 <h1 class="we-hero-title uk-text-capitalize">
                     {{$t("home.main_title")}}
                 </h1>
+                <p class="uk-margin-top we-abstract-disclaimer">
+                    Paper and Data live on the 5 / 5 / 2020 at 15:15
+                </p>
+                <Countdown 
+                    start-date="Apr 19, 2020 15:15:15"
+                    target-date="May 5, 2020 15:15:15"
+                    expired-text="Done."
+                ></Countdown>
                     <p class="we-abstract-p">
                         {{$t("home.intro")}}
                     </p>
@@ -48,7 +56,12 @@
 
 <script>
   import { IN_CONSTRUCTION } from '../configuration.js'
+  import Countdown from '../components/Countdown';
+  
   export default {
+    components: {
+        Countdown
+    },
     data(){
         return{
             inConstruction: IN_CONSTRUCTION

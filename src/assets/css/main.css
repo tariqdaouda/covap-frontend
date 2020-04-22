@@ -7,6 +7,9 @@
   --main-grey5: #A6A6A6;
 }
 
+html{
+  background-color: var(--main-grey1) !important;
+}
 body {
   background-color: var(--main-grey1) !important;
   margin: 0;
@@ -170,6 +173,11 @@ p.we-abstract-disclaimer{
   margin-bottom: 5px;
   max-height: 200px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  filter: saturate(0) contrast(115%); 
+}
+
+.we-human-picture:hover{
+  filter: saturate(1);
 }
 
 .we-sponsor-picture{
@@ -192,4 +200,76 @@ p.we-abstract-disclaimer{
 
 .we-full-authors-list{
   padding-top: 20px;
+}
+
+@media (min-width: 600px){
+  .we-distribution-container{
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 900){
+  .we-explore-menu {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    box-sizing: border-box;
+    width: auto !important;
+    padding: 40px 40px 60px 40px;
+  }
+  .we-explore-main {
+    padding: 5px;
+  }
+  .we-distribution-container{
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 1400px){
+  .we-explore-menu {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 250px !important;
+    padding: 40px 40px 60px 40px;
+    border-right: 1px #e5e5e5 solid;
+    overflow: auto;
+  }
+  .we-explore-main {
+    padding-left: 250px;
+  }
+  
+  .we-distribution-container{
+    min-height: 700px;
+  }
+}
+
+.we-data-collection-title{
+  font-size: 120%;
+}
+
+.we-data-color-shower{
+  font-size: 150%;
+}
+
+.we-data-table{
+  width: 600px !important;
+}
+
+.uk-button-primary{
+  background-color: var(--main-grey2) !important
+}
+
+.uk-button-primary:hover{
+  background-color: var(--main-grey4) !important
+}
+
+.count-down-text{
+  font-size: 150%;
+}
+
+.uk-progress{
+  border-radius: 25px;
+
 }

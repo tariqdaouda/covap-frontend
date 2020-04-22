@@ -87,6 +87,9 @@ export default {
     return {
       routes: routes
     }
+  },
+  mounted(){
+    document.title="Epitopes.world"
   }
 }
 </script>

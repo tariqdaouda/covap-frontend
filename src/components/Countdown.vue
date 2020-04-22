@@ -35,8 +35,8 @@
 
           if (self.startDate){
             let totalDistance = countDownDate - startDate
-            self.countDownProgress = (distance / totalDistance) * 100
-            // console.log(self.countDownProgress)
+            self.countDownProgress = ( (totalDistance-distance) / totalDistance) * 100
+            // console.log(totalDistance, distance, self.countDownProgress)
           }
 
           // Time calculations for days, hours, minutes and seconds
@@ -45,7 +45,6 @@
           let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
           let seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
-          // Output the result in an element with id="demo"
           self.countDown = "-" + days + ":" + hours + ":"+ minutes + ":" + seconds;
           // console.log(distance, now)
           // If the count down is over, write some text 
@@ -58,7 +57,6 @@
       }
     },
     mounted(){
-      console.log(this.expiredText)
       this.getCountDown()
     }
   }

@@ -1,28 +1,34 @@
 {
+    "cookies": "To function properly this website needs to store data on your device. By continuing to use it you acknowlegde and accept that data is stored on your device.",
+    "accept": "I accept",
+    "loading": "loading",
     "menu": {
         "home": "Home",
-        "research": "Research",
+        "research": "Learn more",
         "explore": "Explore",
-        "about": "About"
+        "about": "About",
+        "contact": "Contact us"
     },
     "home":{
       "world_epitopes": "World Epitopes",
+      "register": "Notify me!",
       "main_title": "COVID-19 vaccin targets predition",
-      "intro": "The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that we believe can help identify vaccin targets against COVID-19.",
+      "intro": "The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that can help identify vaccin targets against COVID-19.",
       "why?": "Why is it relevant?",
-      "because": "Testing vaccines is a very lengthy process and the patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets that need to be tested,  and thus speed up the discovery of a vaccine.",
+      "because": "Testing vaccines is a very lengthy process and patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets that need to be tested,  and thus speed up the discovery of a vaccine.",
       "preliminary_disclaimer": "These are preliminary results",
-      "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available now. To both the research community and the general public.",
-      "under_construction": "This website is still under contruction. You can follow the latest developments on twitter",
+      "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available as fast as possible.",
+      "under_construction": "You can follow the latest developments on twitter",
       "read_paper": "Read paper",
       "explore_data": "Explore results",
       "learn_more": "Learn more",
+      "contact_us": "Contact us",
       "image_credits": "Image credits"
     },
     "research":{
-      "title": "Research",
-      "intro": "The results behind Epitopes.world derive from research done at the {IRIC}, originally for applications in cancer immunotherapy. However the same approach could also be used to design better vaccines against viruses.",
-      "tariq_ivado_video": "In this short 3 min clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind the approach"
+      "title": "Unveiling the weaknesses of Sars-Cov2",
+      "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. These weaknesses are very small bits of viral proteins that infected cells have at their surface. These bits are called epitopes, and because these epitopes are unique identifiers for infected cells, they can in theory be used to make vaccines against COVID-19. Epitope vaccine are also in theory safer because they do not contain a significant part of the virus. CAMAP can help identify these epitopes from the genome of Sars-Cov2.",
+      "tariq_ivado_video": "In this short 3 min clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind CAMAP."
     },
     "about":{
       "team_title": "Team",

@@ -78,7 +78,8 @@ ul.we-off-navbar {
 }
 
 .we-hero-image{
-  background-image: url('../images/23311_lores.jpg');
+  /*background-image: url('../images/23311_lores.jpg');*/
+  background-image: url('../images/23311_fullsize.png');
   filter: grayscale(50%);
   -webkit-animation: rainbow 60s steps(136) infinite;
 }
@@ -145,6 +146,7 @@ p.we-abstract-disclaimer{
 
 .uk-navbar-container {
   background-color: var(--main-grey2) !important;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .we-team-card{
@@ -196,6 +198,7 @@ p.we-abstract-disclaimer{
   background: rgba(0, 0, 0, 0.25);
   /*border-radius: 25px*/;
   margin-bottom: 20px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .we-full-authors-list{
@@ -258,11 +261,24 @@ p.we-abstract-disclaimer{
 }
 
 .uk-button-primary{
-  background-color: var(--main-grey2) !important
+  background-color: var(--main-grey2) !important;
+  font-weight: bold !important;
 }
 
 .uk-button-primary:hover{
-  background-color: var(--main-grey4) !important
+  background-color: var(--main-grey4) !important;
+}
+
+.we-hero-button{
+  background-color: var(--main-grey3) !important;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  font-size: 200% !important;
+}
+
+.we-hero-button:hover{
+  background-color: var(--main-grey5) !important
 }
 
 .count-down-text{
@@ -270,6 +286,11 @@ p.we-abstract-disclaimer{
 }
 
 .uk-progress{
-  border-radius: 25px;
+  border-radius: 5px !important;
+}
 
+.we-overlay{
+  width: 700px;
+  background-color: var(--main-grey2) !important;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }

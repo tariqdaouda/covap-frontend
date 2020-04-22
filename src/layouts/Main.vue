@@ -47,17 +47,24 @@
       <router-view></router-view>
       <slot></slot>
     </div>
+    <cookie-law :button-text="$t('accept')">
+      <div slot="message">
+        {{$t("cookies")}}
+      </div>
+    </cookie-law>
   </div>
 </template>
 
 <script>
 import { IN_CONSTRUCTION } from '../configuration.js'
 import NavLocaleSwitch from '../components/NavLocaleSwitch';
+import CookieLaw from 'vue-cookie-law'
 
 export default {
   name: 'MainLayout',
   components:{
-    NavLocaleSwitch
+    NavLocaleSwitch,
+    CookieLaw
   },
   data() {
       let routes = null;
@@ -66,12 +73,15 @@ export default {
           {name: "menu.home", route: "/#/"},
           {name: "menu.explore", route: "/#/data"},
           {name: "menu.research", route: "/#/research"},
-          {name: "menu.about", route: "/#/about"}
+          {name: "menu.about", route: "/#/about"},
+          {name: "menu.contact", route: "/#/contact"}
         ]
       }else{
         routes = [
           {name: "menu.home", route: "/#/"},
           {name: "menu.research", route: "/#/research"},
+          {name: "menu.about", route: "/#/about"},
+          {name: "menu.contact", route: "/#/contact"}
         ]
       }
     return {

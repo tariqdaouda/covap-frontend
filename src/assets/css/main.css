@@ -264,3 +264,12 @@ p.we-abstract-disclaimer{
 .uk-button-primary:hover{
   background-color: var(--main-grey4) !important
 }
+
+.count-down-text{
+  font-size: 150%;
+}
+
+.uk-progress{
+  border-radius: 25px;
+
+}

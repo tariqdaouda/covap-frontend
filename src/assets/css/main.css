@@ -79,7 +79,7 @@ ul.we-off-navbar {
 
 .we-hero-image{
   /*background-image: url('../images/23311_lores.jpg');*/
-  background-image: url('../images/23311_fullsize.png');
+  background-image: url('../images/23311_50size.jpg');
   filter: grayscale(50%);
   -webkit-animation: rainbow 60s steps(136) infinite;
 }

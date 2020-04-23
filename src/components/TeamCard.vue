@@ -15,7 +15,7 @@
             <p class="uk-text-bolder">{{title}}</p>
             <p class="uk-text-small">{{description}}</p>
             <p v-if="occupation" class="uk-text-muted uk-text-small">{{occupation}}</p>
-            <div class="uk-card-footer">    
+            <div v-if="social" class="uk-card-footer">    
                 <a v-if="social.linkedin" :href="social.linkedin" class="uk-icon-button uk-margin-small-right" uk-icon="linkedin" target="_blank"></a>
                 <a v-if="social.twitter" :href="social.twitter" class="uk-icon-button  uk-margin-small-right" uk-icon="twitter" target="_blank"></a>
                 <a v-if="social.github" :href="social.github" class="uk-icon-button" uk-icon="github" target="_blank"></a>

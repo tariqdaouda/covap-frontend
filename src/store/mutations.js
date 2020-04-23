@@ -1,3 +1,5 @@
+import i18n from '../i18n'
+
 const ALLOWED_FIELDS = {
   'Peptides': ['Score', 'Length', 'Accession']
 };
@@ -17,7 +19,11 @@ export default {
   },
   toggleIsFormLoaded(state) {
      state.isFormLoaded = true;
-  }
+  },
+  setLanguage(state, language) {
+    i18n.locale = language;
+    localStorage.language = language;
+  },
 }
 
 

@@ -10,18 +10,20 @@ let routes = null
 
 if (!IN_CONSTRUCTION) {
     routes = [
-      { path: '/', component: Home },
-      { path: '/data', component: Data },
-      { path: '/about', component: About },
-      { path: '/research', component: Research },
-      { path: '/contact', component: Contact },
+      { path: '/', component: Home, inactive:true },
+      { path: '/:locale/', link: '', name: "menu.home", component: Home },
+      { path: '/:locale/data', link: 'data', name: "menu.explore", component: Data },
+      { path: '/:locale/about', link: 'about', name: "menu.about", component: About },
+      { path: '/:locale/research', link: 'research', name: "menu.research", component: Research },
+      { path: '/:locale/contact', link: 'contact', name: "menu.contact", component: Contact },
     ]
 }else{
     routes = [
-      { path: '/', component: Home },
-      { path: '/about', component: About },
-      { path: '/research', component: Research },
-      { path: '/contact', component: Contact },
+      { path: '/', component: Home, inactive:true},
+      { path: '/:locale/', link: '', name: "menu.home", component: Home },
+      { path: '/:locale/about', link: 'about', name: "menu.about", component: About },
+      { path: '/:locale/research', link: 'research', name: "menu.research", component: Research },
+      { path: '/:locale/contact', link: 'contact', name: "menu.contact", component: Contact },
     ]
 }
 

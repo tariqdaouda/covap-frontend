@@ -13,9 +13,10 @@
       "world_epitopes": "World Epitopes",
       "register": "Avisez-moi!",
       "main_title": "L'IA pour un vaccin contre COVID-19",
+      "release_info": "L'article et les données seront publiées le 5 / 5 / 2020, à 5:05 PM (EST)",
       "intro": "La COVID-19 est une pandémie amenant d'énormes conséquences humaines et économiques. Nous avons développé un algorithme d'IA qui peut aider à identifier les cibles utiles pour un vaccin contre COVID-19.",
       "why?": "Pourquoi est-ce pertinent?",
-      "because": "Le développement de vaccins est un processus très long et les échantillons de patients sont rares, fragiles et précieux. En publiant nos résultats publics, notre objectif est de réduire significativement le nombre de cibles à tester, afin d'accélérer le développement d'un vaccin.",
+      "because": "Le développement de vaccins est un processus très long et les échantillons de patients sont rares, fragiles et précieux. En partageant nos résultats, notre objectif est de réduire significativement le nombre de cibles à tester, afin d'accélérer le développement d'un vaccin.",
       "preliminary_disclaimer": "Ces résultats sont préliminaires.",
       "publishing_takes_time": "La publication de résultats scientifiques peut prendre plusieurs mois. Compte tenu de l'urgence de la situation, nous avons décidé de rendre nos résultats librement disponibles le plus tôt possible.",
       "under_construction": "Ce site est en construction. Vous pouvez suivre les derniers développements sur Twitter.",
@@ -25,8 +26,8 @@
       "image_credits": "Crédits image"
     },
     "research":{
-      "title": "Révéver les points faibles de SARS-CoV-2",
-      "intro": "L'algorithme d'IA que nous utilison s'appelle CAMAP et a été développé à l'{IRIC} pendant la thèse de Tariq Daouda. CAMAP a originellement été développé pour des applications en immunothérapie du cancer. Cependant, puisqu'il a apprit des principes généraux du système immunitaire humain, il peut également être appliqué dans le développement de vaccins afin de révéler leur points faibles. Ces points faibles consistent en de très petits fragments de protéines virales qui sont présentés à la surface des cellules infectées. Ces petits fragments appelés épitopes sont comme des drapeaux rouges agités par les cellules infectées. Parce que ces drapeaux rouges sont utilisés par le système immunitaire afin de combattre le virus, ils peuvent être utilisés dans un vaccin. Les vaccins à base d'épitopes sont en théorie plus sécuritaires, car ils ne contiennent qu'une fraction du virus. CAMAP permet d'identifier quel fragment du virus deviendra un épitope utile dans la création d'un vaccin contre SARS-CoV-2.",
+      "title": "Révéler les points faibles de SARS-CoV-2",
+      "intro": "L'algorithme d'IA que nous utilisons s'appelle CAMAP et a été développé à l'{IRIC} pendant la thèse de Tariq Daouda. CAMAP a originellement été développé pour des applications en immunothérapie du cancer. Cependant, puisqu'il a apprit des principes généraux du système immunitaire humain, il peut également être appliqué dans le développement de vaccins afin de révéler leurs points faibles. Ces points faibles consistent en de très petits fragments de protéines virales qui sont présentés à la surface des cellules infectées. Ces petits fragments appelés épitopes sont comme des drapeaux rouges agités par les cellules infectées. Parce que ces drapeaux rouges sont utilisés par le système immunitaire afin de combattre le virus, ils peuvent être utilisés dans un vaccin. Les vaccins à base d'épitopes sont en théorie plus sécuritaires, car ils ne contiennent qu'une très petite fraction du virus. CAMAP permet d'identifier quel fragment du virus deviendra un épitope utile dans la création d'un vaccin contre SARS-CoV-2.",
       "tariq_ivado_video": "Dans ce court vidéo datant de 2019, Tariq Daouda discute avec {IVADO} des idées les plus importantes derrière son approche scientifique."
     },
     "about":{

@@ -1,7 +1,7 @@
 {
     "cookies": "To function properly this website needs to store data on your device. By continuing to use it you acknowlegde and accept that data is stored on your device.",
     "accept": "I accept",
-    "loading": "loading",
+    "loading": "Loading...",
     "menu": {
         "home": "Home",
         "research": "Learn more",
@@ -12,13 +12,14 @@
     "home":{
       "world_epitopes": "World Epitopes",
       "register": "Notify me!",
-      "main_title": "COVID-19 vaccine targets predition",
-      "intro": "The COVID-19 is a pandemic of humongous human and economical consequences. We have developed an AI algorithm that can help identify vaccine targets against COVID-19.",
+      "main_title": "COVID-19 vaccine targets prediction",
+      "release_info": "Paper and Data will be released on 5 / 5 / 2020, at 5:05 PM (EST)",
+      "intro": "The COVID-19 is a pandemic of humongous human and economic consequences. We have developed an AI algorithm that can help identify useful targets for a vaccine against COVID-19.",
       "why?": "Why is it relevant?",
-      "because": "Testing vaccines is a very lengthy process and patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets that need to be tested,  and thus speed up the discovery of a vaccine.",
+      "because": "Testing vaccines is a very lengthy process and patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets to be tested, thus accelerating the development of a vaccine.",
       "preliminary_disclaimer": "These are preliminary results",
-      "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available as fast as possible.",
-      "under_construction": "You can follow the latest developments on twitter",
+      "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available as rapidly as possible.",
+      "under_construction": "You can follow the latest developments on Twitter",
       "read_paper": "Read paper",
       "explore_data": "Explore results",
       "learn_more": "Learn more",
@@ -26,25 +27,25 @@
       "image_credits": "Image credits"
     },
     "research":{
-      "title": "Unveiling the weaknesses of Sars-Cov2",
-      "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. These weaknesses are very small bits of viral proteins that infected cells have at their surface. These bits are called epitopes, and because these epitopes are unique identifiers for infected cells, they can in theory be used to make vaccines against COVID-19. Epitope vaccine are also in theory safer because they do not contain a significant part of the virus. CAMAP can help identify these epitopes from the genome of Sars-Cov2.",
-      "tariq_ivado_video": "In this short 3 min clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind CAMAP."
+      "title": "Unveiling the weaknesses of SARS-CoV-2",
+      "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. These weaknesses are very small bits of viral proteins that infected cells present at their surface. These bits are called epitopes, and because these epitopes are like red flags waved by infected cells and then used by the immune system to fight the virus, they can be used in a vaccine. Epitope vaccines are also in theory safer because they do not contain the whole virus. CAMAP can help identify which of these epitopes will be useful to create a vaccine against SARS-CoV-2.",
+      "tariq_ivado_video": "In this short clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind CAMAP."
     },
     "about":{
       "team_title": "Team",
-      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to open science and developing innovative ways of disceminating research results when timing counts.",
+      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
-      "acknowlegments_title": "Acknowlegments",
+      "acknowlegments_title": "Acknowledgments",
       "acknowlegments_intro": "These people do not directly participate to Epitopes.world, however we would like to thank them for their significant contributions.",
-      "authors_intro": "We would like to thank all the authors who participated to the research without whom this project could not exists. Here is the full list of authors:"
+      "authors_intro": "We would like to thank all authors who participated to the research without whom this project would not exist:"
     },
     "data":{
       "title": "Data exploration",
-      "distributionXLabel": "CAMAP Score",
+      "distributionXLabel": "CAMAP score",
       "distributionYLabel": "Distribution",
       "plotName": "Plot name",
       "sequence": "Sequence",
-      "color": "color"
+      "color": "Color"
     }
 }

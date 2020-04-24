@@ -4,34 +4,26 @@
         <div class="uk-offcanvas-bar">
             <button class="uk-offcanvas-close" type="button" uk-close></button>
             <ul class="uk-list uk-list-divider">
-              <li v-for="(route, index) in routes" :key="index">                
-                <router-link :to="'/fr/' + route.link" v-if="language === 'fr' && route.link" >{{ $t(route.name) }}</router-link>
-                <router-link :to="'/en/' + route.link" v-if="language === 'en' && route.link" >{{ $t(route.name) }}</router-link>
+              <li v-for="(route, index) in routes" :key="index">    
+                <router-link :to="'/' + $i18n.locale + '/' + route.link" v-if="route.link !== null" >{{ $t(route.name) }}</router-link>
               </li>
             </ul>
             <NavLocaleSwitch></NavLocaleSwitch>
         </div>
     </div>
-    <router-link :to="'/fr/'" v-if="language === 'fr'" class="uk-navbar-item uk-logo uk-hidden@m">
-      epitopes.world
-    </router-link>
-    <router-link :to="'/en/'" v-if="language === 'en'" class="uk-navbar-item uk-logo uk-hidden@m">
+    <router-link :to="'/' + $i18n.locale + '/'" class="uk-navbar-item uk-logo uk-hidden@m">
       epitopes.world
     </router-link>
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
       
       <nav class="uk-navbar-container uk-visible@m" uk-navbar>
-        <router-link v-if="language === 'fr'" to="/fr/" class="uk-navbar-item uk-logo">
-          epitopes.world
-        </router-link>
-        <router-link v-if="language === 'en'" to="/en/" class="uk-navbar-item uk-logo">
+        <router-link :to="'/' + $i18n.locale + '/'" class="uk-navbar-item uk-logo">
           epitopes.world
         </router-link>
         <div class="uk-navbar-center">
           <ul class="uk-navbar-nav ">
             <li v-for="(route, index) in routes" :key="index" class="uk-parent">
-              <router-link :to="'/fr/' + route.link" v-if="language === 'fr' && route.link" >{{ $t(route.name) }}</router-link>
-              <router-link :to="'/en/' + route.link" v-if="language === 'en' && route.link" >{{ $t(route.name) }}</router-link>
+              <router-link :to="'/' + $i18n.locale + '/' + route.link" v-if="route.link !== null" >{{ $t(route.name) }}</router-link>
             </li>
           </ul>
         </div>

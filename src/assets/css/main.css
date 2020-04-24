@@ -5,6 +5,8 @@
   --main-grey3: #565656;
   --main-grey4: #868686;
   --main-grey5: #A6A6A6;
+
+  --title-font: "Times New Roman", Times, serif;
 }
 
 html{
@@ -94,16 +96,16 @@ ul.we-off-navbar {
   margin-top: 100px;
   margin-left: 5%;
   margin-bottom: 50px;
-  font-family: "Arial Narrow";
+  font-family: var(--title-font);
 }
 
 .we-hero-title{
   font-size: 400%;
-  font-family: "Arial Narrow";
+  font-family: var(--title-font);
 }
 
 .we-page-title{
-  font-family: "Arial Narrow";
+  font-family: var(--title-font);
   color: var(--main-grey5);
   font-size: 400%;
 }

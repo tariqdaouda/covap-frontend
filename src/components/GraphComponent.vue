@@ -5,7 +5,8 @@
 </template>
 
 <script>
-  import Plotly from 'plotly.js-cartesian-dist';
+  import Plotly from 'plotly.js-dist-min';
+  // import Plotly from 'plotly.js-geo-dist';
   //import Plotly from 'plotly.js-js-basic-dist';
 
   export default {
@@ -159,6 +160,15 @@
               }
             }
           )
+        } else if (this.graphType === 'map') {
+          return {
+            title: this.title,
+            geo: {
+              projection: {
+                  type: 'robinson'
+              }
+            }
+          }
         } else {
           return output;
         }
@@ -168,6 +178,8 @@
         let graphData = [];
 
         if (this.graphType === 'density') {
+          //density
+          
           let x = [];
           let y = [];
 
@@ -215,8 +227,18 @@
               xaxis: 'x2',
               type: 'histogram'
             }
-          ];
+          ]
+        } else if (this.graphType === 'map') {
+          // map 
+          graphData = [{
+            type: 'choropleth',
+            locationmode: 'country names',
+            locations: ['Russia', 'France'],
+            z: [1, 1]
+          }]
+
         } else {
+          // line / box / scatter / histogram
           graphData = this.datas.map(data => this.getGraphData(data));
         }
 
@@ -229,7 +251,10 @@
     watch: {
       datas: function () {
         this.updateGraph();
-      } 
+      },
+      grapType: function() {
+        this.updateGraph();
+      }
     }
   }
 </script>

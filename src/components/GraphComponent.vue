@@ -103,7 +103,9 @@
         }
 
         if (this.graphType === 'histogram') {
-          return {
+         return Object.assign(
+            output,
+            {
             barmode: 'overlay',
             bargap: 0,
             bargroupgap: 0,
@@ -113,6 +115,7 @@
               y: 0.5
             }
           }
+        )
         } else if (this.graphType === 'scatter' || this.graphType === 'box') {
           return Object.assign(
             output,
@@ -161,14 +164,28 @@
             }
           )
         } else if (this.graphType === 'map') {
-          return {
+          return Object.assign(
+            output,
+            {
             title: this.title,
+            showlegend:false,
             geo: {
-              projection: {
-                  type: 'robinson'
-              }
+              showocean: true,
+              oceancolor: "LightBlue",
+              showcountries: true,
+              countrycolor: 'grey',
+              countrywidth: 1,
+              showscale: false
+              },
+              height:300,
+              margin: {
+                "r":25,
+                "l":25,
+                "t":40,
+                "b":10
+              },
             }
-          }
+          )
         } else {
           return output;
         }

@@ -44,10 +44,10 @@
                 </div>
                 <div class="uk-width-1-1@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
                     <div class="uk-button-group we-hero-buttons">
-                        <a v-if="!inConstruction" class="uk-button uk-button-primary we-hero-button">{{$t("home.read_paper")}}</a>
-                        <a v-if="!inConstruction" class="uk-button uk-button-primary" href="/#/data">{{$t("home.explore_data")}}</a>
-                        <a class="uk-button uk-button-primary" href="/#/research">{{$t("home.learn_more")}}</a>
-                        <a class="uk-button uk-button-primary" href="/#/contact">{{$t("home.contact_us")}}</a>
+                        <router-link v-if="!inConstruction" class="uk-button uk-button-primary we-hero-button" :to="'/' + $i18n.locale + '/paper'" >{{$t("home.read_paper")}}</router-link>
+                        <router-link v-if="!inConstruction" class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/data'" >{{$t("home.explore_data")}}</router-link>
+                        <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/research'" >{{$t("home.learn_more")}}</router-link>
+                        <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.contact_us")}}</router-link>
                     </div>
                 </div>
                 <p class="we-photo-credits uk-text-center">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +9,9 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
+    <!-- <meta name="language" content="English"> -->
     <meta name="revisit-after" content="10 days">
+    <link rel="canonical" href="https://www.epitopes.world" />
 
     <!-- Primary Meta Tags -->
     <!-- title>Epitopes World</title -->
@@ -20,21 +21,22 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://epitopes.world/en/">
+    <meta property="og:url" content="https://www.epitopes.world/">
     <meta property="og:title" content="Epitopes World">
     <meta property="og:description" content="AI based tools to predict and identify useful targets for a vaccine against COVID-19">
-    <meta property="og:image" content="https://epitopes.world/23311_lores.108fc794.jpg">
+    <meta property="og:image" content="<%= BASE_URL %>/public/social_en.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://epitopes.world/en/">
+    <meta property="twitter:url" content="https://www.epitopes.world/">
     <meta property="twitter:title" content="Epitopes World">
     <meta property="twitter:description" content="AI based tools to predict and identify useful targets for a vaccine against COVID-19">
-    <meta property="twitter:image" content="https://epitopes.world/23311_lores.108fc794.jpg">
-
+    <meta property="twitter:image" content="<%= BASE_URL %>/public/social_en.jpg">
+    <!-- <meta property="twitter:image" content="https://epitopes.world/23311_lores.108fc794.jpg"> -->
+    <meta name="theme-color" content="#161616">
 
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
 
     <link rel="icon" href="<%= BASE_URL %>/public/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>/public/apple-touch-icon.png">

@@ -68,7 +68,7 @@
     },
     metaInfo() {
         return{
-          title: '%s - ' + this.$t("home.titleDescription"),
+          titleDescription: '%s - ' + this.$t("home.titleDescription"),
         }
     },
     data(){

@@ -1,4 +1,8 @@
 {
+    "website":{
+      "title": "Epitopes.world",
+      "titleDescription": "AI for a COVID-19 Vaccine"
+    },
     "cookies": "To function properly this website needs to store data on your device. By continuing to use it you acknowlegde and accept that data is stored on your device.",
     "accept": "I accept",
     "loading": "Loading...",
@@ -10,6 +14,7 @@
         "contact": "Contact us"
     },
     "home":{
+      "titleDescription": "AI for a COVID-19 Vaccine",
       "world_epitopes": "World Epitopes",
       "register": "Notify me!",
       "main_title": "COVID-19 vaccine targets prediction",
@@ -27,11 +32,13 @@
       "image_credits": "Image credits"
     },
     "research":{
+      "titleDescription": "Learn more",
       "title": "Unveiling the weaknesses of SARS-CoV-2",
       "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. These weaknesses are very small bits of viral proteins that infected cells present at their surface. These bits are called epitopes, and because these epitopes are like red flags waved by infected cells and then used by the immune system to fight the virus, they can be used in a vaccine. Epitope vaccines are also in theory safer because they do not contain the whole virus. CAMAP can help identify which of these epitopes will be useful to create a vaccine against SARS-CoV-2.",
       "tariq_ivado_video": "In this short clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind CAMAP."
     },
     "about":{
+      "titleDescription": "About",
       "team_title": "Team",
       "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
       "sponsors_title": "Sponsors",
@@ -41,11 +48,15 @@
       "authors_intro": "We would like to thank all authors who participated to the research without whom this project would not exist:"
     },
     "data":{
+      "titleDescription": "Explore data",
       "title": "Data exploration",
       "distributionXLabel": "CAMAP score",
       "distributionYLabel": "Distribution",
       "plotName": "Plot name",
       "sequence": "Sequence",
       "color": "Color"
+    },
+    "contact":{
+      "titleDescription": "Contact us"
     }
 }

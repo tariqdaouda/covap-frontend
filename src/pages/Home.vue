@@ -10,7 +10,7 @@
                     {{$t("home.main_title")}}
                 </h1>
                 <p class="uk-margin-top we-abstract-disclaimer">
-                    Paper and Data live on the 5 / 5 / 2020 at 5:05pm (EST)
+                    {{$t("home.release_info")}}
                 </p>
                 <Countdown 
                     start-date="Apr 22, 2020 01:06:00"
@@ -65,6 +65,11 @@
   export default {
     components: {
         Countdown
+    },
+    metaInfo() {
+        return{
+          titleTemplate: '%s - ' + this.$t("home.titleDescription")
+        }
     },
     data(){
         return{

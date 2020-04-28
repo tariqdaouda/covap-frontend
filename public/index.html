@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="author" content="Tariq Daouda, Maude Dumont-Lagacé, Albert Feghaly, Oliver Caron-Lizotte, Antoine Zieger, Logan Schwartz, Walter Sobral, Jörg Schad">
-    <meta name="keywords" content="COVID-19, SARS-CoV-2, COVID, coronavirus, epitopes, targets prediction, CAMAP, IRIC, immunotherapy, viral proteins, cancer,pandemic, virus, vaccines, machine learning, scientific, AI, algorithm">    
+    <meta name="keywords" content="COVID-19, SARS-CoV-2, COVID, coronavirus, epitopes, targets prediction, CAMAP, IRIC, immunotherapy, viral proteins, cancer, pandemic, virus, vaccines, machine learning, scientific, AI, algorithm">
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -34,11 +35,19 @@
 
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link rel="icon" href="<%= BASE_URL %>/public/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>/public/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Epitopes.world</title>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <!-- <%= htmlWebpackPlugin.options.title %> -->
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

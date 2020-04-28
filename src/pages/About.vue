@@ -70,6 +70,11 @@
         components: {
             TeamCard,
         },
+        metaInfo() {
+            return{
+              titleTemplate: '%s - ' + this.$t("about.titleDescription")
+            }
+        },
         data() {
           return {
             apiURL: API_URL,

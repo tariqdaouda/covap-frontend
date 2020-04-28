@@ -16,5 +16,12 @@
 </template>
 
 <script>
-  export default { name: 'Research' }
+  export default {
+      name: 'Research',
+      metaInfo() {
+            return{
+              titleTemplate: '%s - ' + this.$t("research.titleDescription")
+            }
+        },
+  }
 </script>

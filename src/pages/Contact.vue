@@ -6,6 +6,11 @@
 <script>
   export default {
     name: 'Research',
+    metaInfo() {
+        return{
+          titleTemplate: '%s - ' + this.$t("contact.titleDescription")
+        }
+    },
     data(){
         return {
             defaultLocale: "en",

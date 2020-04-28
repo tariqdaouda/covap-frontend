@@ -66,6 +66,11 @@
     components: {
         Countdown
     },
+    metaInfo() {
+        return{
+          titleTemplate: '%s - ' + this.$t("home.titleDescription")
+        }
+    },
     data(){
         return{
             inConstruction: IN_CONSTRUCTION

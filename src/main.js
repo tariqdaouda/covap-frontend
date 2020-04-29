@@ -45,6 +45,11 @@ router.beforeEach((to, from, next) => {
     next();  // Move on the next hook (render component view)
 })
 
+import VueGtag from "vue-gtag"
+Vue.use(VueGtag, {
+  config: { id : "UA-164934534-1"}
+},router)
+
 new Vue({
   render: h => h(App),
   i18n,

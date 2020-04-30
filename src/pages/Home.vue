@@ -15,11 +15,9 @@
                 <Countdown 
                     start-date="Apr 22, 2020 01:06:00"
                     target-date="May 5, 2020 17:05:05"
-                    expired-text="Done."
+                    :expired-text="$t('release_done')"
                 ></Countdown>
-                <a class="uk-button uk-button-large we-hero-button" href="/#/contact">
-                    {{$t("home.register")}}
-                </a>
+                <router-link class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>
                 <p class="we-abstract-p">
                     {{$t("home.intro")}}
                 </p>

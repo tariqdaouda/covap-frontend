@@ -133,13 +133,15 @@ p.we-abstract-disclaimer{
 }
 
 .we-hero-buttons{
-  /*border-radius: 25px*/;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.we-hero-button{
-  /*border-radius: 25px*/;
+.we-superhero-button{
+  border-radius: 25px !important;
+  background-color: #68D500 !important;
+  font-size: 200% !important;
+  font-weight: bold !important;
 }
 
 .uk-navbar-nav {
@@ -148,7 +150,7 @@ p.we-abstract-disclaimer{
 
 .uk-navbar-container {
   background-color: var(--main-grey2) !important;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .we-team-card{

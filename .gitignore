@@ -1,3 +1,5 @@
 *.swp
 node_modules
 .idea
+public/data
+public/locale

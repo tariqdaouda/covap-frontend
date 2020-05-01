@@ -28,8 +28,13 @@
     },
     "research":{
       "title": "Révéler les points faibles de SARS-CoV-2",
-      "intro": "L'algorithme d'IA que nous utilisons s'appelle CAMAP et a été développé à l'{IRIC} pendant la thèse de Tariq Daouda. CAMAP a originellement été développé pour des applications en immunothérapie du cancer. Cependant, puisqu'il a apprit des principes généraux du système immunitaire humain, il peut également être appliqué dans le développement de vaccins afin de révéler leurs points faibles. Ces points faibles consistent en de très petits fragments de protéines virales qui sont présentés à la surface des cellules infectées. Ces petits fragments appelés épitopes sont comme des drapeaux rouges agités par les cellules infectées. Parce que ces drapeaux rouges sont utilisés par le système immunitaire afin de combattre le virus, ils peuvent être utilisés dans un vaccin. Les vaccins à base d'épitopes sont en théorie plus sécuritaires, car ils ne contiennent qu'une très petite fraction du virus. CAMAP permet d'identifier quel fragment du virus deviendra un épitope utile dans la création d'un vaccin contre SARS-CoV-2.",
-      "tariq_ivado_video": "Dans ce court vidéo datant de 2019, Tariq Daouda discute avec {IVADO} des idées les plus importantes derrière son approche scientifique."
+      "intro": "L'algorithme d'IA que nous utilisons s'appelle CAMAP et a été développé à l'{IRIC} pendant la thèse de Tariq Daouda. CAMAP a originellement été développé pour des applications en immunothérapie du cancer. Cependant, puisque CAMAP a apprit des principes généraux du système immunitaire humain, il peut également être appliqué dans le développement de vaccins afin de révéler leurs points faibles. CAMAP permet d'identifier quel fragment du virus deviendra un épitope utile dans la création d'un vaccin contre SARS-CoV-2.",
+      "tariq_ivado_video": "Dans ce court vidéo datant de 2019, Tariq Daouda discute avec {IVADO} des idées les plus importantes derrière son approche scientifique.",
+      "panel1":"1- Les cellules de notre corps présentent à leur surface des fragments des protéines qu’elles contiennent. Ces fragments, appelés épitopes, servent à indiquer au système immunitaire ce qui se passe à l’intérieur des cellules. Lorsqu’une cellules se fait infecter par un virus, le matériel génétique du virus est injecté à l’intérieur de la cellule.",
+      "panel2":"2- La production de nouvelles particules virales commence. Cependant, certains fragments spécifiques provenant des protéines virales se retrouveront aussi présentés à la surface des cellules.",
+      "panel3":"3- En analysant le matériel génétique du virus, notre algorithme d’intelligence artificielle (CAMAP) est capable de prédire quels fragments du virus ont une plus grande probabilité d’être présentés à la surface.",
+      "panel4":"4- En sélectionnant une combinaison des fragments qui ont une grande probabilité d’être présentés à la surface, nous pouvons ainsi générer un vaccin qui entraînera notre système immunitaire contre le virus.",
+      "panel5":"5- Si les cellules immunitaires venaient à rencontrer des cellules infectées par le virus, elles seraient alors en mesure de rapidement les identifier et de tuer le virus."
     },
     "about":{
       "team_title": "L'équipe",
@@ -37,7 +42,7 @@
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Remerciements",
-      "acknowlegments_intro": "Ces personnes ne participent pas directement à Epitopes.world, mais nous tenons à les remercier pour leurs contributions importantes.",
+      "acknowlegments_intro": "Nous tenons à remercier les personnes suivantes pour leur importante contribution à la recherche et à la croissance d'Epitopes.world.",
       "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche, et sans qui ce projet ne pourrait exister:"
     },
     "data":{

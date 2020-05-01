@@ -6,6 +6,30 @@
                 <a place="IRIC" href="http://www.iric.ca">IRIC</a>
             </i18n>
         </p>
+        <div class="uk-margin-auto we-page-top">
+          <div uk-lightbox>
+            <a class="uk-button uk-button-default" href="data/images/camap/camap_25.jpg">
+              <img data-src="data/images/camap/camap_25.jpg" width="" height="" alt="" uk-img>
+            </a>
+          </div>
+          <ul class="uk-list">
+              <li>
+                {{$t("research.panel1")}}
+              </li>
+              <li>
+                {{$t("research.panel2")}}
+              </li>
+              <li>
+                {{$t("research.panel3")}}
+              </li>
+              <li>
+                {{$t("research.panel4")}}
+              </li>
+              <li>
+                {{$t("research.panel5")}}
+              </li>
+          </ul>
+        </div>
         <div class="uk-margin-auto uk-text-center we-page-top">
             <i18n path="research.tariq_ivado_video" tag="p">
                 <a place="IVADO" href="http://www.ivado.ca">IVADO</a>

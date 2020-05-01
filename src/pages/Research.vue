@@ -8,7 +8,7 @@
         </p>
         <div class="uk-margin-auto we-page-top">
           <div uk-lightbox>
-            <a class="uk-button uk-button-default" href="data/images/camap/camap_25.jpg">
+            <a class="uk-button uk-button-default" href="/data/images/camap/camap_25.jpg">
               <img data-src="/data/images/camap/camap_25.jpg" width="" height="" alt="" uk-img>
             </a>
           </div>

@@ -1,6 +1,8 @@
 import './plugins/vuex'
 import Vue from 'vue'
 import VueRouter from "vue-router";
+import VueMeta from 'vue-meta';
+
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 
@@ -12,6 +14,8 @@ import i18n from './i18n'
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(VueMeta);
+Vue.use(i18n);
 UIkit.use(Icons);
 
 const router = new VueRouter({
@@ -40,6 +44,11 @@ router.beforeEach((to, from, next) => {
   else
     next();  // Move on the next hook (render component view)
 })
+
+import VueGtag from "vue-gtag"
+Vue.use(VueGtag, {
+  config: { id : "UA-164934534-1"}
+},router)
 
 new Vue({
   render: h => h(App),

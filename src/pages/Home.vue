@@ -10,16 +10,14 @@
                     {{$t("home.main_title")}}
                 </h1>
                 <p class="uk-margin-top we-abstract-disclaimer">
-                    Paper and Data live on the 5 / 5 / 2020 at 5:05pm (EST)
+                    {{$t("home.release_info")}}
                 </p>
                 <Countdown 
                     start-date="Apr 22, 2020 01:06:00"
                     target-date="May 5, 2020 17:05:05"
-                    expired-text="Done."
+                    :expired-text="$t('release_done')"
                 ></Countdown>
-                <a class="uk-button uk-button-large we-hero-button" href="/#/contact">
-                    {{$t("home.register")}}
-                </a>
+                <router-link class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>
                 <p class="we-abstract-p">
                     {{$t("home.intro")}}
                 </p>
@@ -44,10 +42,10 @@
                 </div>
                 <div class="uk-width-1-1@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
                     <div class="uk-button-group we-hero-buttons">
-                        <a v-if="!inConstruction" class="uk-button uk-button-primary we-hero-button">{{$t("home.read_paper")}}</a>
-                        <a v-if="!inConstruction" class="uk-button uk-button-primary" href="/#/data">{{$t("home.explore_data")}}</a>
-                        <a class="uk-button uk-button-primary" href="/#/research">{{$t("home.learn_more")}}</a>
-                        <a class="uk-button uk-button-primary" href="/#/contact">{{$t("home.contact_us")}}</a>
+                        <router-link v-if="!inConstruction" class="uk-button uk-button-primary we-hero-button" :to="'/' + $i18n.locale + '/paper'" >{{$t("home.read_paper")}}</router-link>
+                        <router-link v-if="!inConstruction" class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/data'" >{{$t("home.explore_data")}}</router-link>
+                        <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/research'" >{{$t("home.learn_more")}}</router-link>
+                        <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.contact_us")}}</router-link>
                     </div>
                 </div>
                 <p class="we-photo-credits uk-text-center">
@@ -65,6 +63,11 @@
   export default {
     components: {
         Countdown
+    },
+    metaInfo() {
+        return{
+          titleDescription: '%s - ' + this.$t("home.titleDescription"),
+        }
     },
     data(){
         return{

@@ -1,19 +1,25 @@
 {
+    "website":{
+      "title": "Epitopes World",
+      "titleDescription": "AI for a COVID-19 Vaccine"
+    },
     "cookies": "To function properly this website needs to store data on your device. By continuing to use it you acknowlegde and accept that data is stored on your device.",
     "accept": "I accept",
     "loading": "Loading...",
     "menu": {
         "home": "Home",
-        "research": "Learn more",
+        "research": "Sience",
         "explore": "Explore",
         "about": "About",
         "contact": "Contact us"
     },
     "home":{
+      "titleDescription": "AI for a COVID-19 Vaccine",
       "world_epitopes": "World Epitopes",
       "register": "Notify me!",
       "main_title": "COVID-19 vaccine targets prediction",
       "release_info": "Paper and Data will be released on 5 / 5 / 2020, at 5:05 PM (EST)",
+      "release_done": "Done.",
       "intro": "The COVID-19 is a pandemic of humongous human and economic consequences. We have developed an AI algorithm that can help identify useful targets for a vaccine against COVID-19.",
       "why?": "Why is it relevant?",
       "because": "Testing vaccines is a very lengthy process and patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets to be tested, thus accelerating the development of a vaccine.",
@@ -27,25 +33,36 @@
       "image_credits": "Image credits"
     },
     "research":{
+      "titleDescription": "Sience",
       "title": "Unveiling the weaknesses of SARS-CoV-2",
-      "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. These weaknesses are very small bits of viral proteins that infected cells present at their surface. These bits are called epitopes, and because these epitopes are like red flags waved by infected cells and then used by the immune system to fight the virus, they can be used in a vaccine. Epitope vaccines are also in theory safer because they do not contain the whole virus. CAMAP can help identify which of these epitopes will be useful to create a vaccine against SARS-CoV-2.",
+      "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. And could speed up the discovery of a vaccine against SARS-CoV-2.",
+      "panel1":"1- Cells present at their surface tiny fragments of the proteins that they contain. These bits are called epitopes and serve to indicate to the immune system what’s happening inside the cells. When a cell gets infected by a virus, the genetic material from the virus is injected into the cell.",
+      "panel2":"2- Then, the production of new viruses from this genetic material begins. However, some (but not all) fragments from the viral proteins produced also get presented at the cell surface.",
+      "panel3":"3- By analysing the genetic sequence of the virus, our artificial intelligence algorithm (CAMAP) can predict which fragments of this virus are more likely to be presented at the cell surface.",
+      "panel4":"4- We can then select a combination of fragments that have a high chance of being presented at the surface, we can design a vaccine that will efficiently train our immune system.",
+      "panel5":"5- If immune cells then encounter infected cells, they can rapidly recognize them and kill the virus.",
       "tariq_ivado_video": "In this short clip from 2019, Tariq Daouda talks to {IVADO} about the most important ideas behind CAMAP."
     },
     "about":{
+      "titleDescription": "About",
       "team_title": "Team",
       "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Acknowledgments",
-      "acknowlegments_intro": "These people do not directly participate to Epitopes.world, however we would like to thank them for their significant contributions.",
+      "acknowlegments_intro": "We would like to thank the following peopel for their significant contributions to the research and the growth of Epitopes.world",
       "authors_intro": "We would like to thank all authors who participated to the research without whom this project would not exist:"
     },
     "data":{
+      "titleDescription": "Explore data",
       "title": "Data exploration",
       "distributionXLabel": "CAMAP score",
       "distributionYLabel": "Distribution",
       "plotName": "Plot name",
       "sequence": "Sequence",
       "color": "Color"
+    },
+    "contact":{
+      "titleDescription": "Contact us"
     }
 }

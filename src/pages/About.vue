@@ -12,7 +12,7 @@
                        :title="field.title"
                        :description="field.description"
                        :occupation="field.occupation"
-                       :picture="apiURL + '/'+ field.picture"
+                       :picture="'/'+ field.picture"
                        :social="field.social"
                        is-human="true"
             ></TeamCard>
@@ -25,7 +25,7 @@
                        :title="field.title"
                        :description="field.description"
                        :occupation="field.occupation"
-                       :picture="apiURL + '/'+ field.picture"
+                       :picture="'/'+ field.picture"
                        :social="field.social"
             ></TeamCard>
         </div>
@@ -40,7 +40,7 @@
                        :title="field.title"
                        :description="field.description"
                        :occupation="field.occupation"
-                       :picture="apiURL + '/'+ field.picture"
+                       :picture="'/'+ field.picture"
                        is-human="true"
                        :social="field.social"
             ></TeamCard>
@@ -58,7 +58,7 @@
 
 <script>
     import TeamCard from '../components/TeamCard'
-    import { API_URL } from '../configuration.js'
+    import { STATIC_FILES_URL } from '../configuration.js'
 
     import Vue from 'vue'
     import axios from 'axios'
@@ -70,9 +70,14 @@
         components: {
             TeamCard,
         },
+        metaInfo() {
+            return{
+              titleTemplate: '%s - ' + this.$t("about.titleDescription")
+            }
+        },
         data() {
           return {
-            apiURL: API_URL,
+            staticFilesURL: STATIC_FILES_URL,
             people: [],
             sponsors: [],
             thanks: [],
@@ -82,25 +87,25 @@
     methods: {
         async getPeople() {
             const { data } = await this.$http.get(
-              this.apiURL + '/locale/' + this.$i18n.locale + '/team.json'
+              '/locale/' + this.$i18n.locale + '/team.json'
             );
             this.people = data;
         },
         async getSponsors() {
             const { data } = await this.$http.get(
-              this.apiURL + '/locale/' + this.$i18n.locale + '/sponsors.json'
+              '/locale/' + this.$i18n.locale + '/sponsors.json'
             );
             this.sponsors = data;
         },
         async getThanks() {
             const { data } = await this.$http.get(
-              this.apiURL + '/locale/' + this.$i18n.locale + '/thanks.json'
+              '/locale/' + this.$i18n.locale + '/thanks.json'
             );
             this.thanks = data;
         },
         async getAuthors() {
             const { data } = await this.$http.get(
-              this.apiURL + '/data/authors.json'
+              '/data/authors.json'
             );
             this.authors = data;
         },

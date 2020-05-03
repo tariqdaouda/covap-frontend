@@ -265,8 +265,12 @@ p.we-abstract-disclaimer{
 }
 
 .uk-button-primary{
-  background-color: var(--main-grey2) !important;
+  background-color: #68D500 !important;
+  /*background-color: var(--main-grey5) !important;*/
   font-weight: bold !important;
+  color: #fff !important;
+  font-size: 130% !important;
+  border-radius: 10px !important; 
 }
 
 .uk-button-primary:hover{

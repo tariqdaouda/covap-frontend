@@ -17,7 +17,13 @@
                     target-date="May 5, 2020 17:05:05"
                     :expired-text="$t('release_done')"
                 ></Countdown>
-                <router-link class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>
+                <router-link v-if="inConstruction" class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>
+                <div v-else class="uk-button-group we-hero-buttons uk-align-center">
+                    <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/paper'" >{{$t("home.read_paper")}}</router-link>
+                    <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/data'" >{{$t("home.explore_data")}}</router-link>
+                    <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/research'" >{{$t("home.learn_more")}}</router-link>
+                    <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.contact_us")}}</router-link>
+                </div>
                 <p class="we-abstract-p">
                     {{$t("home.intro")}}
                 </p>
@@ -40,10 +46,8 @@
                     </a>
                 </p>
                 </div>
-                <div class="uk-width-1-1@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <div v-if="inConstruction" class="uk-width-1-1@m uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
                     <div class="uk-button-group we-hero-buttons">
-                        <router-link v-if="!inConstruction" class="uk-button uk-button-primary we-hero-button" :to="'/' + $i18n.locale + '/paper'" >{{$t("home.read_paper")}}</router-link>
-                        <router-link v-if="!inConstruction" class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/data'" >{{$t("home.explore_data")}}</router-link>
                         <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/research'" >{{$t("home.learn_more")}}</router-link>
                         <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.contact_us")}}</router-link>
                     </div>

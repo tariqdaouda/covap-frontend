@@ -24,9 +24,10 @@
         <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
       </div>
       <div class="uk-button-group">
-        <button v-on:click="fetchData" class="uk-button uk-button-primary">
+        <button v-if="!fetching" v-on:click="fetchData" class="uk-button uk-button-primary">
           <span uk-icon="icon: plus-circle; ratio: 2"></span>
         </button>
+        <span v-if="fetching" class="uk-button uk-button-primary" uk-spinner></span>
         <button v-on:click="popLast" class="uk-button uk-button-primary">
           <span uk-icon="icon: minus-circle; ratio: 2"></span>
         </button>
@@ -78,6 +79,7 @@
     },
     data() {
       return {
+        fetching: false,
         backendFields: {
           Peptides: {
             Score: {
@@ -86,7 +88,7 @@
             },
             Accession: {
               type: "enumeration",
-              cases: ["GRCh37.75"]
+              cases: ["NC_045512", "GRCh37.75[Decoy]", "GRCh37.75[Hits]"]
             },
             Length: {
               type: "enumeration",
@@ -132,6 +134,7 @@
       },
       fetchData () {
         const query = this.buildQuery();
+        this.fetching = true;
         this.$http.post(
           API_URL +'/get-data',
           {
@@ -148,6 +151,7 @@
           let values = this.tidyfy(ret1.data);
           this.graphData.push({label: this.plotName, values: values, color: this.getPlotColor()});
           this.lastData = ret1.data
+          this.fetching = false
         }).catch(error => console.log(error));
       },
       popLast(){

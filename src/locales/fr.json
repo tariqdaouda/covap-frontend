@@ -47,7 +47,7 @@
     },
     "data":{
       "title": "Exploration des données",
-      "distributionXLabel": "Score CAMAP",
+      "distributionXLabel": "Score CAMAP (Probabilité )",
       "distributionYLabel": "Distribution",
       "plotName": "Titre du graphique",
       "sequence": "Séquence",

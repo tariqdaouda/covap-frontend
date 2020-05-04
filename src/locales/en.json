@@ -11,7 +11,8 @@
         "research": "Science",
         "explore": "Explore",
         "about": "About",
-        "contact": "Contact us"
+        "contact": "Contact us",
+        "openSource": "Open source"
     },
     "home":{
       "titleDescription": "AI for a COVID-19 Vaccine",
@@ -64,5 +65,8 @@
     },
     "contact":{
       "titleDescription": "Contact us"
+    },
+    "openSource":{
+      "titleDescription": "openSource"
     }
 }

@@ -302,3 +302,8 @@ p.we-abstract-disclaimer{
   background-color: var(--main-grey2) !important;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
+
+.we-stack-logo{
+  max-width: 35px;
+  margin: 5px;
+}

@@ -7,7 +7,8 @@
         "research": "Recherche",
         "explore": "Explorer",
         "about": "À propos",
-        "contact": "Nous contacter"
+        "contact": "Nous contacter",
+        "openSource": "Open source"
     },
     "home":{
       "world_epitopes": "World Epitopes",
@@ -24,7 +25,8 @@
       "read_paper": "Lire l'article",
       "explore_data": "Explorer les résultats",
       "learn_more": "En savoir plus",
-      "image_credits": "Crédits image"
+      "image_credits": "Crédits image",
+      "news": "Nous avons été présentés par les médias suivants"
     },
     "research":{
       "title": "Révéler les points faibles de SARS-CoV-2",
@@ -42,8 +44,8 @@
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Remerciements",
-      "acknowlegments_intro": "Nous tenons à remercier les personnes suivantes pour leur importante contribution à la recherche et / ou à la croissance d'Epitopes.world.",
-      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sans quoi ce projet ne pourrait exister:"
+      "acknowlegments_intro": "Nous tenons à remercier les personnes suivantes pour leur importante contribution à la recherche sur CAMAP et / ou à la croissance d'Epitopes.world.",
+      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sur CAMAP sans quoi ce projet ne pourrait exister:"
     },
     "data":{
       "title": "Exploration des données",
@@ -52,5 +54,18 @@
       "plotName": "Titre du graphique",
       "sequence": "Séquence",
       "color": "Couleur"
+    },
+    "openSource":{
+      "titleDescription": "Open source",
+      "title": "Initiative Open source",
+      "description": "Epitopes.world is an open source project to which you can contribute.",
+      "frontendTitle": "Front-end",
+      "frontenDescription": "The front-end handles everything you see here. It's how Epitopes.world looks, feels and acts. The front-end is written in Javascript using UIkit and VueJS.",
+      "backendTitle": "Back-end",
+      "backendDescription": "The role of the back-end is to transfer queries from the front-end to the ArangoDB Oasis database. The back-end is written in python using pyramid and pyArango.",
+      "CAMAPTitle": "CAMAP (soon)",
+      "CAMAPDescription": "CAMAP is the AI we use to predict epitopes from mRNA sequences. CAMAP is written using pyTorch",
+      "translateTitle": "Translation",
+      "translateDescription": "You can also help develop Epitopes.world by providing translations for the front-end"
     }
 }

@@ -17,7 +17,7 @@
       DataComponent,
     },
     created(){
-      let html = "<div class='uk-text-center'><h2>Explore CAMAP results for SARS-CoV-2</h2><p>Unless stated otherwise Score refers to CAMAP score</p><p>This interface loads at most 5000 examples, distributions might change slighlty between queries</p></div>"
+      let html = "<div class='uk-text-center'><h2>"+this.$t('data.popup1Title')+"</h2><p>"+this.$t('data.popup1P1')+"</p><p>"+this.$t('data.popup1P2')+"</p></div>"
       UIkit.modal.alert(html);
     }
   }

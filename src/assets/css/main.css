@@ -307,3 +307,10 @@ p.we-abstract-disclaimer{
   max-width: 35px;
   margin: 5px;
 }
+
+.we-press-logo{
+  max-width: 110px;
+  margin: 5px;
+  -webkit-filter:hue-rotate(0deg) !important;
+  filter:hue-rotate(0deg) !important;
+}

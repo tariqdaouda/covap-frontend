@@ -8,7 +8,7 @@
     "loading": "Loading...",
     "menu": {
         "home": "Home",
-        "research": "Sience",
+        "research": "Science",
         "explore": "Explore",
         "about": "About",
         "contact": "Contact us"
@@ -46,7 +46,7 @@
     "about":{
       "titleDescription": "About",
       "team_title": "Team",
-      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
+      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Acknowledgments",

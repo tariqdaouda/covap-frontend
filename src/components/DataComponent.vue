@@ -36,17 +36,24 @@
 
     <div class="we-explore-main">
         <GraphComponent :datas=graphData :xLabel="$t('data.distributionXLabel')" :yLabel="$t('data.distributionYLabel')"></GraphComponent>
+        <h3 class="we-page-subtitle uk-text-center">{{plotName}}</h3>
         <table class="uk-table uk-table-striped we-data-table uk-text-center uk-align-center">
           <thead>
               <tr>
                   <th>{{$t('data.distributionXLabel')}}</th>
                   <th>{{$t('data.sequence')}}</th>
+                  <th>Accession</th>
+                  <th>Sub_accession</th>
+                  <th>Name</th>
               </tr>
           </thead>
           <tbody>
               <tr v-for="(entry, index) in lastData.payload" :key="index">
                   <td>{{entry["Peptides.Score"]}}</td>
                   <td>{{entry["Peptides.Sequence"]}}</td>
+                  <td>{{entry["Peptides.Accession"]}}</td>
+                  <td>{{entry["Peptides.Sub_accession"]}}</td>
+                  <td>{{entry["Peptides.Name"]}}</td>
               </tr>
           </tbody>
         </table>
@@ -86,9 +93,13 @@
               type: "float",
               range: [0, 1]
             },
-            Accession: {
+            // Accession: {
+            //   type: "enumeration",
+            //   cases: ["NC_045512", "NC_004718", "GRCh37.75[Decoy]", "GRCh37.75[Hits]"]
+            // },
+            Name: {
               type: "enumeration",
-              cases: ["NC_045512", "GRCh37.75[Decoy]", "GRCh37.75[Hits]"]
+              cases: ["SARS-CoV-2", "SARS-CoV-1", "Human[Decoy]", "Human[Hits]"]
             },
             Length: {
               type: "enumeration",
@@ -140,11 +151,11 @@
           {
             "payload": {
               "query": query,
-              "limit": 1000,
+              "limit": 5000,
               "sort": {
                 "direction": "RAND"
               },
-              "additional_fields":["Peptides.Sequence"]
+              "additional_fields":["Peptides.Sequence", "Peptides.Accession", "Peptides.Sub_accession", "Peptides.Name"]
             }
           }
         ).then(ret1 => {

@@ -60,12 +60,15 @@
       "title": "Data exploration",
       "distributionXLabel": "CAMAP score (Probability)",
       "distributionYLabel": "Distribution",
-      "plotName": "Plot name",
+      "labelName": "Label Name",
       "sequence": "Sequence",
+      "name": "Name",
+      "length": "Length",
       "color": "Color",
-      "popup1Title": "Explore CAMAP results for SARS-CoV-2",
-      "popup1P1": "Unless stated otherwise Score refers to CAMAP score",
-      "popup1P2": "This interface loads at most 5000 examples, distributions might change slighlty between queries"
+      "popup1Title": "CAMAP results for SARS-CoV-2",
+      "popup1P1": "CAMAP score represent the likelihood of a protein fragments to be presented on the cell surface. Highest CAMAP score protein fragments could potentialy be used as vaccine target. Unless stated otherwise, 'Score' mentions refers to CAMAP score",
+      "popup1P2": "In an effort to share CAMAP scores as fast as possible, current state of this interface loads at most 5000 examples, distributions might change slighlty between queries and table only display the last made query.",
+      "popup1P3": "We are still currently working hard on adding new features like advandced query system/table and a visualization editor. Stay tuned to our twitter account to stay informed."
     },
     "contact":{
       "titleDescription": "Contact us"

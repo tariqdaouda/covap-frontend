@@ -57,21 +57,21 @@
       "length": "Longueur",
       "color": "Couleur",
       "popup1Title": "Prediction CAMAP pour le SARS-CoV-2",
-      "popup1P1": "Le score CAMAP représente la probabilité qu'un fragment protéique soit présenté à la surface cellulaire. Les fragments protéiques possédant un score élevés représentent des candidats potentiels pour un vaccin. Sauf en cas de mention contraire, la mention de 'Score' réfère au score de prédiction produit par CAMAP",
+      "popup1P1": "Le score CAMAP représente la probabilité qu'un fragment protéique soit présenté à la surface cellulaire. Les fragments protéiques possédant un score élevé représentent des candidats potentiels pour un vaccin. Sauf en cas de mention contraire, la mention de 'Score' réfère au score de prédiction produit par CAMAP",
       "popup1P2": "Dans le but de partager nos données aussi rapidement que possible, cette interface est limitée dans son état actuel à 5000 éléments, les distributions peuvent varier légèrement entre les requêtes et le tableau n'affiche que les données de la dernière recherche.",
       "popup1P3": "Nous travaillons activement à ajouter de nouvelles fonctionnalités avancées tel qu'un système de recherche, un tableau ainsi qu'un éditeur de visualisation. Suivez nous sur twitter pour être tenu informé"
     },
     "openSource":{
       "titleDescription": "Open source",
       "title": "Initiative Open source",
-      "description": "Epitopes.world is an open source project to which you can contribute.",
+      "description": "Epitopes.world est un projet Open Source auquel vous pouvez contribuer.",
       "frontendTitle": "Front-end",
-      "frontenDescription": "The front-end handles everything you see here. It's how Epitopes.world looks, feels and acts. The front-end is written in Javascript using UIkit and VueJS.",
+      "frontenDescription": "Le front-end représente tout ce que vous voyez ici Ce sont l'apparence et les fonctionnalités de Epitopes.world. Le front-end est écrit en Javascript, utilisant UIkit et VueJS.",
       "backendTitle": "Back-end",
-      "backendDescription": "The role of the back-end is to transfer queries from the front-end to the ArangoDB Oasis database. The back-end is written in python using pyramid and pyArango.",
-      "CAMAPTitle": "CAMAP (soon)",
-      "CAMAPDescription": "CAMAP is the AI we use to predict epitopes from mRNA sequences. CAMAP is written using pyTorch",
-      "translateTitle": "Translation",
-      "translateDescription": "You can also help develop Epitopes.world by providing translations for the front-end"
+      "backendDescription": "Le rôle du beck-end est de transférer requêtes depuis le front-end vers la base de donnée ArangoDB Oasis. Le back-end est écrit en python, utilisant pyramid et pyArango.",
+      "CAMAPTitle": "CAMAP (bientôt)",
+      "CAMAPDescription": "CAMAP est le modèle d'IA que l'on utilise pour la prédiction des epitopes à partir des séquences d'ARNm. CAMAP est écrit avec pyTorch",
+      "translateTitle": "Traduction",
+      "translateDescription": "Vous pouvez contribuer à développer Epitopes.world en proposant des traductions pour le front-end"
     }
 }

@@ -27,7 +27,7 @@
       "preliminary_disclaimer": "These are preliminary results",
       "publishing_takes_time": "Publishing scientific findings can take months. Given the urgency of the situation, we have decided to make our results freely available as rapidly as possible.",
       "under_construction": "You can follow the latest developments on Twitter",
-      "read_paper": "Read paper",
+      "read_paper": "CAMAP paper",
       "explore_data": "Explore results",
       "learn_more": "Learn more",
       "contact_us": "Contact us",
@@ -60,12 +60,15 @@
       "title": "Data exploration",
       "distributionXLabel": "CAMAP score (Probability)",
       "distributionYLabel": "Distribution",
-      "plotName": "Plot name",
+      "labelName": "Label Name",
       "sequence": "Sequence",
+      "name": "Name",
+      "length": "Length",
       "color": "Color",
-      "popup1Title": "Explore CAMAP results for SARS-CoV-2",
-      "popup1P1": "Unless stated otherwise Score refers to CAMAP score",
-      "popup1P2": "This interface loads at most 5000 examples, distributions might change slighlty between queries"
+      "popup1Title": "CAMAP results for SARS-CoV-2",
+      "popup1P1": "CAMAP score represents the likelihood of a protein fragments to be presented on the cell surface. Highest CAMAP score protein fragments could potentialy be used as vaccine targets. Unless stated otherwise, 'Score' refers to CAMAP score",
+      "popup1P2": "In an effort to share CAMAP scores as fast as possible, the UI currently loads at most 5000 examples, distribution might change slighlty between queries and table only display the last made query.",
+      "popup1P3": "We are still currently working hard on adding new features like advanced query system/table and a visualization editor. Stay tuned and follow us on Twitter to know when new features are available."
     },
     "contact":{
       "titleDescription": "Contact us"

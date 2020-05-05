@@ -265,8 +265,12 @@ p.we-abstract-disclaimer{
 }
 
 .uk-button-primary{
-  background-color: var(--main-grey2) !important;
+  background-color: #68D500 !important;
+  /*background-color: var(--main-grey5) !important;*/
   font-weight: bold !important;
+  color: #fff !important;
+  font-size: 130% !important;
+  border-radius: 10px !important; 
 }
 
 .uk-button-primary:hover{
@@ -297,4 +301,16 @@ p.we-abstract-disclaimer{
   width: 700px;
   background-color: var(--main-grey2) !important;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.we-stack-logo{
+  max-width: 35px;
+  margin: 5px;
+}
+
+.we-press-logo{
+  max-width: 110px;
+  margin: 5px;
+  -webkit-filter:hue-rotate(0deg) !important;
+  filter:hue-rotate(0deg) !important;
 }

@@ -11,29 +11,31 @@
         "research": "Science",
         "explore": "Explore",
         "about": "About",
-        "contact": "Contact us"
+        "contact": "Contact us",
+        "openSource": "Open source"
     },
     "home":{
       "titleDescription": "AI for a COVID-19 Vaccine",
       "world_epitopes": "World Epitopes",
       "register": "Notify me!",
       "main_title": "COVID-19 vaccine targets prediction",
-      "release_info": "Paper and Data will be released on 5 / 5 / 2020, at 5:05 PM (EST)",
+      "release_info": "Paper and Data will be released on the 5 / 5 / 2020, at 5:05 PM (EST)",
       "release_done": "Done.",
       "intro": "The COVID-19 is a pandemic of humongous human and economic consequences. We have developed an AI algorithm that can help identify useful targets for a vaccine against COVID-19.",
       "why?": "Why is it relevant?",
       "because": "Testing vaccines is a very lengthy process and patient samples are rare, fragile and precious. By making our results public, our goal is to significantly reduce the pool of targets to be tested, thus accelerating the development of a vaccine.",
       "preliminary_disclaimer": "These are preliminary results",
-      "publishing_takes_time": "Publishing scientific findings takes months. Given the urgency of the situation, we have decided to make our results freely available as rapidly as possible.",
+      "publishing_takes_time": "Publishing scientific findings can take months. Given the urgency of the situation, we have decided to make our results freely available as rapidly as possible.",
       "under_construction": "You can follow the latest developments on Twitter",
-      "read_paper": "Read paper",
+      "read_paper": "CAMAP paper",
       "explore_data": "Explore results",
       "learn_more": "Learn more",
       "contact_us": "Contact us",
-      "image_credits": "Image credits"
+      "image_credits": "Image credits",
+      "news": "We have been featured by the following news outlets"
     },
     "research":{
-      "titleDescription": "Sience",
+      "titleDescription": "Science",
       "title": "Unveiling the weaknesses of SARS-CoV-2",
       "intro": "The AI algorithm we use is called CAMAP and was developed at the {IRIC} during Tariq Daouda's PhD. The original application for CAMAP was cancer immunotherapy. However, because it has learned general patterns about the immune system, CAMAP can also unveil virus weaknesses. And could speed up the discovery of a vaccine against SARS-CoV-2.",
       "panel1":"1- Cells present at their surface tiny fragments of the proteins that they contain. These bits are called epitopes and serve to indicate to the immune system what’s happening inside the cells. When a cell gets infected by a virus, the genetic material from the virus is injected into the cell.",
@@ -46,23 +48,42 @@
     "about":{
       "titleDescription": "About",
       "team_title": "Team",
-      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of researchers and developpers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
+      "team_intro": "Epitopes.world is made and maintained by a multi-disciplinary team of volunteer researchers and developers. We are committed to share science openly and to develop innovative ways of instantly disseminating research results when timing is crucial.",
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Acknowledgments",
-      "acknowlegments_intro": "We would like to thank the following people for their significant contributions to the research and / or the growth of Epitopes.world",
-      "authors_intro": "We would like to thank all authors who participated to the research without whom this project would not exist:"
+      "acknowlegments_intro": "We would like to thank the following people for their significant contributions to the CAMAP research and / or the growth of Epitopes.world",
+      "authors_intro": "We would like to thank all authors who participated to the CAMAP research without whom this project would not exist:"
     },
     "data":{
       "titleDescription": "Explore data",
       "title": "Data exploration",
-      "distributionXLabel": "CAMAP score",
+      "distributionXLabel": "CAMAP score (Probability)",
       "distributionYLabel": "Distribution",
-      "plotName": "Plot name",
+      "labelName": "Label Name",
       "sequence": "Sequence",
-      "color": "Color"
+      "name": "Name",
+      "length": "Length",
+      "color": "Color",
+      "popup1Title": "CAMAP results for SARS-CoV-2",
+      "popup1P1": "CAMAP score represents the likelihood of a protein fragment to be presented on the cell surface. Highest CAMAP score protein fragments could potentially be used as vaccine targets. Unless stated otherwise, 'Score' refers to CAMAP score.",
+      "popup1P2": "In an effort to share CAMAP scores as fast as possible, the UI currently loads at most 5000 examples, distribution might change slighlty between queries and table only displays the last made query.",
+      "popup1P3": "We are still working hard on adding new features like advanced query system/table and a visualization editor. Stay tuned and follow us on Twitter to know when new features will be available."
     },
     "contact":{
       "titleDescription": "Contact us"
+    },
+    "openSource":{
+      "titleDescription": "Open source",
+      "title": "Open source initiative",
+      "description": "Epitopes.world is an open source project to which you can contribute.",
+      "frontendTitle": "Front-end",
+      "frontenDescription": "The front-end handles everything you see here. It's how Epitopes.world looks, feels and acts. The front-end is written in Javascript using UIkit and VueJS.",
+      "backendTitle": "Back-end",
+      "backendDescription": "The role of the back-end is to transfer queries from the front-end to the ArangoDB Oasis database. The back-end is written in python using pyramid and pyArango.",
+      "CAMAPTitle": "CAMAP (soon)",
+      "CAMAPDescription": "CAMAP is the AI we use to predict epitopes from mRNA sequences. CAMAP is written using pyTorch",
+      "translateTitle": "Translation",
+      "translateDescription": "You can also help develop Epitopes.world by providing translations for the front-end"
     }
 }

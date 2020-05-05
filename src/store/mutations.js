@@ -1,7 +1,7 @@
 import i18n from '../i18n'
 
 const ALLOWED_FIELDS = {
-  'Peptides': ['Score', 'Length', 'Accession']
+  'Peptides': ['Score', 'Length', 'Accession', 'Name']
 };
 
 export default {

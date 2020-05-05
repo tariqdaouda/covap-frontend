@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <input class="uk-input uk-text-center uk-margin" type="text" placeholder="..." v-model="plotName">
+      <input class="uk-input uk-text-center uk-margin" type="text" placeholder="..." v-model="labelName">
       <div class="we-data-color-shower">
         <label v-bind:style="{ color: getPlotColor()}" >{{$t("data.color")}}</label>  
       </div>
@@ -24,28 +24,42 @@
         <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
       </div>
       <div class="uk-button-group">
-        <button v-on:click="fetchData" class="uk-button uk-button-primary">
+        <button v-if="!fetching" v-on:click="fetchData" class="uk-button uk-button-primary">
           <span uk-icon="icon: plus-circle; ratio: 2"></span>
         </button>
+        <span v-if="fetching" class="uk-button uk-button-primary" uk-spinner></span>
         <button v-on:click="popLast" class="uk-button uk-button-primary">
           <span uk-icon="icon: minus-circle; ratio: 2"></span>
         </button>
       </div>
+      <div class="uk-margin">
+        <button v-on:click="downloadCSV()" class="uk-button uk-button-primary">Export</button>
+      </div>
+
     </div>
 
     <div class="we-explore-main">
         <GraphComponent :datas=graphData :xLabel="$t('data.distributionXLabel')" :yLabel="$t('data.distributionYLabel')"></GraphComponent>
+
         <table class="uk-table uk-table-striped we-data-table uk-text-center uk-align-center">
           <thead>
               <tr>
                   <th>{{$t('data.distributionXLabel')}}</th>
                   <th>{{$t('data.sequence')}}</th>
+                  <th>Accession</th>
+                  <th>Sub_accession</th>
+                  <th>{{$t('data.name')}}</th>
+                  <th>{{$t('data.length')}}</th>
               </tr>
           </thead>
           <tbody>
-              <tr v-for="(entry, index) in lastData.payload" :key="index">
+              <tr v-for="(entry, index) in lastData" :key="index">
                   <td>{{entry["Peptides.Score"]}}</td>
                   <td>{{entry["Peptides.Sequence"]}}</td>
+                  <td>{{entry["Peptides.Accession"]}}</td>
+                  <td>{{entry["Peptides.Sub_accession"]}}</td>
+                  <td>{{entry["Peptides.Name"]}}</td>
+                  <td>{{entry["Peptides.Length"]}}</td>
               </tr>
           </tbody>
         </table>
@@ -78,15 +92,20 @@
     },
     data() {
       return {
+        fetching: false,
         backendFields: {
           Peptides: {
             Score: {
               type: "float",
               range: [0, 1]
             },
-            Accession: {
+            // Accession: {
+            //   type: "enumeration",
+            //   cases: ["NC_045512", "NC_004718", "GRCh37.75[Decoy]", "GRCh37.75[Hits]"]
+            // },
+            Name: {
               type: "enumeration",
-              cases: ["GRCh37.75"]
+              cases: ["SARS-CoV-2", "SARS-CoV-1", "Human[Decoy]", "Human[Hits]"]
             },
             Length: {
               type: "enumeration",
@@ -94,9 +113,16 @@
             }
           },
         },
-        plotName: this.$t("data.plotName"),
         plotHue: 15,
-        lastData: []
+        lastData: [],
+        columns: [
+          this.$t('data.distributionXLabel'),
+          this.$t('data.sequence'),
+          'Accession',
+          'Sub_accession',
+          this.$t('data.name'),
+          this.$t('data.length')
+        ]
       }
     },
     created() {
@@ -132,22 +158,30 @@
       },
       fetchData () {
         const query = this.buildQuery();
+        this.fetching = true;
         this.$http.post(
           API_URL +'/get-data',
           {
             "payload": {
               "query": query,
-              "limit": 1000,
+              "limit": 5000,
               "sort": {
                 "direction": "RAND"
               },
-              "additional_fields":["Peptides.Sequence"]
+              "additional_fields":["Peptides.Sequence", "Peptides.Accession", "Peptides.Sub_accession", "Peptides.Name", "Peptides.Length"]
             }
           }
         ).then(ret1 => {
           let values = this.tidyfy(ret1.data);
-          this.graphData.push({label: this.plotName, values: values, color: this.getPlotColor()});
-          this.lastData = ret1.data
+          this.graphData.push({label: this.labelName, values: values, color: this.getPlotColor()});
+
+          // tmp sort until its done on backend side
+          let tmp = ret1.data.payload
+          tmp.sort(function(a, b) {
+            return b['Peptides.Score'] - a['Peptides.Score']
+          })
+          this.lastData = tmp
+          this.fetching = false
         }).catch(error => console.log(error));
       },
       popLast(){
@@ -155,9 +189,33 @@
       },
       getPlotColor(){
         return 'hsl(' + this.plotHue + ', 100%, 50%)'
+      },
+      JsonToCSV: function (){
+        // create columns row
+        var csvStr = this.columns.join(",") + "\n";
+        var csvFields = ["Peptides.Score", "Peptides.Sequence", "Peptides.Accession", "Peptides.Sub_accession", "Peptides.Name", "Peptides.Length"];
+
+        // iterate over each rows and populate csv
+        this.lastData.forEach(row => {
+            csvFields.forEach(field => {
+              csvStr += row[field] + ','
+            })
+            csvStr += "\n";
+          })
+        return csvStr;
+      },
+      downloadCSV: function () {
+        let hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(this.JsonToCSV());
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'epitopes.csv';
+        hiddenElement.click();
       }
     },
     computed: {
+      labelName() {
+        return this.$t("data.labelName");
+      },
       formFields() {
         return this.$store.state.formFields;
       },

@@ -3,7 +3,7 @@
      <label>{{name}}</label>
      <multiselect v-model="values"
                   :options="options"
-                  :close-on-select="false"
+                  :close-on-select="true"
                   :clear-on-select="false"
                   :multiple="true"
                   placeholder="Select one"
@@ -39,7 +39,6 @@
         for (let val of this.values){
           this.rawValues.push(val.name)
         }
-        console.log(this.rawValues)
       }
     }
   }

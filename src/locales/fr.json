@@ -7,7 +7,8 @@
         "research": "Recherche",
         "explore": "Explorer",
         "about": "À propos",
-        "contact": "Nous contacter"
+        "contact": "Nous contacter",
+        "openSource": "Open source"
     },
     "home":{
       "world_epitopes": "World Epitopes",
@@ -24,7 +25,8 @@
       "read_paper": "Lire l'article",
       "explore_data": "Explorer les résultats",
       "learn_more": "En savoir plus",
-      "image_credits": "Crédits image"
+      "image_credits": "Crédits image",
+      "news": "Nous avons été présentés par les médias suivants"
     },
     "research":{
       "title": "Révéler les points faibles de SARS-CoV-2",
@@ -38,19 +40,38 @@
     },
     "about":{
       "team_title": "L'équipe",
-      "team_intro": "Epitopes.world est créé et maintenu par une équipe multidisciplinaire de chercheurs et de développeurs. Nous croyons en la divulgation du savoir scientifique, primordiale en situation d'urgence, et nous sommes engagés à développer des moyens innovants de diffuser rapidement les résultats de notre recherche.",
+      "team_intro": "Epitopes.world est créé et maintenu par une équipe multidisciplinaire de volontaires (chercheurs et de développeurs). Nous croyons en la divulgation du savoir scientifique, primordiale en situation d'urgence, et nous sommes engagés à développer des moyens innovants de diffuser rapidement les résultats de notre recherche.",
       "sponsors_title": "Sponsors",
       "sponsors_intro": "",
       "acknowlegments_title": "Remerciements",
-      "acknowlegments_intro": "Nous tenons à remercier les personnes suivantes pour leur importante contribution à la recherche et / ou à la croissance d'Epitopes.world.",
-      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sans quoi ce projet ne pourrait exister:"
+      "acknowlegments_intro": "Nous tenons à remercier les personnes suivantes pour leur importante contribution à la recherche sur CAMAP et / ou à la croissance d'Epitopes.world.",
+      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sur CAMAP sans quoi ce projet ne pourrait exister:"
     },
     "data":{
       "title": "Exploration des données",
-      "distributionXLabel": "Score CAMAP",
+      "distributionXLabel": "Score CAMAP (Probabilité)",
       "distributionYLabel": "Distribution",
-      "plotName": "Titre du graphique",
+      "labelName": "Label",
       "sequence": "Séquence",
-      "color": "Couleur"
+      "name": "Nom",
+      "length": "Longueur",
+      "color": "Couleur",
+      "popup1Title": "Prediction CAMAP pour le SARS-CoV-2",
+      "popup1P1": "Le score CAMAP représente la probabilité qu'un fragment protéique soit présenté à la surface cellulaire. Les fragments protéiques possédant un score élevé représentent des candidats potentiels pour un vaccin. Sauf en cas de mention contraire, la mention de 'Score' réfère au score de prédiction produit par CAMAP",
+      "popup1P2": "Dans le but de partager nos données aussi rapidement que possible, cette interface est limitée dans son état actuel à 5000 éléments, les distributions peuvent varier légèrement entre les requêtes et le tableau n'affiche que les données de la dernière recherche.",
+      "popup1P3": "Nous travaillons activement à ajouter de nouvelles fonctionnalités avancées tel qu'un système de recherche, un tableau ainsi qu'un éditeur de visualisation. Suivez nous sur twitter pour être tenu informé"
+    },
+    "openSource":{
+      "titleDescription": "Open source",
+      "title": "Initiative Open source",
+      "description": "Epitopes.world est un projet Open Source auquel vous pouvez contribuer.",
+      "frontendTitle": "Front-end",
+      "frontenDescription": "Le front-end représente tout ce que vous voyez ici Ce sont l'apparence et les fonctionnalités de Epitopes.world. Le front-end est écrit en Javascript, utilisant UIkit et VueJS.",
+      "backendTitle": "Back-end",
+      "backendDescription": "Le rôle du beck-end est de transférer requêtes depuis le front-end vers la base de donnée ArangoDB Oasis. Le back-end est écrit en python, utilisant pyramid et pyArango.",
+      "CAMAPTitle": "CAMAP (bientôt)",
+      "CAMAPDescription": "CAMAP est le modèle d'IA que l'on utilise pour la prédiction des epitopes à partir des séquences d'ARNm. CAMAP est écrit avec pyTorch",
+      "translateTitle": "Traduction",
+      "translateDescription": "Vous pouvez contribuer à développer Epitopes.world en proposant des traductions pour le front-end"
     }
 }

@@ -23,7 +23,7 @@
           title: this.title,
           xaxis: {title: this.xLabel},
           yaxis: {title: this.yLabel},
-          // barmode: 'stack'/,
+          // barmode: 'stack',
           barmode: 'overlay',
           bargap: 0,
           bargroupgap: 0,
@@ -61,6 +61,7 @@
               marker: {color: this.datas[i]['color'],},
               opacity: 0.5,
               type: 'histogram',
+              histnorm: 'probability'
             }
           )
         }

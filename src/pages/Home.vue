@@ -48,10 +48,10 @@
                         <span  class="uk-icon" uk-icon="icon: twitter; ratio: 2"></span>
                         </a>
                     </p>
-                    <p class="uk-margin-top we-abstract-disclaimer">
+                    <p v-if="press" class="uk-margin-top we-abstract-disclaimer">
                         {{$t("home.news")}}
                     </p>
-                    <div class="uk-card uk-card-default">
+                    <div v-if="press" class="uk-card uk-card-default">
                         <div class="uk-margin-auto uk-text-center" uk-grid>
                                 <div v-for="(entry, index) in press" :key="index" class="uk-child-width-1-1@s">
                                     <a :href="entry.article_url" target="_blank">
@@ -92,7 +92,7 @@
     data(){
         return{
             inConstruction: IN_CONSTRUCTION,
-            press: []
+            press: null
         }
     },
     methods:{
@@ -101,7 +101,7 @@
               '/data/press/PressReleases.json'
             )
             this.press = data.press_releases
-            console.log(this.press)
+            // console.log(this.press)
             // console.log(data)
         }
     },

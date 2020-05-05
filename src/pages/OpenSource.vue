@@ -45,7 +45,7 @@
               </div>
               <div>
                   <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
-                      <h3 class="uk-card-title">{{$t("openSource.translateDescription")}}</h3>
+                      <h3 class="uk-card-title">{{$t("openSource.translateTitle")}}</h3>
                       <span uk-icon="icon: world; ratio: 2"></span>
                       <p>{{$t("openSource.translateDescription")}}</p>
                       <a target="_blank" uk-icon="icon: github; ratio: 2" href="https://github.com/tariqdaouda/covap-frontend/tree/dev/src/locales"></a>

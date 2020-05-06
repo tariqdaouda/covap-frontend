@@ -69,9 +69,9 @@
       "frontendTitle": "Front-end",
       "frontenDescription": "Le front-end représente tout ce que vous voyez ici Ce sont l'apparence et les fonctionnalités de Epitopes.world. Le front-end est écrit en Javascript, utilisant UIkit et VueJS.",
       "backendTitle": "Back-end",
-      "backendDescription": "Le rôle du beck-end est de transférer requêtes depuis le front-end vers la base de donnée ArangoDB Oasis. Le back-end est écrit en python, utilisant pyramid et pyArango.",
+      "backendDescription": "Le rôle du back-end est de transférer requêtes depuis le front-end vers la base de donnée ArangoDB Oasis. Le back-end est écrit en python, utilisant pyramid et pyArango.",
       "CAMAPTitle": "CAMAP (bientôt)",
-      "CAMAPDescription": "CAMAP est le modèle d'IA que l'on utilise pour la prédiction des epitopes à partir des séquences d'ARNm. CAMAP est écrit avec pyTorch",
+      "CAMAPDescription": "CAMAP est le modèle d'IA que l'on utilise pour la prédiction des épitopes à partir des séquences d'ARNm. CAMAP est écrit avec pyTorch",
       "translateTitle": "Traduction",
       "translateDescription": "Vous pouvez contribuer à développer Epitopes.world en proposant des traductions pour le front-end"
     }

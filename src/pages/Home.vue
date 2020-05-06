@@ -13,6 +13,9 @@
                         <span  class="uk-icon" uk-icon="icon: twitter; ratio: 3"></span>
                     </a>
                     <p class="uk-margin-top we-abstract-disclaimer">
+                        {{$t("home.no_instititions")}}
+                    </p>
+                    <p class="uk-margin-top we-abstract-disclaimer">
                         {{$t("home.release_info")}}
                     </p>
                     <Countdown 

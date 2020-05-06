@@ -1,4 +1,6 @@
-# covap-webapp
+# Epitopes.world front-end
+
+This is the front of https://epitopes.world. It everything you see on the website.
 
 ## Project setup
 ```

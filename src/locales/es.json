@@ -80,7 +80,7 @@
       "frontendTitle": "Interfaz",
       "frontenDescription": "La interfaz controla todo lo que tu ves. Así es como Epitopes.world se ve, se siente y actúa. La interfaz está escrita en Javascript usando UIkit y VueJS.",
       "backendTitle": "Back-end",
-      "backendDescription": "La función del back-end es transferir las 	consultas desde la interfaz a la base de datos ArangoDB Oasis. El back-end esta escrito en python usando pyramid y pyArango.",
+      "backendDescription": "La función del back-end es transferir las consultas desde la interfaz a la base de datos ArangoDB Oasis. El back-end esta escrito en python usando pyramid y pyArango.",
       "CAMAPTitle": "CAMAP (próximamente)",
       "CAMAPDescription": "CAMAP es la Inteligencia Artificial que usamos para predecir epítopos a partir del RNA mensajero. CAMAP está escrito usando pyTorch",
       "translateTitle": "Traducción",

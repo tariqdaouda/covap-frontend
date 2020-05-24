@@ -5,6 +5,6 @@ export default {
     return i18n.locale;
   },
   languages() {
-    return ['en','fr', 'pt'];
+    return ['en','fr', 'pt', 'es'];
   },
 }

@@ -1,0 +1,89 @@
+{
+    "website":{
+      "title": "El mundo de los epítopos",
+      "titleDescription": "Inteligencia Artificial aplicada a la vacuna de la COVID-19"
+    },
+    "cookies": "Para funcionar correctamente, esta página web necesita almacenar datos en tu dispositivo. Si continuas usando esta página web, reconoces y aceptas que estos datos sean almacenados en tu dispositivo.",
+    "accept": "Acepto",
+    "loading": "Cargando...",
+    "menu": {
+        "home": "Inicio",
+        "research": "Ciencia",
+        "explore": "Explora",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "openSource": "Código abierto"
+    },
+    "home":{
+      "titleDescription": "Inteligencia Artificial aplicada a la vacuna de la COVID-19",
+      "world_epitopes": "El mundo de los epítopos",
+      "register": "Notifícame",
+      "main_title": "Predicción de dianas para la vacuna de la COVID-19 ",
+      "release_info": "El artículo científico y los datos se publicarán el  5 / 5 / 2020, a las 5:05 de la tarde (EST)",
+      "release_done": "Hecho.",
+      "intro": "La COVID-19 es una pandemia de enormes consecuencias humanas y económicas. Nosotros hemos desarrollado un algoritmo de Inteligencia Artificial que puede ayudar a identificar dianas para la vacuna contra la COVID-19. ",
+      "why?": "¿Por qué es importante?",
+      "because": "Probar vacunas es un proceso largo y las muestras de pacientes son escasas y muy valiosas. Al hacer públicos nuestros resultados, nuestro objetivo es reducir el número de dianas a probar, acelerando el desarrollo de una vacuna.",
+      "preliminary_disclaimer": "Estos resultados son preliminares.",
+      "publishing_takes_time": "La publicación de resultados científicos puede tardar meses. Dada la urgencia de la situación, hemos decidido hacer nuestros resultados disponibles al público lo antes possible.",
+      "under_construction": "Puedes seguir nuestro progreso en Twitter.",
+      "read_paper": "Artículo científico del CAMAP",
+      "explore_data": "Explorar los resultados.",
+      "learn_more": "Aprender más.",
+      "contact_us": "Contacto.",
+      "image_credits": "Créditos de imagen",
+      "news": "Hemos aparecido en los siguientes medios de comunicación"
+    },
+    "research":{
+      "titleDescription": "Ciencia",
+      "title": "Descubriendo las debilidades del SARS-CoV-2",
+      "intro": "El algoritmo de Inteligencia Artificial que usamos se denomina CAMAP y fue desarrollado en el {IRIC} durante el transcurso de la tesis doctoral de Tariq Daouda. La aplicación original del CAMAP era el desarrollo de una terapia inmunológica contra el cáncer. Sin embargo, debido a que ha aprendido patrones comunes del sistema immune, el CAMAP puede también desvelar debilidades del virus. Además, puede acelerar el descubrimiento de la vacuna contra el SARS-CoV-2.",
+      "panel1":"1- Las células presentan en su superficie pequeños fragmentos de las proteínas que contienen. Estos fragmentos se llaman epítopos e informan al sistema inmune de lo que ocurre en el interior de las células. Cuando una célula se infecta por un virus, el material genético de éste es inyectado al interior de la célula.",
+      "panel2":"2- Es entonces cuando empieza la producción de nuevos virus a partir del material genético introducido. Sin embargo, algunos (pero no todos) de los fragmentos de las proteínas virales también son presentados en la superficie de la célula.",
+      "panel3":"3- Al analizar la información genética del virus, el algoritmo de Inteligencia Artificial (CAMAP) puede predecir qué fragmentos del virus tienen mayor posibilidad de ser presentados en la superficie de la célula.",
+      "panel4":"4- Entonces, podemos seleccionar qué combinación de fragmentos tiene una elevada probabilidad de ser presentada en la superficie de la célula y diseñar una vacuna que ayude a nuestro sistema inmune a hacer frente al virus.",
+      "panel5":"5- Si las células del sistema inmune encuentran a una célula del cuerpo infectada, la pueden reconocer y matar el virus.",
+      "tariq_ivado_video": "En este vídeo de 2019, Tariq Daouda habla con {IVADO} sobre las ideas más importantes detrás de CAMAP."
+    },
+    "about":{
+      "titleDescription": "Acerca",
+      "team_title": "Equipo",
+      "team_intro": "Epitopes.world está hecho y mantenido por un equipo multidisciplinar de investigadores y desarrolladores voluntarios. Estamos comprometidos a compartir la ciencia de forma abierta y en desarrollar formas innovadoras de divulgar la investigación científica en un momento en que esto es crucial.",
+      "sponsors_title": "Patrocinadores",
+      "sponsors_intro": "",
+      "acknowlegments_title": "Agradecimientos",
+      "acknowlegments_intro": "Nos gustaría agradecer a las siguientes personas por su contribución en el desarrollo de CAMAP y / o en el crecimiento de Epitopes.world",
+      "authors_intro": "Nos gustaría agradecer a todos los autores que han participado en la investigación relacionada con el CAMAP y sin los cuales este proyecto no existiría:"
+    },
+    "data":{
+      "titleDescription": "Explorar los datos",
+      "title": "Exploración de los datos",
+      "distributionXLabel": "Puntuación según el CAMAP (Probabilidad)",
+      "distributionYLabel": "Distribución",
+      "labelName": "Nombre de la etiqueta",
+      "sequence": "Secuencia",
+      "name": "Nombre",
+      "length": "Longitud",
+      "color": "Color",
+      "popup1Title": "Resultados de CAMAP para SARS-CoV-2",
+      "popup1P1": "El resultado que proporciona CAMAP representa la probabilidad de que el fragmento de una proteína sea presentado en la superficie de la célula. Fragmentos de una proteína con una elevada puntuación según el CAMAP, podrían ser dianas para una potencial vacuna. Si no se afirma lo contrario, 'Puntuación' hace referencia a la puntuación según el CAMAP.",
+      "popup1P2": "En un intento de compartir la puntuación según el CAMAP lo antes posible, la UI actual carga a lo sumo unos 5000 ejemplos. La distribución puede cambiar ligeramente entre consultas. La tabla únicamente muestra los resultados de la última consulta.",
+      "popup1P3": "Estamos trabajando para añadir nuevas características como un sistema/tabla de consultas y un editor de visualizaciones. Manteneos al tanto y seguidnos en Twitter para saber cuándo nuevas herramientas son disponibles."
+    },
+    "contact":{
+      "titleDescription": "Contacto"
+    },
+    "openSource":{
+      "titleDescription": "Código abierto",
+      "title": "Iniciativa código abierto.",
+      "description": "Epitopes.world es un proyecto de código abierto en el que tú puedes contribuir.",
+      "frontendTitle": "Interfaz",
+      "frontenDescription": "La interfaz controla todo lo que tu ves. Así es como Epitopes.world se ve, se siente y actúa. La interfaz está escrita en Javascript usando UIkit y VueJS.",
+      "backendTitle": "Back-end",
+      "backendDescription": "La función del back-end es transferir las 	consultas desde la interfaz a la base de datos ArangoDB Oasis. El back-end esta escrito en python usando pyramid y pyArango.",
+      "CAMAPTitle": "CAMAP (próximamente)",
+      "CAMAPDescription": "CAMAP es la Inteligencia Artificial que usamos para predecir epítopos a partir del RNA mensajero. CAMAP está escrito usando pyTorch",
+      "translateTitle": "Traducción",
+      "translateDescription": "Tu también puedes ayudar a Epitopes.world aportando traducciones de la interfaz."
+    }
+}

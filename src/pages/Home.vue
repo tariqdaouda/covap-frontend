@@ -15,6 +15,7 @@
                     <p class="uk-margin-top we-abstract-disclaimer">
                         {{$t("home.no_instititions")}}
                     </p>
+                    <!--                     
                     <p class="uk-margin-top we-abstract-disclaimer">
                         {{$t("home.release_info")}}
                     </p>
@@ -22,7 +23,8 @@
                         start-date="Apr 22, 2020 01:06:00"
                         target-date="May 5, 2020 17:05:05"
                         :expired-text="$t('release_done')"
-                    ></Countdown>
+                    ></Countdown> 
+                    -->
                     <router-link v-if="inConstruction" class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>
                     <div v-else class="uk-button-group we-hero-buttons uk-align-center">
                         <a class="uk-button uk-button-primary" href="/data/CAMAP_withFigures.pdf">{{$t("home.read_paper")}}</a>
@@ -81,11 +83,11 @@
 
 <script>
   import { IN_CONSTRUCTION } from '../configuration.js'
-  import Countdown from '../components/Countdown';
+  //import Countdown from '../components/Countdown'; //release countdown
   
   export default {
     components: {
-        Countdown
+        //Countdown //release countdown
     },
     metaInfo() {
         return{

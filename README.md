@@ -1,6 +1,6 @@
 # Epitopes.world front-end (AI for COVID-19 Vaccine)
 
-This is the front of https://epitopes.world. It everything you see on the website.
+This is the front-end of https://epitopes.world. It everything you see on the website.
 
 The COVID-19 is a pandemic of humongous human and economic consequences. We have developed an AI algorithm that can help identify useful targets for a vaccine against COVID-19.
 

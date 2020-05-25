@@ -33,14 +33,16 @@
 
       <!--graph axis-->
       <div class="uk-margin">
+
         <!--graph X axis field combobox-->
-        <!--<label class="we-page-subtitle we-data-collection-title">X Axis</label>-->
-        <multiselect v-model="selectedXAxis" :options="graphSanitizedColumns"></multiselect>
+        <multiselect v-model="selectedGraphType" :options="graphType" placeholder="Graph Type" class="uk-margin"></multiselect>
+
+        <!--graph X axis field combobox-->
+        <multiselect v-model="selectedXAxis" :options="graphSanitizedColumns" placeholder="X axis" class="uk-margin"></multiselect>
         
-        <!--graph Y axis field combobox
-        <label class="we-page-subtitle we-data-collection-title">Y Axis</label>
-        <multiselect v-model="selectedYAxis" :options="graphSanitizedColumns"></multiselect>
-        -->
+        <!--graph Y axis field combobox-->
+        <multiselect v-model="selectedYAxis" :options="graphSanitizedColumns" placeholder="Y axis" class="uk-margin"></multiselect>
+        
       </div>
 
       <!--Layer option-->
@@ -58,11 +60,14 @@
         </div>
 
         <div class="uk-button-group">
-          <button v-on:click="addLayer" v-bind:class="{ 'disabled': !addingLayer, 'uk-button uk-button-primary': !addingLayer, 'uk-button uk-button-secondary': addingLayer}">
+          <button v-on:click="addLayer" v-bind:class="{ 'disabled': !addingLayer, 'uk-button-small uk-button-primary': !addingLayer, 'uk-button-small uk-button-secondary': addingLayer}">
             <span uk-icon="icon: plus-circle; ratio: 2" v-if="!addingLayer"></span>
             <div uk-spinner v-if="addingLayer"></div>
           </button>
-          <button v-on:click="resetGraph" class="uk-button uk-button-primary">
+          <button v-on:click="popLast" class="uk-button-small uk-button-primary">
+            <span uk-icon="icon: minus-circle; ratio: 2"></span>
+          </button>
+          <button v-on:click="resetGraph" class="uk-button-small uk-button-primary">
             <span uk-icon="icon: refresh; ratio: 2"></span>
           </button>
         </div>
@@ -73,7 +78,7 @@
     </div>
 
     <div class="we-explore-main">
-        <GraphComponent :datas=graphData :xLabel="selectedXAxis" :yLabel="$t('data.distributionYLabel')"></GraphComponent>
+        <GraphComponent :graphType="selectedGraphType" :datas="graphData" :xLabel="selectedXAxis" :yLabel="getYLabel"></GraphComponent>
 
         <table class="uk-table uk-table-striped we-data-table uk-text-center uk-align-center">
           <thead>
@@ -160,14 +165,21 @@
           this.$t('data.name'),
           this.$t('data.length')
         ],
+        graphType: [
+          'histogram',
+          'scatter',
+          'line',
+          'density'
+        ],
         labelName: '',
+        selectedGraphType: "histogram",
         selectedXAxis: null,
-        //selectedYAxis: null
+        selectedYAxis: null
       }
     },
     created() {
       this.fetchFields();
-    },
+      },
     methods: {
       fetchFields () {
         for (let [collection, fields] of Object.entries(this.backendFields)) {
@@ -223,8 +235,35 @@
         return 'hsl(' + this.plotHue + ', 100%, 50%)'
       },
       addLayer () {
-        let values = this.tableData.map( elt => { return elt[this.selectedXAxis]})
-        this.graphData.push({label: this.labelName, values: values, color: this.getPlotColor()});
+
+        let xValues = this.tableData.map( elt => { return elt[this.selectedXAxis]});
+        let yValues = this.tableData.map( elt => { return elt[this.selectedYAxis]});
+
+        
+        if (this.selectedGraphType === 'histogram' || this.selectedGraphType === 'box') {
+          // group data usong Y axis if graph type is histogram or box
+
+          let groupLabels = [... new Set(yValues)];
+          let colorRange = 360 / groupLabels.length;
+          let indexes = [];
+          let labelIndex, values;
+
+          groupLabels.forEach(elt => {
+            indexes = yValues.map((e, i) => e === elt ? i : '').filter(String)
+            values = indexes.map( i => xValues[i])
+            labelIndex = groupLabels.indexOf(elt)
+
+            this.graphData.push({
+              label: [this.labelName,elt].join('#'),
+              x: values,
+              color: 'hsl(' + colorRange * labelIndex+ ', 100%, 50%)'
+            })
+          })
+
+        } else {
+          this.graphData.push({label: this.labelName, x: xValues, y: yValues, color: this.getPlotColor()});
+        }
+
       },
       resetGraph () {
         var r = confirm("You are about to delete all graph layers! Do you wanna continue?");
@@ -257,6 +296,9 @@
     computed: {
       formFields() {
         return this.$store.state.formFields;
+      },
+      getYLabel() {
+        return this.graphType === 'histogram' ? "$t('data.distributionYLabel')" : this.selectedYAxis;
       },
       graphData:
       {

@@ -14,7 +14,7 @@
     "core-js": "^3.6.4",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
-    "plotly.js-cartesian-dist": "^1.39.0",
+    "plotly.js-dist-min": "^1.39.0",
     "uikit": "^3.3.7",
     "uikit-icons": "^0.5.0",
     "ukit": "0.0.1-security",

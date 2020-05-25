@@ -12,15 +12,15 @@
                     <a href="https://twitter.com/TariqDaouda"> 
                         <span  class="uk-icon" uk-icon="icon: twitter; ratio: 3"></span>
                     </a>
-                    <p class="uk-margin-top we-abstract-disclaimer">
-                        {{$t("home.no_instititions")}}
-                    </p>
+                    <!-- <p class="uk-margin-top we-abstract-disclaimer"> -->
+                        <!-- {{$t("home.no_instititions")}} -->
+                    <!-- </p> -->
                     <p class="uk-margin-top we-abstract-disclaimer">
                         {{$t("home.release_info")}}
                     </p>
                     <Countdown 
-                        start-date="Apr 22, 2020 01:06:00"
-                        target-date="May 5, 2020 17:05:05"
+                        start-date="May 25, 2020 01:06:00"
+                        target-date="June 1, 2020 17:05:05"
                         :expired-text="$t('release_done')"
                     ></Countdown>
                     <router-link v-if="inConstruction" class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>

@@ -28,48 +28,45 @@
 
       <hr>
 
-      <!--TODO make translation for this part of the form-->
-      <h3 class="we-page-subtitle">Graph</h3>
+      <div v-show="graphSanitizedColumns.length > 0">
+        <!--TODO make translation for this part of the form-->
+        <h3 class="we-page-subtitle">Graph</h3>
 
-      <!--graph axis-->
-      <div class="uk-margin">
-
-        <!--graph X axis field combobox-->
-        <multiselect v-model="selectedGraphType" :options="graphType" placeholder="Graph Type" class="uk-margin"></multiselect>
-
-        <!--graph X axis field combobox-->
-        <multiselect v-model="selectedXAxis" :options="graphSanitizedColumns" placeholder="X axis" class="uk-margin"></multiselect>
-        
-        <!--graph Y axis field combobox-->
-        <multiselect v-model="selectedYAxis" :options="graphSanitizedColumns" placeholder="Y axis" class="uk-margin"></multiselect>
-        
-      </div>
-
-      <!--Layer option-->
-      <div>
-
-        <!--Layer label name-->
-        <input class="uk-input uk-text-center uk-margin" type="text" :placeholder="this.$t('data.labelName')" v-model="labelName">
-
-        <!--Layer color-->
-        <div class="we-data-color-shower">
-          <label v-bind:style="{ color: getPlotColor()}" >{{$t("data.color")}}</label>  
-        </div>
+        <!--graph axis-->
         <div class="uk-margin">
-          <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
+          <!--graph X axis field combobox-->
+          <multiselect v-model="selectedGraphType" :options="graphType" placeholder="Graph Type" class="uk-margin"></multiselect>
+          <!--graph X axis field combobox-->
+          <multiselect v-model="selectedXAxis" :options="graphSanitizedColumns" placeholder="X axis" class="uk-margin"></multiselect>
+          <!--graph Y axis field combobox-->
+          <multiselect v-model="selectedYAxis" :options="graphSanitizedColumns" placeholder="Y axis" class="uk-margin"></multiselect>
         </div>
 
-        <div class="uk-button-group">
-          <button v-on:click="addLayer" v-bind:class="{ 'disabled': !addingLayer, 'uk-button-small uk-button-primary': !addingLayer, 'uk-button-small uk-button-secondary': addingLayer}">
-            <span uk-icon="icon: plus-circle; ratio: 2" v-if="!addingLayer"></span>
-            <div uk-spinner v-if="addingLayer"></div>
-          </button>
-          <button v-on:click="popLast" class="uk-button-small uk-button-primary">
-            <span uk-icon="icon: minus-circle; ratio: 2"></span>
-          </button>
-          <button v-on:click="resetGraph" class="uk-button-small uk-button-primary">
-            <span uk-icon="icon: refresh; ratio: 2"></span>
-          </button>
+        <!--Layer option-->
+        <div>
+          <!--Layer label name-->
+          <input class="uk-input uk-text-center uk-margin" type="text" :placeholder="this.$t('data.labelName')" v-model="labelName">
+
+          <!--Layer color-->
+          <div class="we-data-color-shower">
+            <label v-bind:style="{ color: getPlotColor()}" >{{$t("data.color")}}</label>  
+          </div>
+          <div class="uk-margin">
+            <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
+          </div>
+
+          <div class="uk-button-group">
+            <button v-on:click="addLayer" v-bind:class="{ 'disabled': !addingLayer, 'uk-button-small uk-button-primary': !addingLayer, 'uk-button-small uk-button-secondary': addingLayer}">
+              <span uk-icon="icon: plus-circle; ratio: 2" v-if="!addingLayer"></span>
+              <div uk-spinner v-if="addingLayer"></div>
+            </button>
+            <button v-on:click="popLast" class="uk-button-small uk-button-primary">
+              <span uk-icon="icon: minus-circle; ratio: 2"></span>
+            </button>
+            <button v-on:click="resetGraph" class="uk-button-small uk-button-primary">
+              <span uk-icon="icon: refresh; ratio: 2"></span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -168,13 +165,15 @@
         graphType: [
           'histogram',
           'scatter',
+          'box',
           'line',
           'density'
         ],
         labelName: '',
         selectedGraphType: "histogram",
         selectedXAxis: null,
-        selectedYAxis: null
+        selectedYAxis: null,
+        lastGraphOptions: null
       }
     },
     created() {
@@ -236,39 +235,62 @@
       },
       addLayer () {
 
+        let currentGraphOptions = {
+          selectedGraphType: this.selectedGraphType,
+          selectedXAxis: this.selectedXAxis,
+          selectedYAxis: this.selectedYAxis,
+        }
+
+        if (this.lastGraphOptions !== null && (
+              this.lastGraphOptions.selectedGraphType != currentGraphOptions.selectedGraphType ||
+              this.lastGraphOptions.selectedXAxis != currentGraphOptions.selectedXAxis ||
+              this.lastGraphOptions.selectedYAxis != currentGraphOptions.selectedYAxis)
+          ) {
+          var r = confirm("Your graph type/fields has changed, continuing will delete previous layer");
+          if (r == true) {
+            this.graphData = [];
+            this.lastGraphOptions = null
+          } else {
+            return
+          }
+        }
+
         let xValues = this.tableData.map( elt => { return elt[this.selectedXAxis]});
         let yValues = this.tableData.map( elt => { return elt[this.selectedYAxis]});
 
-        
-        if (this.selectedGraphType === 'histogram' || this.selectedGraphType === 'box') {
+        if (this.selectedGraphType === 'histogram') {
           // group data usong Y axis if graph type is histogram or box
 
           let groupLabels = [... new Set(yValues)];
           let colorRange = 360 / groupLabels.length;
           let indexes = [];
-          let labelIndex, values;
+          let labelIndex, pointData, values, color;
 
           groupLabels.forEach(elt => {
             indexes = yValues.map((e, i) => e === elt ? i : '').filter(String)
             values = indexes.map( i => xValues[i])
             labelIndex = groupLabels.indexOf(elt)
+            color = 'hsl(' + ( this.plotHue +  (colorRange * labelIndex)) % 360 + ', 100%, 50%)'
 
-            this.graphData.push({
+            pointData = {
+              name: [this.labelName,elt].join('#'),
               label: [this.labelName,elt].join('#'),
               x: values,
-              color: 'hsl(' + colorRange * labelIndex+ ', 100%, 50%)'
-            })
+              color: color
+            }
+            
+            this.graphData.push(pointData)
           })
-
         } else {
           this.graphData.push({label: this.labelName, x: xValues, y: yValues, color: this.getPlotColor()});
         }
-
+        this.lastGraphOptions = currentGraphOptions;
       },
       resetGraph () {
         var r = confirm("You are about to delete all graph layers! Do you wanna continue?");
         if (r == true) {
-         this.graphData = [];
+          this.graphData = [];
+          this.lastGraphOptions = null
         }
       },
       JsonToCSV: function (){

@@ -14,14 +14,7 @@
       return {
         // grapType could either be :
         // line, box, scatter, histogram
-        // input data format
-        /*
-        datas: [
-          {label: 'control', x: [1,2,3,4,5], y: [1,2,3,4,5], color: 'rgb(255, 0, 0)'},
-          {label: 'experimental', x: [4,5,6,8], y: [4,5,6,8], color: 'rgb(0, 0, 255)'}
-        ],
-        */
-        //graphType: 'histogram',        
+        // input data format    
         config: {
           toImageButtonOptions: {
             format: 'png', // one of png, svg, jpeg, webp
@@ -53,7 +46,7 @@
             output,
             {
               autobinx: true,
-              opacity: 0.5,
+              opacity: 1,
               type: 'histogram',
               histnorm: 'probability'
             }
@@ -81,8 +74,9 @@
           return Object.assign(
             output,
             {
-              x:  data.y,
+              x:  data.x,
               type: 'box',
+              name:data.label,
               boxmean: 'sd'
             }
           )
@@ -111,6 +105,9 @@
             bargap: 0,
             bargroupgap: 0,
             showlegend: true,
+            yaxis: {
+              title: 'Distribution'
+            },
             legend: {
               x: 1,
               y: 0.5
@@ -121,7 +118,17 @@
           return Object.assign(
             output,
             {
-              showlegend: false
+              showlegend: false,
+              yaxis: {
+                title: ''
+              },
+            }
+          )
+        } else if (this.graphType === 'stacked bar') {
+          return Object.assign(
+            output,
+            {
+              barmode: "stack"
             }
           )
         } else if (this.graphType === 'line') {

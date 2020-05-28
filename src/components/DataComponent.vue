@@ -1,5 +1,21 @@
 <template>
   <div>
+    <a class="uk-button uk-button-default" href="#modal-send-mail" uk-toggle>Open</a>
+
+    <div id="modal-send-mail" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <h2 class="uk-modal-title">Please provide your mail</h2>
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeF9uobQ2Hr4df2QbUJDlBpGCvcD-gjoFwmjrIN_TXoO0YzNA/formResponse" 
+                  method="post"
+                  @click="downloadCSV($event)">
+              <label for="email">Enter your email:</label>
+              <input type="email" id="emailAddress" name="emailAddress">
+              <input type="submit">
+            </form>
+        </div>
+    </div>
+
     <div class="we-explore-menu uk-text-center">
       <h3 class="we-page-subtitle">{{$t("data.title")}}</h3>
       <div v-if="isFormLoaded">
@@ -33,7 +49,7 @@
         </button>
       </div>
       <div class="uk-margin">
-        <button v-on:click="downloadCSV()" class="uk-button uk-button-primary">Export</button>
+        <button v-on:click="getMailPopup()" class="uk-button uk-button-primary">Export</button>
       </div>
 
     </div>
@@ -68,6 +84,7 @@
 </template>
 
 <script>
+  import UIkit from 'uikit';
   import TextInput from './TextInput';
   import GraphComponent from './GraphComponent';
   import schemas from '../schemas/schemas'
@@ -204,12 +221,16 @@
           })
         return csvStr;
       },
+      getMailPopup: function () {
+        
+        UIkit.modal("#modal-send-mail").show();
+
+      },
       downloadCSV: function () {
         let hiddenElement = document.createElement('a');
         hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(this.JsonToCSV());
         hiddenElement.target = '_blank';
         hiddenElement.download = 'epitopes.csv';
-        hiddenElement.click();
       }
     },
     computed: {

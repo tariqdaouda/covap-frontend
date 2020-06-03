@@ -1,5 +1,17 @@
 <template>
   <div>
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <h3>Please provide your mail</h3>
+          <!-- <form id="mG61Hd" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeF9uobQ2Hr4df2QbUJDlBpGCvcD-gjoFwmjrIN_TXoO0YzNA/formResponse" method="POST"> -->
+            <label for="email">Enter your email:</label>
+            <input type="email" id="emailAddress" name="emailAddress">
+            <button @click="sendEmail()">subniot</button>
+          <!-- </form> -->
+        </div>
+    </div>
+    
     <div class="we-explore-menu uk-text-center">
       <h3 class="we-page-subtitle">{{$t("data.title")}}</h3>
       <div v-if="isFormLoaded">
@@ -33,7 +45,8 @@
         </button>
       </div>
       <div class="uk-margin">
-        <button v-on:click="downloadCSV()" class="uk-button uk-button-primary">Export</button>
+        <!-- <button v-on:click="downloadCSV()" class="uk-button uk-button-primary">Export</button> -->
+        <a href="#modal-center" class="uk-button uk-button-primary" uk-toggle>Export</a>
       </div>
 
     </div>
@@ -77,6 +90,7 @@
   import SliderInput from "./SliderInput";
   import MultiSelectInput from "./MultiSelectInput";
   import { API_URL } from '../configuration.js'
+  // import UIkit from 'uikit';
 
   Vue.use(VueAxios, axios);
 
@@ -105,7 +119,7 @@
             // },
             Name: {
               type: "enumeration",
-              cases: ["SARS-CoV-2", "SARS-CoV-1", "Human[Decoy]", "Human[Hits]"]
+              cases: ["SARS-CoV-2", "SARS-CoV-1", "Human[Decoy]", "Human[MAPs]"]
             },
             Length: {
               type: "enumeration",
@@ -203,6 +217,29 @@
             csvStr += "\n";
           })
         return csvStr;
+      },
+      // emailPrompt(){
+      //   const html = '<label for="email">Enter your email:</label> <input type="email" id="emailAddress" name="emailAddress"><button onclick="sendEmail()">submit</button>'
+      //   UIkit.modal.dialog(html).then(function() {
+      //       console.log('Confirmed.')
+      //   }, function () {
+      //       console.log('Rejected.')
+      //   });
+      // },
+
+      sendEmail(){
+        this.$http.get(
+          "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeF9uobQ2Hr4df2QbUJDlBpGCvcD-gjoFwmjrIN_TXoO0YzNA/formResponse",
+          {
+            "payload": {
+              "entry.emailAddress": "test@gmail.com",
+              "submit": "submit"
+            }
+          }
+        ).then(ret1 => {
+          console.log(ret1)
+          console.log("good")
+        }).catch(error => console.log(error));
       },
       downloadCSV: function () {
         let hiddenElement = document.createElement('a');

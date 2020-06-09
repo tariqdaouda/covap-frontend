@@ -61,7 +61,9 @@
       "popup1Title": "Prediction CAMAP pour le SARS-CoV-2",
       "popup1P1": "Le score CAMAP représente la probabilité qu'un fragment protéique soit présenté à la surface cellulaire. Les fragments protéiques possédant un score élevé représentent des candidats potentiels pour un vaccin. Sauf en cas de mention contraire, la mention de 'Score' réfère au score de prédiction produit par CAMAP",
       "popup1P2": "Dans le but de partager nos données aussi rapidement que possible, cette interface est limitée dans son état actuel à 5000 éléments, les distributions peuvent varier légèrement entre les requêtes et le tableau n'affiche que les données de la dernière recherche.",
-      "popup1P3": "Nous travaillons activement à ajouter de nouvelles fonctionnalités avancées tel qu'un système de recherche, un tableau ainsi qu'un éditeur de visualisation. Suivez nous sur twitter pour être tenu informé"
+      "popup1P3": "Nous travaillons activement à ajouter de nouvelles fonctionnalités avancées tel qu'un système de recherche, un tableau ainsi qu'un éditeur de visualisation. Suivez nous sur twitter pour être tenu informé",
+      "download": "Télécharger",
+      "emailAsk": "Veuillez entrer votre adresse électronique"
     },
     "openSource":{
       "titleDescription": "Open source",

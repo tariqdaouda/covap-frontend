@@ -69,7 +69,9 @@
       "popup1Title": "Resultados de CAMAP para SARS-CoV-2",
       "popup1P1": "El resultado que proporciona CAMAP representa la probabilidad de que el fragmento de una proteína sea presentado en la superficie de la célula. Fragmentos de una proteína con una elevada puntuación según el CAMAP, podrían ser dianas para una potencial vacuna. Si no se afirma lo contrario, 'Puntuación' hace referencia a la puntuación según el CAMAP.",
       "popup1P2": "En un intento de compartir la puntuación según el CAMAP lo antes posible, la UI actual carga a lo sumo unos 5000 ejemplos. La distribución puede cambiar ligeramente entre consultas. La tabla únicamente muestra los resultados de la última consulta.",
-      "popup1P3": "Estamos trabajando para añadir nuevas características como un sistema/tabla de consultas y un editor de visualizaciones. Manteneos al tanto y seguidnos en Twitter para saber cuándo nuevas herramientas son disponibles."
+      "popup1P3": "Estamos trabajando para añadir nuevas características como un sistema/tabla de consultas y un editor de visualizaciones. Manteneos al tanto y seguidnos en Twitter para saber cuándo nuevas herramientas son disponibles.",
+      "download": "Descargar",
+      "emailAsk": "Por favor, proporcione su correo electrónico"
     },
     "contact":{
       "titleDescription": "Contacto"

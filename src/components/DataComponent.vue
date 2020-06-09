@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div id="modal-center" class="uk-flex-top" uk-modal>
+    <div id="modal-email-ask" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
           <button class="uk-modal-close-default" type="button" uk-close></button>
-          <h3>Please provide your mail</h3>
-          <!-- <form id="mG61Hd" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeF9uobQ2Hr4df2QbUJDlBpGCvcD-gjoFwmjrIN_TXoO0YzNA/formResponse" method="POST"> -->
-            <label for="email">Enter your email:</label>
-            <input type="email" id="emailAddress" name="emailAddress">
-            <button @click="sendEmail()">subniot</button>
-          <!-- </form> -->
+          <div class="uk-text-center"> 
+            <h3>{{$t('data.emailAsk')}}</h3>
+              <input type="email" id="emailAddress" name="emailAddress" v-model="email">
+              <button @click="sendEmail()">OK</button>
+            </div>
         </div>
     </div>
     
@@ -45,8 +44,8 @@
         </button>
       </div>
       <div class="uk-margin">
-        <!-- <button v-on:click="downloadCSV()" class="uk-button uk-button-primary">Export</button> -->
-        <a href="#modal-center" class="uk-button uk-button-primary" uk-toggle>Export</a>
+        <a v-if="!validated" href="#modal-email-ask" class="uk-button uk-button-primary" uk-toggle>{{$t('data.download')}}</a>
+        <button v-if="validated" v-on:click="downloadCSV()" class="uk-button uk-button-primary">{{$t('data.download')}}</button>
       </div>
 
     </div>
@@ -66,7 +65,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr v-for="(entry, index) in lastData" :key="index">
+              <tr v-for="(entry, index) in lastData.slice(0, 5)" :key="index">
                   <td>{{entry["Peptides.Score"]}}</td>
                   <td>{{entry["Peptides.Sequence"]}}</td>
                   <td>{{entry["Peptides.Accession"]}}</td>
@@ -90,7 +89,7 @@
   import SliderInput from "./SliderInput";
   import MultiSelectInput from "./MultiSelectInput";
   import { API_URL } from '../configuration.js'
-  // import UIkit from 'uikit';
+  import UIkit from 'uikit';
 
   Vue.use(VueAxios, axios);
 
@@ -107,6 +106,8 @@
     data() {
       return {
         fetching: false,
+        email: null,
+        validated: false,
         backendFields: {
           Peptides: {
             Score: {
@@ -228,17 +229,17 @@
       // },
 
       sendEmail(){
-        this.$http.get(
-          "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeF9uobQ2Hr4df2QbUJDlBpGCvcD-gjoFwmjrIN_TXoO0YzNA/formResponse",
+        this.$http.post(
+          API_URL + "/contacts",
           {
             "payload": {
-              "entry.emailAddress": "test@gmail.com",
-              "submit": "submit"
+              "email": this.email
             }
           }
-        ).then(ret1 => {
-          console.log(ret1)
-          console.log("good")
+        ).then(rval => {
+          console.log("Thank you.", rval)
+          this.validated=true
+          UIkit.modal("#modal-email-ask").hide()
         }).catch(error => console.log(error));
       },
       downloadCSV: function () {

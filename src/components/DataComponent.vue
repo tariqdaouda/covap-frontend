@@ -238,8 +238,11 @@
           }
         ).then(rval => {
           console.log("Thank you.", rval)
-          this.validated=true
-          UIkit.modal("#modal-email-ask").hide()
+          console.log(rval.data.error)
+          if (!rval.data.error) {
+            this.validated=true
+            UIkit.modal("#modal-email-ask").hide()
+          }
         }).catch(error => console.log(error));
       },
       downloadCSV: function () {

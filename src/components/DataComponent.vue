@@ -229,21 +229,27 @@
       // },
 
       sendEmail(){
-        this.$http.post(
-          API_URL + "/contacts",
-          {
-            "payload": {
-              "email": this.email
+        if (this.validated) {
+          this.downloadCSV()
+        }else{
+          this.$http.post(
+            API_URL + "/contacts",
+            {
+              "payload": {
+                "email": this.email
+              }
             }
-          }
-        ).then(rval => {
-          console.log("Thank you.", rval)
-          console.log(rval.data.error)
-          if (!rval.data.error) {
-            this.validated=true
-            UIkit.modal("#modal-email-ask").hide()
-          }
-        }).catch(error => console.log(error));
+          ).then(rval => {
+            console.log(rval.data.error)
+            if (!rval.data.error) {
+              console.log("Thank you.", rval)
+              // this.$store.commit('userEmail', this.email);
+              this.validated=true
+              UIkit.modal("#modal-email-ask").hide()
+              this.downloadCSV()
+            }
+          }).catch(error => console.log(error));
+        }
       },
       downloadCSV: function () {
         let hiddenElement = document.createElement('a');

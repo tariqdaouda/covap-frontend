@@ -25,7 +25,7 @@
                     <!-- ></Countdown> -->
                     <router-link v-if="inConstruction" class="uk-button uk-button-large we-superhero-button" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.register")}}</router-link>
                     <div v-else class="uk-button-group we-hero-buttons uk-align-center">
-                        <a class="uk-button uk-button-primary" href="/data/CAMAP_withFigures_V2.pdf">{{$t("home.read_paper")}}</a>
+                        <a class="uk-button uk-button-primary" href="https://www.biorxiv.org/content/10.1101/2020.06.03.078824v1.full" target="_blank" >{{$t("home.read_paper")}}</a>
                         <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/data'" >{{$t("home.explore_data")}}</router-link>
                         <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/research'" >{{$t("home.learn_more")}}</router-link>
                         <router-link class="uk-button uk-button-primary" :to="'/' + $i18n.locale + '/contact'" >{{$t("home.contact_us")}}</router-link>

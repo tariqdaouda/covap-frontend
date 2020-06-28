@@ -69,7 +69,8 @@
       "popup1Title": "CAMAP results for SARS-CoV-2",
       "popup1P1": "CAMAP score represents the likelihood of a protein fragment to be presented on the cell surface. Highest CAMAP score protein fragments could potentially be used as vaccine targets. Unless stated otherwise, 'Score' refers to CAMAP score.",
       "popup1P2": "In an effort to share CAMAP scores as fast as possible, the UI currently loads at most 5000 examples, distribution might change slighlty between queries and table only displays the last made query.",
-      "popup1P3": "We are still working hard on adding new features like advanced query system/table and a visualization editor. Stay tuned and follow us on Twitter to know when new features will be available."
+      "popup1P3": "We are still working hard on adding new features like advanced query system/table and a visualization editor. Stay tuned and follow us on Twitter to know when new features will be available.",
+      "graph_has_changed_popup": "Your graph type/fields has changed, continuing will delete previous layer"
     },
     "contact":{
       "titleDescription": "Contact us"

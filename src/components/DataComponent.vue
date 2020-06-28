@@ -246,7 +246,7 @@
               this.lastGraphOptions.selectedXAxis != currentGraphOptions.selectedXAxis ||
               this.lastGraphOptions.selectedYAxis != currentGraphOptions.selectedYAxis)
           ) {
-          var r = confirm("Your graph type/fields has changed, continuing will delete previous layer");
+          var r = confirm(this.$t('data.graph_has_changed_popup'));
           if (r == true) {
             this.graphData = [];
             this.lastGraphOptions = null
@@ -270,7 +270,7 @@
             indexes = yValues.map((e, i) => e === elt ? i : '').filter(String)
             values = indexes.map( i => xValues[i])
             labelIndex = groupLabels.indexOf(elt)
-            color = 'hsl(' + ( this.plotHue +  (colorRange * labelIndex + 1)) % 360 + ', 100%, 50%)'
+            color = 'hsl(' + ( this.plotHue +  (colorRange * (labelIndex + 1))) % 360 + ', 100%, 50%)'
 
             pointData = {
               name: [this.labelName,elt].join('#'),
@@ -287,7 +287,7 @@
         this.lastGraphOptions = currentGraphOptions;
       },
       resetGraph () {
-        var r = confirm("You are about to delete all graph layers! Do you wanna continue?");
+        var r = confirm(this.$t('data.graph_has_changed_popup'));
         if (r == true) {
           this.graphData = [];
           this.lastGraphOptions = null

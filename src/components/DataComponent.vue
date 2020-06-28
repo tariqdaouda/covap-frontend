@@ -270,7 +270,7 @@
             indexes = yValues.map((e, i) => e === elt ? i : '').filter(String)
             values = indexes.map( i => xValues[i])
             labelIndex = groupLabels.indexOf(elt)
-            color = 'hsl(' + ( this.plotHue +  (colorRange * labelIndex)) % 360 + ', 100%, 50%)'
+            color = 'hsl(' + ( this.plotHue +  (colorRange * labelIndex + 1)) % 360 + ', 100%, 50%)'
 
             pointData = {
               name: [this.labelName,elt].join('#'),

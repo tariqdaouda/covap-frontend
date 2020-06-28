@@ -27,31 +27,66 @@
           </div>
         </div>
       </div>
-      <input class="uk-input uk-text-center uk-margin" type="text" placeholder="..." v-model="labelName">
-      <div class="we-data-color-shower">
-        <label v-bind:style="{ color: getPlotColor()}" >{{$t("data.color")}}</label>  
-      </div>
-      <div class="uk-margin">
-        <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
-      </div>
-      <div class="uk-button-group">
-        <button v-if="!fetching" v-on:click="fetchData" class="uk-button uk-button-primary">
-          <span uk-icon="icon: plus-circle; ratio: 2"></span>
-        </button>
-        <span v-if="fetching" class="uk-button uk-button-primary" uk-spinner></span>
-        <button v-on:click="popLast" class="uk-button uk-button-primary">
-          <span uk-icon="icon: minus-circle; ratio: 2"></span>
-        </button>
-      </div>
+      <button v-on:click="fetchData" v-bind:class="{ 'disabled': !fetching, 'uk-button uk-button-primary': !fetching, 'uk-button uk-button-secondary': fetching}">
+        <span uk-icon="icon: search; ratio: 1" v-if="!fetching"></span>
+        <div uk-spinner v-if="fetching"></div>
+      </button>
+
       <div class="uk-margin">
         <a v-if="!validated" href="#modal-email-ask" class="uk-button uk-button-primary" uk-toggle>{{$t('data.download')}}</a>
         <button v-if="validated" v-on:click="downloadCSV()" class="uk-button uk-button-primary">{{$t('data.download')}}</button>
       </div>
 
+      <hr>
+
+      <div v-show="graphSanitizedColumns.length > 0">
+        <!--TODO make translation for this part of the form-->
+        <h3 class="we-page-subtitle">Graph</h3>
+
+        <!--graph axis-->
+        <div class="uk-margin">
+          <!--graph X axis field combobox-->
+          <multiselect v-model="selectedGraphType" :options="graphType" placeholder="Graph Type" class="uk-margin"></multiselect>
+          <!--graph X axis field combobox-->
+          <multiselect v-model="selectedXAxis" :options="graphSanitizedColumns" placeholder="X axis" class="uk-margin"></multiselect>
+          <!--graph Y axis field combobox-->
+          <multiselect v-model="selectedYAxis" :options="graphSanitizedColumns" placeholder="Y axis" class="uk-margin"></multiselect>
+        </div>
+
+        <!--Layer option-->
+        <div>
+          <!--Layer label name-->
+          <input class="uk-input uk-text-center uk-margin" type="text" :placeholder="this.$t('data.labelName')" v-model="labelName">
+
+          <!--Layer color-->
+          <div class="we-data-color-shower">
+            <label v-bind:style="{ color: getPlotColor()}" >{{$t("data.color")}}</label>  
+          </div>
+          <div class="uk-margin">
+            <input class="uk-range" type="range" value="100" min="0" max="360" step="1" v-model="plotHue">
+          </div>
+
+          <div class="uk-button-group">
+            <button v-on:click="addLayer" v-bind:class="{ 'disabled': !addingLayer, 'uk-button-small uk-button-primary': !addingLayer, 'uk-button-small uk-button-secondary': addingLayer}">
+              <span uk-icon="icon: plus-circle; ratio: 2" v-if="!addingLayer"></span>
+              <div uk-spinner v-if="addingLayer"></div>
+            </button>
+            <button v-on:click="popLast" class="uk-button-small uk-button-primary">
+              <span uk-icon="icon: minus-circle; ratio: 2"></span>
+            </button>
+            <button v-on:click="resetGraph" class="uk-button-small uk-button-primary">
+              <span uk-icon="icon: refresh; ratio: 2"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--Todo add a list of created layer with a delete button so they could be removed individually-->
+
     </div>
 
     <div class="we-explore-main">
-        <GraphComponent :datas=graphData :xLabel="$t('data.distributionXLabel')" :yLabel="$t('data.distributionYLabel')"></GraphComponent>
+        <GraphComponent :graphType="selectedGraphType" :datas="graphData" :xLabel="selectedXAxis" :yLabel="getYLabel"></GraphComponent>
 
         <table class="uk-table uk-table-striped we-data-table uk-text-center uk-align-center">
           <thead>
@@ -65,7 +100,8 @@
               </tr>
           </thead>
           <tbody>
-              <tr v-for="(entry, index) in lastData.slice(0, 5)" :key="index">
+
+              <tr v-for="(entry, index) in tableData.slice(0, 5)" :key="index">
                   <td>{{entry["Peptides.Score"]}}</td>
                   <td>{{entry["Peptides.Sequence"]}}</td>
                   <td>{{entry["Peptides.Accession"]}}</td>
@@ -87,6 +123,7 @@
   import axios from 'axios'
   import VueAxios from 'vue-axios'
   import SliderInput from "./SliderInput";
+  import Multiselect from 'vue-multiselect'
   import MultiSelectInput from "./MultiSelectInput";
   import { API_URL } from '../configuration.js'
   import UIkit from 'uikit';
@@ -99,6 +136,7 @@
       TextInput,
       SliderInput,
       GraphComponent,
+      Multiselect,
       MultiSelectInput,
       axios,
       VueAxios,
@@ -106,6 +144,7 @@
     data() {
       return {
         fetching: false,
+        addingLayer: false,
         email: null,
         validated: false,
         backendFields: {
@@ -129,7 +168,7 @@
           },
         },
         plotHue: 15,
-        lastData: [],
+        tableData: [],
         columns: [
           this.$t('data.distributionXLabel'),
           this.$t('data.sequence'),
@@ -137,12 +176,24 @@
           'Sub_accession',
           this.$t('data.name'),
           this.$t('data.length')
-        ]
+        ],
+        graphType: [
+          'histogram',
+          'scatter',
+          'box',
+          'line',
+          'density'
+        ],
+        labelName: '',
+        selectedGraphType: "histogram",
+        selectedXAxis: null,
+        selectedYAxis: null,
+        lastGraphOptions: null
       }
     },
     created() {
       this.fetchFields();
-    },
+      },
     methods: {
       fetchFields () {
         for (let [collection, fields] of Object.entries(this.backendFields)) {
@@ -154,13 +205,6 @@
           }
         }
         this.$store.commit('toggleIsFormLoaded');
-      },
-      tidyfy(data){
-        let tidy = []
-        for (let line of data.payload){
-          tidy.push(line["Peptides.Score"])
-        }
-        return tidy
       },
       buildQuery() {
         let query = {};
@@ -187,23 +231,82 @@
             }
           }
         ).then(ret1 => {
-          let values = this.tidyfy(ret1.data);
-          this.graphData.push({label: this.labelName, values: values, color: this.getPlotColor()});
 
           // tmp sort until its done on backend side
           let tmp = ret1.data.payload
           tmp.sort(function(a, b) {
             return b['Peptides.Score'] - a['Peptides.Score']
           })
-          this.lastData = tmp
+          this.tableData = tmp
           this.fetching = false
+
         }).catch(error => console.log(error));
       },
       popLast(){
         this.graphData.pop();
       },
-      getPlotColor(){
+      getPlotColor() {
         return 'hsl(' + this.plotHue + ', 100%, 50%)'
+      },
+      addLayer () {
+
+        let currentGraphOptions = {
+          selectedGraphType: this.selectedGraphType,
+          selectedXAxis: this.selectedXAxis,
+          selectedYAxis: this.selectedYAxis,
+        }
+
+        if (this.lastGraphOptions !== null && (
+              this.lastGraphOptions.selectedGraphType != currentGraphOptions.selectedGraphType ||
+              this.lastGraphOptions.selectedXAxis != currentGraphOptions.selectedXAxis ||
+              this.lastGraphOptions.selectedYAxis != currentGraphOptions.selectedYAxis)
+          ) {
+          var r = confirm(this.$t('data.graph_has_changed_popup'));
+          if (r == true) {
+            this.graphData = [];
+            this.lastGraphOptions = null
+          } else {
+            return
+          }
+        }
+
+        let xValues = this.tableData.map( elt => { return elt[this.selectedXAxis]});
+        let yValues = this.tableData.map( elt => { return elt[this.selectedYAxis]});
+
+        if (this.selectedGraphType === 'histogram') {
+          // group data usong Y axis if graph type is histogram or box
+
+          let groupLabels = [... new Set(yValues)];
+          let colorRange = 360 / groupLabels.length;
+          let indexes = [];
+          let labelIndex, pointData, values, color;
+
+          groupLabels.forEach(elt => {
+            indexes = yValues.map((e, i) => e === elt ? i : '').filter(String)
+            values = indexes.map( i => xValues[i])
+            labelIndex = groupLabels.indexOf(elt)
+            color = 'hsl(' + ( this.plotHue +  (colorRange * (labelIndex + 1))) % 360 + ', 100%, 50%)'
+
+            pointData = {
+              name: [this.labelName,elt].join('#'),
+              label: [this.labelName,elt].join('#'),
+              x: values,
+              color: color
+            }
+            
+            this.graphData.push(pointData)
+          })
+        } else {
+          this.graphData.push({label: this.labelName, x: xValues, y: yValues, color: this.getPlotColor()});
+        }
+        this.lastGraphOptions = currentGraphOptions;
+      },
+      resetGraph () {
+        var r = confirm(this.$t('data.graph_has_changed_popup'));
+        if (r == true) {
+          this.graphData = [];
+          this.lastGraphOptions = null
+        }
       },
       JsonToCSV: function (){
         // create columns row
@@ -211,7 +314,7 @@
         var csvFields = ["Peptides.Score", "Peptides.Sequence", "Peptides.Accession", "Peptides.Sub_accession", "Peptides.Name", "Peptides.Length"];
 
         // iterate over each rows and populate csv
-        this.lastData.forEach(row => {
+        this.tableData.forEach(row => {
             csvFields.forEach(field => {
               csvStr += row[field] + ','
             })
@@ -260,17 +363,45 @@
       }
     },
     computed: {
-      labelName() {
-        return this.$t("data.labelName");
-      },
       formFields() {
         return this.$store.state.formFields;
       },
-      graphData() {
-        return this.$store.state.graphData;
+      getYLabel() {
+        return this.graphType === 'histogram' ? "$t('data.distributionYLabel')" : this.selectedYAxis;
+      },
+      graphData:
+      {
+          get()
+          {
+              return this.$store.state.graphData;
+          },
+          set(value)
+          {
+              this.$store.state.graphData = value;
+          }
       },
       isFormLoaded() {
         return this.$store.state.isFormLoaded;
+      },
+      graphSanitizedColumns() {
+
+        if (this.tableData.length == 0) {
+          return []
+        }
+
+        let dataColumns = Object.keys(this.tableData[0])
+        let outColumns = []
+        dataColumns.forEach( item => {
+          try {
+            // check that column is a number int/float
+            if (Number(this.tableData[0][item]) === this.tableData[0][item]) {
+              outColumns.push(item);
+            }
+          } catch (err) {
+          //do nothing
+          }
+        })
+        return outColumns
       }
     }
   }

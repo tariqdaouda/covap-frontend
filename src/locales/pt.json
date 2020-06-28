@@ -70,6 +70,7 @@
       "popup1P1": "O índice CAMAP representa a probabilidade de um fragmento de proteína de se apresentar na superfície da célula. Fragmentos de proteínas com maior índice CAMAP podem potencialmente serem usados como determinantes de uma vacina.",
       "popup1P2": "Num compromisso para o compartilhamento de índices CAMAP o mais rápido possível, a interface de usuário no momento carrega no máximo 5000 exemplos. A distribuição pode mudar suavemente entre requisições e a tabela disponibiliza apenas a última requisição feita.",
       "popup1P3": "Nós ainda estamos trabalhando duro para adicionar novas features como um sistema avançado de query/tabela e um editor de visualização. Fiquem de olho nos e sigam-nos no Twitter para saber quando novas features estarão disponíveis.",
+      "graph_has_changed_popup": "A configuração do gráfico mudou, a continuação apagará as visualizações anteriores",
       "download": "Descarregar",
       "emailAsk": "Por favor, forneça o seu email"
     },

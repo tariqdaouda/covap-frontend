@@ -14,7 +14,7 @@
       "world_epitopes": "World Epitopes",
       "register": "Avisez-moi!",
       "main_title": "L'IA pour un vaccin contre COVID-19",
-      "release_info": "L'article et les données seront publiées le 5 / 5 / 2020, à 5:05 PM (EST)",
+      "release_info": "1er juin 2020, nouvelle version du papier sur CAMAP.",
       "release_done": "Efféctué.",
       "intro": "La COVID-19 est une pandémie amenant d'énormes conséquences humaines et économiques. Nous avons développé un algorithme d'IA qui peut aider à identifier les cibles utiles pour un vaccin contre COVID-19.",
       "why?": "Pourquoi est-ce pertinent?",
@@ -46,7 +46,8 @@
       "sponsors_intro": "",
       "acknowlegments_title": "Remerciements",
       "acknowlegments_intro": "Nous tenons à remercier les personnes suivantes pour leur importante contribution à la recherche sur CAMAP et / ou à la croissance d'Epitopes.world.",
-      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sur CAMAP sans quoi ce projet ne pourrait exister:"
+      "authors_intro": "Nous tenons à remercier tous les auteurs qui ont participé à la recherche sur CAMAP sans quoi ce projet ne pourrait exister:",
+      "translators": "Traducteurs"
     },
     "data":{
       "title": "Exploration des données",
@@ -61,7 +62,9 @@
       "popup1P1": "Le score CAMAP représente la probabilité qu'un fragment protéique soit présenté à la surface cellulaire. Les fragments protéiques possédant un score élevé représentent des candidats potentiels pour un vaccin. Sauf en cas de mention contraire, la mention de 'Score' réfère au score de prédiction produit par CAMAP",
       "popup1P2": "Dans le but de partager nos données aussi rapidement que possible, cette interface est limitée dans son état actuel à 5000 éléments, les distributions peuvent varier légèrement entre les requêtes et le tableau n'affiche que les données de la dernière recherche.",
       "popup1P3": "Nous travaillons activement à ajouter de nouvelles fonctionnalités avancées tel qu'un système de recherche, un tableau ainsi qu'un éditeur de visualisation. Suivez nous sur twitter pour être tenu informé",
-      "graph_has_changed_popup": "La configuration du graphique à changée, continuer effacera les visualisations précédentes"
+      "graph_has_changed_popup": "La configuration du graphique à changée, continuer effacera les visualisations précédentes",
+      "download": "Télécharger",
+      "emailAsk": "Veuillez entrer votre adresse électronique"
     },
     "openSource":{
       "titleDescription": "Open source",

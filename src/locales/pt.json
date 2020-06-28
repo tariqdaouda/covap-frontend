@@ -19,7 +19,7 @@
       "world_epitopes": "World Epitopes",
       "register": "Me notifique!",
       "main_title": "Uma IA para uma vacina contra oCOVID-19",
-      "release_info": "Artigo e Dados serão publicados no dia 5 / 5 / 2020, às 5:05 PM (EST)",
+      "release_info": "1º de junho de 2020, nova versão do artigo científico sobre a CAMAP.",
       "release_done": "Finalizado.",
       "intro": "O COVID-19 se tornou uma pandemia de consequências sociais e econômicas colossais. Nós desenvolvemos um algoritmo que pode ajudar a identificar alvos úteis de uma vacina contra o COVID-19",
       "why?": "Por que é relevante?",
@@ -43,7 +43,8 @@
       "panel3":"3- Ao analisar o sequenciamento genético do virus, nosso algoritmo de inteligência artificial (CAMAP) pode predizer quais fragmentos deste virus são mais passíveis de se apresentarem na superfície da célula.",
       "panel4":"4- Podemos selecionar uma combinação de fragmentos que tem uma alta chance de se apresentar na superfície, podemos customizar uma vacina que treinará nosso sistema imunológico eficientemente..",
       "panel5":"5- Se as células imunes se encontrarem com células infectadas, elas podem rapidamente reconhece-las e destruí-las",
-      "tariq_ivado_video": "Neste vídeo de 2019, Tariq Daouda fala com a {IVADO} sobre as principais ideias por trás do CAMAP ."
+      "tariq_ivado_video": "Neste vídeo de 2019, Tariq Daouda fala com a {IVADO} sobre as principais ideias por trás do CAMAP .",
+      "translators": "Tradutores"
     },
     "about":{
       "titleDescription": "Sobre",
@@ -69,7 +70,9 @@
       "popup1P1": "O índice CAMAP representa a probabilidade de um fragmento de proteína de se apresentar na superfície da célula. Fragmentos de proteínas com maior índice CAMAP podem potencialmente serem usados como determinantes de uma vacina.",
       "popup1P2": "Num compromisso para o compartilhamento de índices CAMAP o mais rápido possível, a interface de usuário no momento carrega no máximo 5000 exemplos. A distribuição pode mudar suavemente entre requisições e a tabela disponibiliza apenas a última requisição feita.",
       "popup1P3": "Nós ainda estamos trabalhando duro para adicionar novas features como um sistema avançado de query/tabela e um editor de visualização. Fiquem de olho nos e sigam-nos no Twitter para saber quando novas features estarão disponíveis.",
-      "graph_has_changed_popup": "A configuração do gráfico mudou, a continuação apagará as visualizações anteriores"
+      "graph_has_changed_popup": "A configuração do gráfico mudou, a continuação apagará as visualizações anteriores",
+      "download": "Descarregar",
+      "emailAsk": "Por favor, forneça o seu email"
     },
     "contact":{
       "titleDescription": "Contato"

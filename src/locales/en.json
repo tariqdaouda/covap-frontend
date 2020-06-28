@@ -3,7 +3,7 @@
       "title": "Epitopes World",
       "titleDescription": "AI for a COVID-19 Vaccine"
     },
-    "cookies": "To function properly this website needs to store data on your device. By continuing to use it you acknowlegde and accept that data is stored on your device.",
+    "cookies": "To function properly this website needs to store data on your device. By continuing to use it you acknowledge and accept that data is stored on your device.",
     "accept": "I accept",
     "loading": "Loading...",
     "menu": {
@@ -19,7 +19,7 @@
       "world_epitopes": "World Epitopes",
       "register": "Notify me!",
       "main_title": "COVID-19 vaccine targets prediction",
-      "release_info": "Paper and Data will be released on the 5 / 5 / 2020, at 5:05 PM (EST)",
+      "release_info": "1st June 2020, new paper version of the CAMAP paper.",
       "release_done": "Done.",
       "intro": "The COVID-19 is a pandemic of humongous human and economic consequences. We have developed an AI algorithm that can help identify useful targets for a vaccine against COVID-19.",
       "why?": "Why is it relevant?",
@@ -54,7 +54,8 @@
       "sponsors_intro": "",
       "acknowlegments_title": "Acknowledgments",
       "acknowlegments_intro": "We would like to thank the following people for their significant contributions to the CAMAP research and / or the growth of Epitopes.world",
-      "authors_intro": "We would like to thank all authors who participated to the CAMAP research without whom this project would not exist:"
+      "authors_intro": "We would like to thank all authors who participated to the CAMAP research without whom this project would not exist:",
+      "translators": "Translators"
     },
     "data":{
       "titleDescription": "Explore data",
@@ -70,7 +71,9 @@
       "popup1P1": "CAMAP score represents the likelihood of a protein fragment to be presented on the cell surface. Highest CAMAP score protein fragments could potentially be used as vaccine targets. Unless stated otherwise, 'Score' refers to CAMAP score.",
       "popup1P2": "In an effort to share CAMAP scores as fast as possible, the UI currently loads at most 5000 examples, distribution might change slighlty between queries and table only displays the last made query.",
       "popup1P3": "We are still working hard on adding new features like advanced query system/table and a visualization editor. Stay tuned and follow us on Twitter to know when new features will be available.",
-      "graph_has_changed_popup": "Your graph type/fields has changed, continuing will delete previous layer"
+      "graph_has_changed_popup": "Your graph type/fields has changed, continuing will delete previous layer",
+      "download": "download",
+      "emailAsk": "Please provide your email"
     },
     "contact":{
       "titleDescription": "Contact us"

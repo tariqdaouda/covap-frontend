@@ -53,6 +53,17 @@
                 </li>
             </ul>
         </div>
+        <div class="we-full-authors-list">
+            {{$t("about.translators")}}
+            <ul class="uk-list">
+                <li>
+                    Roger Palou (Espanol)
+                </li>
+                <li>
+                    Walter Sobral (Portugues)
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 

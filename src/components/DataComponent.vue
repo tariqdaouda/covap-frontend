@@ -1,5 +1,16 @@
 <template>
   <div>
+    <div id="modal-email-ask" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <div class="uk-text-center"> 
+            <h3>{{$t('data.emailAsk')}}</h3>
+              <input type="email" id="emailAddress" name="emailAddress" v-model="email">
+              <button @click="sendEmail()">OK</button>
+            </div>
+        </div>
+    </div>
+    
     <div class="we-explore-menu uk-text-center">
       <h3 class="we-page-subtitle">{{$t("data.title")}}</h3>
       <div v-if="isFormLoaded">
@@ -20,10 +31,10 @@
         <span uk-icon="icon: search; ratio: 1" v-if="!fetching"></span>
         <div uk-spinner v-if="fetching"></div>
       </button>
+
       <div class="uk-margin">
-        <button v-on:click="downloadCSV()" class="uk-button uk-button-primary">
-            Export
-        </button>
+        <a v-if="!validated" href="#modal-email-ask" class="uk-button uk-button-primary" uk-toggle>{{$t('data.download')}}</a>
+        <button v-if="validated" v-on:click="downloadCSV()" class="uk-button uk-button-primary">{{$t('data.download')}}</button>
       </div>
 
       <hr>
@@ -89,7 +100,8 @@
               </tr>
           </thead>
           <tbody>
-              <tr v-for="(entry, index) in tableData" :key="index">
+
+              <tr v-for="(entry, index) in tableData.slice(0, 5)" :key="index">
                   <td>{{entry["Peptides.Score"]}}</td>
                   <td>{{entry["Peptides.Sequence"]}}</td>
                   <td>{{entry["Peptides.Accession"]}}</td>
@@ -114,6 +126,7 @@
   import Multiselect from 'vue-multiselect'
   import MultiSelectInput from "./MultiSelectInput";
   import { API_URL } from '../configuration.js'
+  import UIkit from 'uikit';
 
   Vue.use(VueAxios, axios);
 
@@ -132,6 +145,8 @@
       return {
         fetching: false,
         addingLayer: false,
+        email: null,
+        validated: false,
         backendFields: {
           Peptides: {
             Score: {
@@ -144,7 +159,7 @@
             // },
             Name: {
               type: "enumeration",
-              cases: ["SARS-CoV-2", "SARS-CoV-1", "Human[Decoy]", "Human[Hits]"]
+              cases: ["SARS-CoV-2", "SARS-CoV-1", "Human[Decoy]", "Human[MAPs]"]
             },
             Length: {
               type: "enumeration",
@@ -306,6 +321,38 @@
             csvStr += "\n";
           })
         return csvStr;
+      },
+      // emailPrompt(){
+      //   const html = '<label for="email">Enter your email:</label> <input type="email" id="emailAddress" name="emailAddress"><button onclick="sendEmail()">submit</button>'
+      //   UIkit.modal.dialog(html).then(function() {
+      //       console.log('Confirmed.')
+      //   }, function () {
+      //       console.log('Rejected.')
+      //   });
+      // },
+
+      sendEmail(){
+        if (this.validated) {
+          this.downloadCSV()
+        }else{
+          this.$http.post(
+            API_URL + "/contacts",
+            {
+              "payload": {
+                "email": this.email
+              }
+            }
+          ).then(rval => {
+            console.log(rval.data.error)
+            if (!rval.data.error) {
+              console.log("Thank you.", rval)
+              // this.$store.commit('userEmail', this.email);
+              this.validated=true
+              UIkit.modal("#modal-email-ask").hide()
+              this.downloadCSV()
+            }
+          }).catch(error => console.log(error));
+        }
       },
       downloadCSV: function () {
         let hiddenElement = document.createElement('a');

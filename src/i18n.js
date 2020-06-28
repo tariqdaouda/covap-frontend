@@ -5,6 +5,7 @@ Vue.use(VueI18n)
 
 function loadLocaleMessages () {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
+  console.log(locales)
   const messages = {}
   locales.keys().forEach(key => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)
@@ -18,7 +19,8 @@ function loadLocaleMessages () {
 
 function getUserLanguage() {
   const language = (localStorage.language || navigator.language || '').slice(0, 2)
-  return language === 'fr' || language === 'en' ? language : 'en'
+  return language
+  // return language === 'fr' || language === 'en' ? language : 'en'
 }
 
 export default new VueI18n({
